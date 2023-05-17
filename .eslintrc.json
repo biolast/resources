@@ -1,0 +1,6 @@
+{
+	"extends": "@blobfysh/eslint-config/typescript",
+	"settings": {
+		"import/ignore": ["plugin-typescript"]
+	}
+}
