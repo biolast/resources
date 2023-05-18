@@ -1,5 +1,6 @@
 import image from '@rollup/plugin-image'
 import typescript from '@rollup/plugin-typescript'
+import copy from 'rollup-plugin-copy'
 
 
 /** @type {import('rollup').RollupOptions} */
@@ -10,5 +11,13 @@ export default {
 		format: 'esm',
 		sourcemap: 'inline'
 	},
-	plugins: [typescript(), image()]
+	plugins: [
+		typescript(),
+		image(),
+		copy({
+			targets: [
+				{ src: 'src/fonts', dest: 'dist/fonts' }
+			]
+		})
+	]
 }
