@@ -1,11 +1,20 @@
-import { Region } from '../../types/Regions.js'
+import { Region as OldRegion } from '../../types/Regions.js'
 import { items } from '../items/index.js'
 import { DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { armor } from '../items/armor.js'
 import { helmets } from '../items/helmets.js'
+import { Region } from '../../structures/Region.js'
 
 
-export const suburbs: Region<'Eastside Suburbs'> = {
+export const Suburbs = new Region({
+	name: 'Eastside Suburbs',
+	discordIcon: '<:suburbs:939647476674220112>',
+	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218209037238333/suburbs.png',
+	difficultyLevel: 1,
+	distance: 0
+})
+
+export const suburbs2: OldRegion<'Eastside Suburbs'> = {
 	name: 'Eastside Suburbs',
 	icon: '<:suburbs:939647476674220112>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218209037238333/suburbs.png',

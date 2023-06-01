@@ -1,5 +1,5 @@
 /** Possible first names to use when generating a random survivor name */
-export const firstNames = [
+export const FIRST_NAMES = [
 	'Abigail',
 	'Ada',
 	'Adrian',
@@ -115,7 +115,7 @@ export const firstNames = [
 ]
 
 /** Possible last names to use when generating a random survivor name */
-export const lastNames = [
+export const LAST_NAMES = [
 	'Abbott',
 	'Abrams',
 	'Acker',

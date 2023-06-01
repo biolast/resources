@@ -1,4 +1,4 @@
-import { Region } from '../../types/Regions.js'
+import { Region as OldRegion } from '../../types/Regions.js'
 import { items } from '../items/index.js'
 import { melee } from '../items/melee.js'
 import { armor } from '../items/armor.js'
@@ -6,9 +6,18 @@ import { helmets } from '../items/helmets.js'
 import { medical } from '../items/medical.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { ranged } from '../items/ranged.js'
+import { Region } from '../../structures/Region.js'
 
 
-export const prison: Region<'Pike Prison'> = {
+export const Prison = new Region({
+	name: 'Pike Prison',
+	discordIcon: '<:prison:944973999526510642>',
+	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208575848468/prison.png',
+	difficultyLevel: 5,
+	distance: 52
+})
+
+export const prison2: OldRegion<'Pike Prison'> = {
 	name: 'Pike Prison',
 	icon: '<:prison:944973999526510642>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208575848468/prison.png',

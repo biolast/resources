@@ -1,4 +1,4 @@
-import { Region } from '../../types/Regions.js'
+import { Region as OldRegion } from '../../types/Regions.js'
 import { items } from '../items/index.js'
 import { armor } from '../items/armor.js'
 import { food } from '../items/food.js'
@@ -6,9 +6,18 @@ import { helmets } from '../items/helmets.js'
 import { melee } from '../items/melee.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { ranged } from '../items/ranged.js'
+import { Region } from '../../structures/Region.js'
 
 
-export const farm: Region<'Mulberry Farm'> = {
+export const Farm = new Region({
+	name: 'Mulberry Farm',
+	discordIcon: '<:farm:944973999471992832>',
+	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218207606964274/farm.png',
+	difficultyLevel: 2,
+	distance: 5
+})
+
+export const farm2: OldRegion<'Mulberry Farm'> = {
 	name: 'Mulberry Farm',
 	icon: '<:farm:944973999471992832>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218207606964274/farm.png',

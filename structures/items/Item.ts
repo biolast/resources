@@ -1,3 +1,7 @@
+import unknownIcon from '../../src/images/unknown_icon.png'
+import { RegionName } from '../../src/index.js'
+
+
 export type ItemType = 'Ranged Weapon'
 	| 'Melee Weapon'
 	| 'Helmet'
@@ -30,20 +34,19 @@ export interface CraftingRecipe {
 export abstract class Item<T extends string = string> {
 	type: ItemType
 	name: T
+	description?: string
+	craftingRecipes?: CraftingRecipe[]
+
 	/** Other names that will be resolved to this item */
 	aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
 	discordIcon: string
 	/** How many slots does this item take up in inventories */
 	slotsUsed: number
-
-	description?: string
 	/** How many uses this item has (if applicable) */
 	durability?: number
-	craftingRecipes?: CraftingRecipe[]
-
 	/** The regions this item can be found in. if undefined, the item isn't found in a specific region (typically obtained by other means such as wood from chopping) */
-	regions?: string[] // TODO update with region type
+	regions?: RegionName[]
 
 	constructor (data: Item<T>) {
 		this.type = data.type
@@ -55,5 +58,15 @@ export abstract class Item<T extends string = string> {
 		this.slotsUsed = data.slotsUsed
 		this.craftingRecipes = data.craftingRecipes
 		this.regions = data.regions
+	}
+
+	/** get base64 representation of image */
+	async image (): Promise<string> {
+		try {
+			return (await import(`../../src/images/items/${this.name}.png`)).default
+		}
+		catch (err) {
+			return unknownIcon
+		}
 	}
 }

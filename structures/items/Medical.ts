@@ -1,4 +1,4 @@
-import { Debuff } from '../../src/debuffs.js'
+import { Debuff } from '../Debuff.js'
 import { Item } from './Item.js'
 
 

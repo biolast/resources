@@ -1,5 +1,6 @@
 import image from '@rollup/plugin-image'
 import typescript from '@rollup/plugin-typescript'
+import dynamicImportVariables from '@rollup/plugin-dynamic-import-vars'
 import copy from 'rollup-plugin-copy'
 
 
@@ -9,11 +10,13 @@ export default {
 	output: {
 		dir: 'dist',
 		format: 'esm',
-		sourcemap: 'inline'
+		sourcemap: 'inline',
+		exports: 'named'
 	},
 	plugins: [
 		typescript(),
 		image(),
+		dynamicImportVariables(),
 		copy({
 			targets: [
 				{ src: 'src/fonts', dest: 'dist/fonts' }

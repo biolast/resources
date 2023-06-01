@@ -1,4 +1,4 @@
-import { Region } from '../../types/Regions.js'
+import { Region as OldRegion } from '../../types/Regions.js'
 import { items } from '../items/index.js'
 import { melee } from '../items/melee.js'
 import { ammunition } from '../items/ammunition.js'
@@ -7,9 +7,18 @@ import { helmets } from '../items/helmets.js'
 import { medical } from '../items/medical.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { ranged } from '../items/ranged.js'
+import { Region } from '../../structures/Region.js'
 
 
-export const mall: Region<'Norwood Mall'> = {
+export const Mall = new Region({
+	name: 'Norwood Mall',
+	discordIcon: '<:mall:944973999509766164>',
+	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208265482310/mall.png',
+	difficultyLevel: 4,
+	distance: 31
+})
+
+export const mall2: OldRegion<'Norwood Mall'> = {
 	name: 'Norwood Mall',
 	icon: '<:mall:944973999509766164>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208265482310/mall.png',

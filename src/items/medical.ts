@@ -1,5 +1,5 @@
 import { Medical } from '../../types/Items.js'
-import { debuffs } from '../debuffs.js'
+import { Bitten, BrokenArm } from '../debuffs.js'
 
 
 const medicalObject = <T>(et: { [K in keyof T]: Medical & { name: K } }) => et
@@ -26,7 +26,7 @@ export const medical = medicalObject({
 		aliases: [],
 		healsFor: 20,
 		slotsUsed: 1,
-		curesDebuffs: [debuffs['Broken Arm']],
+		curesDebuffs: [BrokenArm],
 		speed: 15,
 		artist: '719365897458024558',
 		regions: ['Eastside Suburbs', 'Mulberry Farm', 'Redding Forest', 'Norwood Mall', 'Pike Prison']
@@ -53,7 +53,7 @@ export const medical = medicalObject({
 		aliases: ['antibiotics', 'anti'],
 		healsFor: 20,
 		slotsUsed: 1,
-		curesDebuffs: [debuffs.Bitten],
+		curesDebuffs: [Bitten],
 		speed: 20,
 		artist: '699166377705078794',
 		regions: ['Eastside Suburbs', 'Mulberry Farm', 'Redding Forest', 'Norwood Mall', 'Pike Prison']
@@ -67,7 +67,7 @@ export const medical = medicalObject({
 		healsFor: 35,
 		slotsUsed: 1,
 		durability: 20,
-		curesDebuffs: [debuffs.Bitten, debuffs['Broken Arm']],
+		curesDebuffs: [Bitten, BrokenArm],
 		speed: 1,
 		regions: ['Pike Prison']
 	}

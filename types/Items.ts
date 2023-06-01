@@ -1,5 +1,5 @@
-import { Debuff } from '../src/debuffs.js'
-import { RegionName } from '../src/regions/index.js'
+import { Debuff } from '../structures/Debuff.js'
+import { RegionName } from '../src/index.js'
 
 
 export type ItemType = 'Ranged Weapon'
