@@ -1,3 +1,5 @@
+export * from './names.js'
+
 /** the default storage space for player inventories */
 export const DEFAULT_BACKPACK_LIMIT = 15.0
 
@@ -133,5 +135,3 @@ export const TEXT_COMMAND_ALIASES: {
 		aliases: ['crafting']
 	}
 ]
-
-export * from './names.js'
