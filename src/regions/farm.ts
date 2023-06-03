@@ -1,12 +1,11 @@
-import { Region as OldRegion } from '../../types/Regions.js'
-import { items } from '../items/index.js'
-import { armor } from '../items/armor.js'
-import { food } from '../items/food.js'
-import { helmets } from '../items/helmets.js'
-import { melee } from '../items/melee.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
-import { ranged } from '../items/ranged.js'
 import { Region } from '../../structures/Region.js'
+import * as keys from '../items/keys.js'
+import * as armor from '../items/armor.js'
+import * as helmets from '../items/helmets.js'
+import * as melee from '../items/melee.js'
+import * as ranged from '../items/ranged.js'
+import * as foods from '../items/foods.js'
 
 
 export const Farm = new Region({
@@ -14,25 +13,15 @@ export const Farm = new Region({
 	discordIcon: '<:farm:944973999471992832>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218207606964274/farm.png',
 	difficultyLevel: 2,
-	distance: 5
-})
-
-export const farm2: OldRegion<'Mulberry Farm'> = {
-	name: 'Mulberry Farm',
-	icon: '<:farm:944973999471992832>',
-	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218207606964274/farm.png',
-	regionLevel: 2,
-	playerLevel: 2,
 	distance: 5,
-	areas: ['Cornfields', 'Barn', 'Cellar'],
 	scavengeLoot: {
 		pool: {
 			common: {
-				items: [melee.metal_bat, melee.scythe, melee.pitchfork, melee.knife, helmets.sauce_pan, food.corn],
+				items: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, helmets.SaucePan, foods.Corn],
 				categories: ['Medical']
 			},
 			rare: {
-				items: [melee.hammer, helmets.wooden_helmet, armor.heavy_jacket, melee.hatchet],
+				items: [melee.Hammer, helmets.WoodenHelmet, armor.HeavyJacket, melee.Hatchet],
 				categories: ['Backpack']
 			}
 		},
@@ -44,17 +33,17 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 			loot: {
 				pool: {
 					common: {
-						items: [melee.sledgehammer],
+						items: [melee.SledgeHammer],
 						categories: ['Ammunition']
 					},
 					uncommon: {
-						items: [armor.wooden_armor],
+						items: [armor.WoodenArmor],
 						categories: ['Ranged Weapon']
 					}
 				},
 				rolls: DEFAULT_SCAVENGE_ROLLS
 			},
-			requiresKey: items.gunsafe_code
+			requiresKey: keys.GunSafeCode
 		},
 		{
 			name: 'Daves Drug Room',
@@ -70,7 +59,7 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 					max: 2
 				}
 			},
-			requiresKey: items.daves_drug_key
+			requiresKey: keys.DavesDrugKey
 		}
 	],
 	mobs: {
@@ -82,14 +71,14 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 				name: 'Raider',
 				weaponPool: {
 					common: {
-						items: [ranged.pistol],
+						items: [ranged.Pistol],
 						categories: []
 					}
 				},
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.wooden_helmet],
+							items: [helmets.WoodenHelmet],
 							categories: []
 						}
 					},
@@ -98,11 +87,11 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.heavy_jacket],
+							items: [armor.HeavyJacket],
 							categories: []
 						},
 						uncommon: {
-							items: [armor.wooden_armor],
+							items: [armor.WoodenArmor],
 							categories: []
 						}
 					},
@@ -112,7 +101,7 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [melee.metal_bat, melee.scythe, melee.pitchfork, melee.knife, food.corn],
+								items: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn],
 								categories: []
 							},
 							uncommon: {
@@ -120,7 +109,7 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 								categories: ['Backpack', 'Supply', 'Medical']
 							},
 							rare: {
-								items: [melee.sledgehammer],
+								items: [melee.SledgeHammer],
 								categories: ['Key']
 							}
 						},
@@ -136,11 +125,11 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.sauce_pan],
+							items: [helmets.SaucePan],
 							categories: []
 						},
 						rare: {
-							items: [helmets.wooden_helmet],
+							items: [helmets.WoodenHelmet],
 							categories: []
 						}
 					},
@@ -149,11 +138,11 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.heavy_jacket],
+							items: [armor.HeavyJacket],
 							categories: []
 						},
 						rare: {
-							items: [armor.wooden_armor],
+							items: [armor.WoodenArmor],
 							categories: []
 						}
 					},
@@ -163,7 +152,7 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [melee.metal_bat, melee.scythe, melee.pitchfork, melee.knife, food.corn],
+								items: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn],
 								categories: ['Medical']
 							},
 							uncommon: {
@@ -184,7 +173,7 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [food.raw_meat],
+								items: [foods.RawMeat],
 								categories: []
 							}
 						},
@@ -201,4 +190,4 @@ export const farm2: OldRegion<'Mulberry Farm'> = {
 			'You hear a {mob} rustling in the cornfield.'
 		]
 	}
-}
+})

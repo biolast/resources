@@ -1,30 +1,27 @@
-import { Item } from './Item.js'
+import { Item, ItemProperties } from './Item.js'
 
 
 export class RangedWeapon<T extends string = string> extends Item<T> {
-	type: 'Ranged Weapon'
+	constructor (public data: ItemProperties<T> & {
+		readonly type: 'Ranged Weapon'
 
-	/**
-	 * The percent chance for this weapon to hit target (0% - 100%)
-	 */
-	accuracy: number
+		/**
+		 * The percent chance for this weapon to hit target (0% - 100%)
+		 */
+		readonly accuracy: number
 
-	/**
-	 * How many times this weapon can be used to attack
-	 */
-	durability: number
+		/**
+		 * How many times this weapon can be used to attack
+		 */
+		readonly durability: number
 
-	/**
-	 * How fast this weapon attacks in duels (player who uses item with higher speed goes first)
-	 */
-	speed: number
-
-	constructor (data: RangedWeapon<T>) {
+		/**
+		 * How fast this weapon attacks in duels (player who uses item with higher speed goes first)
+		 */
+		readonly speed: number
+	}) {
 		super(data)
 
-		this.type = data.type
-		this.accuracy = data.accuracy
-		this.durability = data.durability
-		this.speed = data.speed
+		this.data = data
 	}
 }

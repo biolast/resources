@@ -1,14 +1,12 @@
-import { Item } from './Item.js'
+import { Item, ItemProperties } from './Item.js'
 
 
 export class Supply<T extends string = string> extends Item<T> {
-	type: 'Supply'
-	durability?: undefined
-
-	constructor (data: Omit<Supply<T>, 'durability'>) {
+	constructor (public data: Omit<ItemProperties<T>, 'durability'> & {
+		readonly type: 'Supply'
+	}) {
 		super(data)
 
-		this.type = data.type
-		this.durability = undefined
+		this.data = data
 	}
 }

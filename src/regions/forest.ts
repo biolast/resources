@@ -1,12 +1,11 @@
-import { Region as OldRegion } from '../../types/Regions.js'
-import { items } from '../items/index.js'
-import { armor } from '../items/armor.js'
-import { food } from '../items/food.js'
-import { helmets } from '../items/helmets.js'
-import { melee } from '../items/melee.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
-import { ranged } from '../items/ranged.js'
 import { Region } from '../../structures/Region.js'
+import * as keys from '../items/keys.js'
+import * as armor from '../items/armor.js'
+import * as helmets from '../items/helmets.js'
+import * as melee from '../items/melee.js'
+import * as ranged from '../items/ranged.js'
+import * as foods from '../items/foods.js'
 
 
 export const Forest = new Region({
@@ -14,29 +13,19 @@ export const Forest = new Region({
 	discordIcon: '<:forest:944973999492984842>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218207950913546/forest.png',
 	difficultyLevel: 3,
-	distance: 11
-})
-
-export const forest2: OldRegion<'Redding Forest'> = {
-	name: 'Redding Forest',
-	icon: '<:forest:944973999492984842>',
-	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218207950913546/forest.png',
-	regionLevel: 3,
-	playerLevel: 4,
 	distance: 11,
-	areas: ['Clearing', 'Treehouse', 'Cave', 'Campsite'],
 	scavengeLoot: {
 		pool: {
 			common: {
-				items: [melee.knife, melee.pitchfork],
+				items: [melee.Knife, melee.Pitchfork],
 				categories: ['Medical']
 			},
 			uncommon: {
-				items: [melee.sledgehammer, melee.fire_axe],
+				items: [melee.SledgeHammer, melee.FireAxe],
 				categories: []
 			},
 			rare: {
-				items: [food.canned_meat],
+				items: [foods.CannedMeat],
 				categories: []
 			}
 		},
@@ -52,13 +41,13 @@ export const forest2: OldRegion<'Redding Forest'> = {
 						categories: ['Ammunition']
 					},
 					uncommon: {
-						items: [melee.chainsaw, armor.light_armor, helmets.cultist_mask],
+						items: [melee.Chainsaw, armor.LightArmor, helmets.CultistMask],
 						categories: ['Ranged Weapon']
 					}
 				},
 				rolls: DEFAULT_SCAVENGE_ROLLS
 			},
-			requiresKey: items.sacred_pendant
+			requiresKey: keys.CultistKey
 		}
 	],
 	mobs: {
@@ -70,22 +59,22 @@ export const forest2: OldRegion<'Redding Forest'> = {
 				name: 'Cultist',
 				weaponPool: {
 					common: {
-						items: [ranged.pistol],
+						items: [ranged.Pistol],
 						categories: []
 					},
 					rare: {
-						items: [ranged.submachine_gun, ranged['double-barrel_shotgun']],
+						items: [ranged.SubmachineGun, ranged.DoubleBarrelShotgun],
 						categories: []
 					}
 				},
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.wooden_helmet],
+							items: [helmets.WoodenHelmet],
 							categories: []
 						},
 						uncommon: {
-							items: [helmets.cultist_mask],
+							items: [helmets.CultistMask],
 							categories: []
 						}
 					},
@@ -94,11 +83,11 @@ export const forest2: OldRegion<'Redding Forest'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.wooden_armor],
+							items: [armor.WoodenArmor],
 							categories: []
 						},
 						uncommon: {
-							items: [armor.light_armor],
+							items: [armor.LightArmor],
 							categories: []
 						}
 					},
@@ -108,15 +97,15 @@ export const forest2: OldRegion<'Redding Forest'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [melee.knife],
+								items: [melee.Knife],
 								categories: ['Medical']
 							},
 							uncommon: {
-								items: [food.canned_meat],
+								items: [foods.CannedMeat],
 								categories: ['Backpack']
 							},
 							rare: {
-								items: [melee.fire_axe],
+								items: [melee.FireAxe],
 								categories: ['Key', 'Ranged Weapon']
 							}
 						},
@@ -132,11 +121,11 @@ export const forest2: OldRegion<'Redding Forest'> = {
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.wooden_helmet],
+							items: [helmets.WoodenHelmet],
 							categories: []
 						},
 						rare: {
-							items: [helmets.cultist_mask],
+							items: [helmets.CultistMask],
 							categories: []
 						}
 					},
@@ -145,11 +134,11 @@ export const forest2: OldRegion<'Redding Forest'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.wooden_armor],
+							items: [armor.WoodenArmor],
 							categories: []
 						},
 						rare: {
-							items: [armor.light_armor],
+							items: [armor.LightArmor],
 							categories: []
 						}
 					},
@@ -159,11 +148,11 @@ export const forest2: OldRegion<'Redding Forest'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [melee.knife],
+								items: [melee.Knife],
 								categories: ['Medical']
 							},
 							uncommon: {
-								items: [melee.fire_axe],
+								items: [melee.FireAxe],
 								categories: ['Ammunition', 'Backpack', 'Collectible']
 							},
 							rare: {
@@ -184,7 +173,7 @@ export const forest2: OldRegion<'Redding Forest'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [food.raw_meat],
+								items: [foods.RawMeat],
 								categories: []
 							}
 						},
@@ -204,7 +193,7 @@ export const forest2: OldRegion<'Redding Forest'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [food.raw_meat],
+								items: [foods.RawMeat],
 								categories: []
 							}
 						},
@@ -222,4 +211,4 @@ export const forest2: OldRegion<'Redding Forest'> = {
 			'After navigating through the trees for what felt like forever, you spot a {mob}.'
 		]
 	}
-}
+})

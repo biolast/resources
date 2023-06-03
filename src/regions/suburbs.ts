@@ -1,9 +1,8 @@
-import { Region as OldRegion } from '../../types/Regions.js'
-import { items } from '../items/index.js'
 import { DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
-import { armor } from '../items/armor.js'
-import { helmets } from '../items/helmets.js'
 import { Region } from '../../structures/Region.js'
+import * as keys from '../items/keys.js'
+import * as armor from '../items/armor.js'
+import * as helmets from '../items/helmets.js'
 
 
 export const Suburbs = new Region({
@@ -11,17 +10,7 @@ export const Suburbs = new Region({
 	discordIcon: '<:suburbs:939647476674220112>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218209037238333/suburbs.png',
 	difficultyLevel: 1,
-	distance: 0
-})
-
-export const suburbs2: OldRegion<'Eastside Suburbs'> = {
-	name: 'Eastside Suburbs',
-	icon: '<:suburbs:939647476674220112>',
-	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218209037238333/suburbs.png',
-	regionLevel: 1,
-	playerLevel: 1,
 	distance: 0,
-	areas: ['Backstreets', 'Red House', 'Apartments', 'Park'],
 	scavengeLoot: {
 		pool: {
 			common: {
@@ -54,7 +43,7 @@ export const suburbs2: OldRegion<'Eastside Suburbs'> = {
 					max: 3
 				}
 			},
-			requiresKey: items.shed_key
+			requiresKey: keys.ShedKey
 		}
 	],
 	mobs: {
@@ -67,7 +56,7 @@ export const suburbs2: OldRegion<'Eastside Suburbs'> = {
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.hard_hat, helmets.cycling_helmet],
+							items: [helmets.HardHat, helmets.CyclingHelmet],
 							categories: []
 						}
 					},
@@ -76,7 +65,7 @@ export const suburbs2: OldRegion<'Eastside Suburbs'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.heavy_jacket],
+							items: [armor.HeavyJacket],
 							categories: []
 						}
 					},
@@ -108,4 +97,4 @@ export const suburbs2: OldRegion<'Eastside Suburbs'> = {
 			'You see a {mob} wandering the quiet streets.'
 		]
 	}
-}
+})

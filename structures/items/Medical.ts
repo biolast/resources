@@ -1,34 +1,30 @@
 import { Debuff } from '../Debuff.js'
-import { Item } from './Item.js'
+import { Item, ItemProperties } from './Item.js'
 
 
 export class Medical<T extends string = string> extends Item<T> {
-	type: 'Medical'
+	constructor (public data: ItemProperties<T> & {
+		readonly type: 'Medical'
 
-	/**
-	 * How many times this item can be used to heal before it breaks
-	 */
-	durability?: number
+		/**
+		 * How many times this item can be used to heal before it breaks
+		 */
+		readonly durability?: number
 
-	/**
-	 * Amount this medical item will heal player for
-	 */
-	healsFor: number
+		/**
+		 * Amount this medical item will heal player for
+		 */
+		readonly healsFor: number
 
-	/**
-	 * How fast this weapon attacks in duels (player who uses item with higher speed goes first)
-	 */
-	speed: number
+		/**
+		 * How fast this weapon attacks in duels (player who uses item with higher speed goes first)
+		 */
+		readonly speed: number
 
-	curesDebuffs: Debuff[]
-
-	constructor (data: Medical<T>) {
+		readonly curesDebuffs: Debuff[]
+	}) {
 		super(data)
 
-		this.type = data.type
-		this.durability = data.durability
-		this.healsFor = data.healsFor
-		this.speed = data.speed
-		this.curesDebuffs = data.curesDebuffs
+		this.data = data
 	}
 }

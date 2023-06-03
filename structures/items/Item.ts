@@ -1,5 +1,4 @@
 import unknownIcon from '../../src/images/unknown_icon.png'
-import { RegionName } from '../../src/index.js'
 
 
 export type ItemType = 'Ranged Weapon'
@@ -31,42 +30,42 @@ export interface CraftingRecipe {
 	yield: number
 }
 
-export abstract class Item<T extends string = string> {
-	type: ItemType
-	name: T
-	description?: string
-	craftingRecipes?: CraftingRecipe[]
+export interface ItemProperties<T extends string = string> {
+	readonly type: ItemType
+	readonly name: T
+	readonly description?: string
+	readonly craftingRecipes?: CraftingRecipe[]
 
 	/** Other names that will be resolved to this item */
-	aliases: string[]
+	readonly aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
-	discordIcon: string
+	readonly discordIcon: string
 	/** How many slots does this item take up in inventories */
-	slotsUsed: number
+	readonly slotsUsed: number
 	/** How many uses this item has (if applicable) */
-	durability?: number
-	/** The regions this item can be found in. if undefined, the item isn't found in a specific region (typically obtained by other means such as wood from chopping) */
-	regions?: RegionName[]
+	readonly durability?: number
+}
 
-	constructor (data: Item<T>) {
-		this.type = data.type
+export class Item<T extends string = string> {
+	readonly name: T
+	private _image?: string
+
+	constructor (public data: ItemProperties<T>) {
+		this.data = data
 		this.name = data.name
-		this.aliases = data.aliases
-		this.discordIcon = data.discordIcon
-		this.description = data.description
-		this.durability = data.durability
-		this.slotsUsed = data.slotsUsed
-		this.craftingRecipes = data.craftingRecipes
-		this.regions = data.regions
 	}
 
 	/** get base64 representation of image */
 	async image (): Promise<string> {
+		if (this._image) return this._image
+
 		try {
-			return (await import(`../../src/images/items/${this.name}.png`)).default
+			this._image = (await import(`../../src/images/items/${this.name}.png`)).default as string
 		}
 		catch (err) {
-			return unknownIcon
+			this._image = unknownIcon
 		}
+
+		return this._image
 	}
 }

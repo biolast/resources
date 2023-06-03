@@ -1,37 +1,41 @@
-import { Item, ItemType } from './items/Item.js'
+import { BodyArmor } from './items/BodyArmor.js'
+import { Helmet } from './items/Helmet.js'
+import { Item } from './items/Item.js'
+import { MeleeWeapon } from './items/MeleeWeapon.js'
+import { RangedWeapon } from './items/RangedWeapon.js'
 
 
-export interface LootPool<T extends ItemType = ItemType> {
+export interface LootPool<T extends Item = Item> {
 	/**
 	 * Item types that can be rolled
 	 */
 	common?: {
-		categories: T[]
-		items: (Item & { type: T })[]
+		categories: T['data']['type'][]
+		items: T[]
 	}
 	/**
 	 * Item types that can be rolled
 	 * 25% chance to roll
 	 */
 	uncommon?: {
-		categories: T[]
-		items: (Item & { type: T })[]
+		categories: T['data']['type'][]
+		items: T[]
 	}
 	/**
 	 * Item types that can be rolled
 	 * 10% chance to roll
 	 */
 	rare?: {
-		categories: T[]
-		items: (Item & { type: T })[]
+		categories: T['data']['type'][]
+		items: T[]
 	}
 	/**
 	 * Item types that can be rolled
 	 * 5% chance to roll
 	 */
 	rarest?: {
-		categories: T[]
-		items: (Item & { type: T })[]
+		categories: T['data']['type'][]
+		items: T[]
 	}
 }
 
@@ -75,20 +79,20 @@ interface MobInfoBase {
 interface RaiderMobInfo extends MobInfoBase {
 	type: 'raider'
 	helmet?: {
-		pool: LootPool<'Helmet'>
+		pool: LootPool<Helmet>
 		/**
 		 * Chance the mob is wearing a helmet (1 - 100%)
 		 */
 		chance: number
 	}
 	armor?: {
-		pool: LootPool<'Body Armor'>
+		pool: LootPool<BodyArmor>
 		/**
 		 * Chance the mob is wearing armor (1 - 100%)
 		 */
 		chance: number
 	}
-	weaponPool: LootPool<'Melee Weapon' | 'Ranged Weapon'>
+	weaponPool: LootPool<MeleeWeapon | RangedWeapon>
 }
 
 interface OptionalAttackMobAttributes {
@@ -108,14 +112,14 @@ interface OptionalAttackMobAttributes {
 interface ZombieMobInfo extends MobInfoBase, OptionalAttackMobAttributes {
 	type: 'walker'
 	helmet?: {
-		pool: LootPool<'Helmet'>
+		pool: LootPool<Helmet>
 		/**
 		 * Chance the mob is wearing a helmet (1 - 100%)
 		 */
 		chance: number
 	}
 	armor?: {
-		pool: LootPool<'Body Armor'>
+		pool: LootPool<BodyArmor>
 		/**
 		 * Chance the mob is wearing armor (1 - 100%)
 		 */
@@ -132,65 +136,55 @@ interface AggressiveAnimalMobInfo extends MobInfoBase, OptionalAttackMobAttribut
 export type MobInfo = RaiderMobInfo | ZombieMobInfo | PassiveAnimalMobInfo | AggressiveAnimalMobInfo
 
 export class Region<T extends string = string> {
-	name: T
-	imageURL: string
+	readonly name: T
 
-	/**
-	 * higher number = stronger mobs, easiest being 1
-	 */
-	difficultyLevel: number
+	constructor (public data: {
+		readonly name: T
+		readonly imageURL: string
 
-	/**
-	 * The distance of this region relative to other regions (suburbs as 0km away)
-	 */
-	distance: number
-
-	/**
-	 * Icon to display in select menu on travel command for this region
-	 */
-	discordIcon: string
-
-	/**
-	 * Info about mobs that can spawn in this region
-	 */
-	mobs?: { // TODO
-		spawnTypes: (MobInfo & {
-			/**
-			 * Determines the rate this mob type spawns compared to other mob types (ie. higher number = more likely to spawn)
-			 */
-			spawnWeight: number
-		})[]
 		/**
-		 * Quotes when hunting for mobs
+		 * higher number = stronger mobs, easiest being 1
 		 */
-		huntQuotes: string[]
-	}
+		readonly difficultyLevel: number
 
-	/**
-	 * The boss player must defeat before they can travel to this region
-	 */
-	boss?: {
-		quote: string
-		info: MobInfo & { boss: true }
-	}
+		/**
+		 * The distance of this region relative to other regions (suburbs as 0km away)
+		 */
+		readonly distance: number
 
-	/**
-	 * Loot received when scavenging this region
-	 */
-	scavengeLoot?: { // TODO
-		pool: LootPool
-		rolls: {
-			min: number
-			max: number
+		/**
+		 * Icon to display in select menu on travel command for this region
+		 */
+		readonly discordIcon: string
+
+		/**
+		 * Info about mobs that can spawn in this region
+		 */
+		readonly mobs: {
+			spawnTypes: (MobInfo & {
+				/**
+				 * Determines the rate this mob type spawns compared to other mob types (ie. higher number = more likely to spawn)
+				 */
+				spawnWeight: number
+			})[]
+			/**
+			 * Quotes when hunting for mobs
+			 */
+			huntQuotes: string[]
 		}
-	}
 
-	/**
-	 * Areas that require a key to scavenge, drop loot from a separate loot pool
-	 */
-	keyAreas?: { // TODO
-		name: string
-		loot: {
+		/**
+		 * The boss player must defeat before they can travel to this region
+		 */
+		readonly boss?: {
+			quote: string
+			info: MobInfo & { boss: true }
+		}
+
+		/**
+		 * Loot received when scavenging this region
+		 */
+		readonly scavengeLoot: {
 			pool: LootPool
 			rolls: {
 				min: number
@@ -199,20 +193,25 @@ export class Region<T extends string = string> {
 		}
 
 		/**
-		 * Key/item user must have in order to scavenge this area.
+		 * Areas that require a key to scavenge, drop loot from a separate loot pool
 		 */
-		requiresKey: Item
-	}[]
+		readonly keyAreas: {
+			name: string
+			loot: {
+				pool: LootPool
+				rolls: {
+					min: number
+					max: number
+				}
+			}
 
-	constructor (data: Region<T>) {
+			/**
+			 * Key/item user must have in order to scavenge this area.
+			 */
+			requiresKey: Item
+		}[]
+	}) {
 		this.name = data.name
-		this.difficultyLevel = data.difficultyLevel
-		this.distance = data.distance
-		this.discordIcon = data.discordIcon
-		this.imageURL = data.imageURL
-		this.mobs = data.mobs
-		this.boss = data.boss
-		this.scavengeLoot = data.scavengeLoot
-		this.keyAreas = data.keyAreas
+		this.data = data
 	}
 }

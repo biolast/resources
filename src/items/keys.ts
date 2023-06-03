@@ -1,76 +1,66 @@
-import { Key } from '../../types/Items.js'
+import { Key } from '../../structures/items/Key.js'
 
 
-const keysObject = <T>(et: { [K in keyof T]: Key & { name: K } }) => et
+export const ShedKey = new Key({
+	type: 'Key',
+	name: 'shed_key',
+	aliases: [],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 2
+})
 
-export const keys = keysObject({
-	shed_key: {
-		type: 'Key',
-		name: 'shed_key',
-		aliases: [],
-		icon: '<:basic_key:938894742022934600>',
-		slotsUsed: 2,
-		artist: '719365897458024558',
-		regions: ['Eastside Suburbs']
-	},
-	gunsafe_code: {
-		type: 'Key',
-		name: 'gunsafe_code',
-		aliases: ['gunsafe'],
-		icon: '<:basic_key:938894742022934600>',
-		slotsUsed: 1,
-		regions: ['Mulberry Farm']
-	},
-	daves_drug_key: {
-		type: 'Key',
-		name: 'daves_drug_key',
-		aliases: ['drug_key', 'daves_key', 'dave'],
-		icon: '<:basic_key:938894742022934600>',
-		slotsUsed: 1,
-		artist: '719365897458024558',
-		regions: ['Mulberry Farm']
-	},
-	dereks_shop_key: {
-		type: 'Key',
-		name: 'dereks_shop_key',
-		aliases: ['dereks_key', 'derek'],
-		icon: '<:basic_key:938894742022934600>',
-		slotsUsed: 2,
-		artist: '719365897458024558',
-		regions: ['Norwood Mall']
-	},
-	florreds_pharmacy_key: {
-		type: 'Key',
-		name: 'florreds_pharmacy_key',
-		aliases: ['florreds_key', 'pharmacy_key', 'florred'],
-		icon: '<:basic_key:938894742022934600>',
-		slotsUsed: 2,
-		artist: '719365897458024558',
-		regions: ['Norwood Mall']
-	},
-	cell_key: {
-		type: 'Key',
-		name: 'cell_key',
-		aliases: ['cellkey'],
-		icon: '<:cell_key:938879124058046485>',
-		slotsUsed: 1,
-		regions: ['Pike Prison']
-	},
-	armory_key: {
-		type: 'Key',
-		name: 'armory_key',
-		aliases: ['armory'],
-		icon: '<:basic_key:938894742022934600>',
-		slotsUsed: 1,
-		regions: ['Pike Prison']
-	},
-	sacred_pendant: {
-		type: 'Key',
-		name: 'sacred_pendant',
-		aliases: ['sacred', 'pendant'],
-		icon: '<:sacred_pendant:950183471786102824>',
-		slotsUsed: 1,
-		artist: '719365897458024558',
-		regions: ['Redding Forest']
-	}
+export const GunSafeCode = new Key({
+	type: 'Key',
+	name: 'gun_safe_code',
+	aliases: ['gunsafe'],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 1
+})
+
+export const DavesDrugKey = new Key({
+	type: 'Key',
+	name: 'daves_drug_key',
+	aliases: ['drug_key', 'daves_key', 'dave'],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 1
+})
+
+export const DereksShopKey = new Key({
+	type: 'Key',
+	name: 'dereks_shop_key',
+	aliases: ['dereks_key', 'derek'],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 2
+})
+
+export const FlorredsPharmacyKey = new Key({
+	type: 'Key',
+	name: 'florreds_pharmacy_key',
+	aliases: ['florreds_key', 'pharmacy_key', 'florred'],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 2
+})
+
+export const CellKey = new Key({
+	type: 'Key',
+	name: 'cell_key',
+	aliases: ['cellkey'],
+	discordIcon: '<:cell_key:938879124058046485>',
+	slotsUsed: 1
+})
+
+export const ArmoryKey = new Key({
+	type: 'Key',
+	name: 'armory_key',
+	aliases: ['armory'],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 1
+})
+
+export const CultistKey = new Key({
+	type: 'Key',
+	name: 'cultist_key',
+	aliases: ['cult_key'],
+	discordIcon: '<:basic_key:938894742022934600>',
+	slotsUsed: 1
 })

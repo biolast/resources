@@ -22,7 +22,7 @@ export const LIMB_DAMAGE_MULTIPLIERS = {
 	chest: 1.0,
 	arms: 0.5,
 	legs: 0.5
-}
+} as const
 
 export const DEFAULT_EMBED_COLOR = 9253685
 export const SUCCESS_EMBED_COLOR = 9043800
@@ -33,18 +33,18 @@ export const FAILED_EMBED_COLOR = 16734296
 export const DEFAULT_SCAVENGE_ROLLS = {
 	min: 2,
 	max: 3
-}
+} as const
 
 /** how many items will a raider mob have in their inventory, increasing beyond 4 max overflows the battle image inventory */
 export const DEFAULT_RAIDER_MOB_ROLLS = {
 	min: 3,
 	max: 4
-}
+} as const
 /** how many items will a zombie mob have in their inventory, increasing beyond 5 max overflows the battle image inventory */
 export const DEFAULT_ZOMBIE_MOB_ROLLS = {
 	min: 3,
 	max: 5
-}
+} as const
 
 
 /** how many shelves does a new base start with */

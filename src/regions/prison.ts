@@ -1,12 +1,11 @@
-import { Region as OldRegion } from '../../types/Regions.js'
-import { items } from '../items/index.js'
-import { melee } from '../items/melee.js'
-import { armor } from '../items/armor.js'
-import { helmets } from '../items/helmets.js'
-import { medical } from '../items/medical.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
-import { ranged } from '../items/ranged.js'
 import { Region } from '../../structures/Region.js'
+import * as keys from '../items/keys.js'
+import * as armor from '../items/armor.js'
+import * as helmets from '../items/helmets.js'
+import * as melee from '../items/melee.js'
+import * as ranged from '../items/ranged.js'
+import * as medicals from '../items/medicals.js'
 
 
 export const Prison = new Region({
@@ -14,29 +13,19 @@ export const Prison = new Region({
 	discordIcon: '<:prison:944973999526510642>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208575848468/prison.png',
 	difficultyLevel: 5,
-	distance: 52
-})
-
-export const prison2: OldRegion<'Pike Prison'> = {
-	name: 'Pike Prison',
-	icon: '<:prison:944973999526510642>',
-	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208575848468/prison.png',
-	regionLevel: 5,
-	playerLevel: 7,
 	distance: 52,
-	areas: ['Visiting Room', 'Cafeteria', 'Infirmary', 'Courtyard'],
 	scavengeLoot: {
 		pool: {
 			common: {
-				items: [medical.splint, medical['anti-biotics'], medical.medkit],
+				items: [medicals.Splint, medicals.AntiBiotics, medicals.Medkit],
 				categories: ['Food']
 			},
 			rare: {
-				items: [armor.swat_armor, helmets.swat_helmet, melee.fork],
+				items: [armor.SwatArmor, helmets.SwatHelmet, melee.Fork],
 				categories: []
 			},
 			rarest: {
-				items: [medical.trauma_kit],
+				items: [medicals.TraumaKit],
 				categories: []
 			}
 		},
@@ -52,7 +41,7 @@ export const prison2: OldRegion<'Pike Prison'> = {
 						categories: ['Ammunition', 'Food']
 					},
 					uncommon: {
-						items: [medical.trauma_kit],
+						items: [medicals.TraumaKit],
 						categories: []
 					},
 					rarest: {
@@ -62,7 +51,7 @@ export const prison2: OldRegion<'Pike Prison'> = {
 				},
 				rolls: DEFAULT_SCAVENGE_ROLLS
 			},
-			requiresKey: items.cell_key
+			requiresKey: keys.CellKey
 		},
 		{
 			name: 'Armory',
@@ -73,13 +62,13 @@ export const prison2: OldRegion<'Pike Prison'> = {
 						categories: ['Ranged Weapon', 'Ammunition']
 					},
 					uncommon: {
-						items: [armor.military_armor, helmets.military_helmet],
+						items: [armor.MilitaryArmor, helmets.MilitaryHelmet],
 						categories: []
 					}
 				},
 				rolls: DEFAULT_SCAVENGE_ROLLS
 			},
-			requiresKey: items.armory_key
+			requiresKey: keys.ArmoryKey
 		}
 	],
 	mobs: {
@@ -91,26 +80,26 @@ export const prison2: OldRegion<'Pike Prison'> = {
 				name: 'Guardian',
 				weaponPool: {
 					common: {
-						items: [ranged.hunting_rifle, ranged.pump_shotgun],
+						items: [ranged.HuntingRifle, ranged.PumpShotgun],
 						categories: []
 					},
 					uncommon: {
-						items: [ranged.assault_rifle],
+						items: [ranged.AssaultRifle],
 						categories: []
 					},
 					rarest: {
-						items: [ranged.auto_shotgun],
+						items: [ranged.AutoShotgun],
 						categories: []
 					}
 				},
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.swat_helmet],
+							items: [helmets.SwatHelmet],
 							categories: []
 						},
 						uncommon: {
-							items: [helmets.military_helmet],
+							items: [helmets.MilitaryHelmet],
 							categories: []
 						}
 					},
@@ -119,11 +108,11 @@ export const prison2: OldRegion<'Pike Prison'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.swat_armor],
+							items: [armor.SwatArmor],
 							categories: []
 						},
 						uncommon: {
-							items: [armor.military_armor],
+							items: [armor.MilitaryArmor],
 							categories: []
 						}
 					},
@@ -133,7 +122,7 @@ export const prison2: OldRegion<'Pike Prison'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [melee.shank, melee.police_baton, medical.splint, medical['anti-biotics'], medical.medkit, medical.bandage],
+								items: [melee.Shank, melee.PoliceBaton, medicals.Splint, medicals.AntiBiotics, medicals.Medkit, medicals.Bandage],
 								categories: ['Food', 'Ammunition']
 							},
 							uncommon: {
@@ -157,11 +146,11 @@ export const prison2: OldRegion<'Pike Prison'> = {
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.swat_helmet],
+							items: [helmets.SwatHelmet],
 							categories: []
 						},
 						rare: {
-							items: [helmets.military_helmet],
+							items: [helmets.MilitaryHelmet],
 							categories: []
 						}
 					},
@@ -170,11 +159,11 @@ export const prison2: OldRegion<'Pike Prison'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.swat_armor],
+							items: [armor.SwatArmor],
 							categories: []
 						},
 						rare: {
-							items: [armor.military_armor],
+							items: [armor.MilitaryArmor],
 							categories: []
 						}
 					},
@@ -184,7 +173,7 @@ export const prison2: OldRegion<'Pike Prison'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [medical.splint, medical['anti-biotics'], medical.medkit],
+								items: [medicals.Splint, medicals.AntiBiotics, medicals.Medkit],
 								categories: ['Food', 'Ammunition']
 							},
 							uncommon: {
@@ -207,4 +196,4 @@ export const prison2: OldRegion<'Pike Prison'> = {
 			'You see a group of {mob}\'s hanging out in the visiting room. You wait for one of them to be alone before striking.'
 		]
 	}
-}
+})

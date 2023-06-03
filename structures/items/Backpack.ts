@@ -1,20 +1,17 @@
-import { Item } from './Item.js'
+import { Item, ItemProperties } from './Item.js'
 
 
 export class Backpack<T extends string = string> extends Item<T> {
-	type: 'Backpack'
-	durability?: undefined
+	constructor (public data: Omit<ItemProperties<T>, 'durability'> & {
+		readonly type: 'Backpack'
 
-	/**
-	 * How many slots will this backpack add to the users inventory? Higher = player can hold more items
-	 */
-	slots: number
-
-	constructor (data: Omit<Backpack<T>, 'durability'>) {
+		/**
+		 * How many slots will this backpack add to the users inventory? Higher = player can hold more items
+		 */
+		readonly slots: number
+	}) {
 		super(data)
 
-		this.type = data.type
-		this.durability = undefined
-		this.slots = data.slots
+		this.data = data
 	}
 }

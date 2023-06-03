@@ -1,4 +1,4 @@
-import { Item } from './Item.js'
+import { Item, ItemProperties } from './Item.js'
 
 /**
  * Status effects that can be applied to a user (such as the effects from using stimulants or debuffs like Burning)
@@ -19,25 +19,21 @@ export interface StatusEffects {
 }
 
 export class Stimulant<T extends string = string> extends Item<T> {
-	type: 'Stimulant'
-	durability?: undefined
+	constructor (public data: Omit<ItemProperties<T>, 'durability'> & {
+		readonly type: 'Stimulant'
 
-	/**
-	 * The effects this item gives when used
-	 */
-	effects: StatusEffects
+		/**
+		 * The effects this item gives when used
+		 */
+		readonly effects: StatusEffects
 
-	/**
-	 * How fast this weapon attacks in duels (player who uses item with higher speed goes first)
-	 */
-	speed: number
-
-	constructor (data: Omit<Stimulant<T>, 'durability'>) {
+		/**
+		 * How fast this weapon attacks in duels (player who uses item with higher speed goes first)
+		 */
+		readonly speed: number
+	}) {
 		super(data)
 
-		this.type = data.type
-		this.durability = undefined
-		this.effects = data.effects
-		this.speed = data.speed
+		this.data = data
 	}
 }

@@ -1,13 +1,12 @@
-import { Region as OldRegion } from '../../types/Regions.js'
-import { items } from '../items/index.js'
-import { melee } from '../items/melee.js'
-import { ammunition } from '../items/ammunition.js'
-import { armor } from '../items/armor.js'
-import { helmets } from '../items/helmets.js'
-import { medical } from '../items/medical.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
-import { ranged } from '../items/ranged.js'
 import { Region } from '../../structures/Region.js'
+import * as keys from '../items/keys.js'
+import * as armor from '../items/armor.js'
+import * as helmets from '../items/helmets.js'
+import * as melee from '../items/melee.js'
+import * as ranged from '../items/ranged.js'
+import * as ammunition from '../items/ammunition.js'
+import * as medicals from '../items/medicals.js'
 
 
 export const Mall = new Region({
@@ -15,29 +14,19 @@ export const Mall = new Region({
 	discordIcon: '<:mall:944973999509766164>',
 	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208265482310/mall.png',
 	difficultyLevel: 4,
-	distance: 31
-})
-
-export const mall2: OldRegion<'Norwood Mall'> = {
-	name: 'Norwood Mall',
-	icon: '<:mall:944973999509766164>',
-	imageURL: 'https://cdn.discordapp.com/attachments/886559272660533251/999218208265482310/mall.png',
-	regionLevel: 4,
-	playerLevel: 5,
 	distance: 31,
-	areas: ['Antique Store', 'Food Court', 'Staff Break Room'],
 	scavengeLoot: {
 		pool: {
 			common: {
-				items: [melee.katana],
+				items: [melee.Katana],
 				categories: ['Food', 'Medical']
 			},
 			rare: {
-				items: [ammunition['20-gauge_buckshot'], armor.light_armor, helmets.riot_helmet, helmets.psycho_mask],
+				items: [ammunition.Shotgun20GaugeBuckshot, armor.LightArmor, helmets.RiotHelmet, helmets.PsychoMask],
 				categories: []
 			},
 			rarest: {
-				items: [ammunition.rifle_bullet],
+				items: [ammunition.RifleBullet],
 				categories: ['Backpack', 'Ranged Weapon']
 			}
 		},
@@ -57,20 +46,20 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 						categories: ['Ranged Weapon', 'Throwable Weapon']
 					},
 					rare: {
-						items: [armor.swat_armor, helmets.swat_helmet],
+						items: [armor.SwatArmor, helmets.SwatHelmet],
 						categories: []
 					}
 				},
 				rolls: DEFAULT_SCAVENGE_ROLLS
 			},
-			requiresKey: items.dereks_shop_key
+			requiresKey: keys.DereksShopKey
 		},
 		{
 			name: 'Florreds Pharmacy',
 			loot: {
 				pool: {
 					common: {
-						items: [medical['anti-biotics']],
+						items: [medicals.AntiBiotics],
 						categories: ['Stimulant']
 					}
 				},
@@ -79,7 +68,7 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 					max: 2
 				}
 			},
-			requiresKey: items.florreds_pharmacy_key
+			requiresKey: keys.FlorredsPharmacyKey
 		}
 	],
 	mobs: {
@@ -91,22 +80,22 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 				name: 'Raider',
 				weaponPool: {
 					common: {
-						items: [ranged['double-barrel_shotgun']],
+						items: [ranged.DoubleBarrelShotgun],
 						categories: []
 					},
 					rare: {
-						items: [ranged.hunting_rifle, ranged.pump_shotgun],
+						items: [ranged.HuntingRifle, ranged.PumpShotgun],
 						categories: []
 					}
 				},
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.riot_helmet],
+							items: [helmets.RiotHelmet],
 							categories: []
 						},
 						uncommon: {
-							items: [helmets.psycho_mask, helmets.swat_helmet],
+							items: [helmets.PsychoMask, helmets.SwatHelmet],
 							categories: []
 						}
 					},
@@ -115,11 +104,11 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.light_armor],
+							items: [armor.LightArmor],
 							categories: []
 						},
 						uncommon: {
-							items: [armor.swat_armor],
+							items: [armor.SwatArmor],
 							categories: []
 						}
 					},
@@ -129,11 +118,11 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 					generated: {
 						pool: {
 							common: {
-								items: [melee.katana],
+								items: [melee.Katana],
 								categories: ['Food', 'Medical']
 							},
 							uncommon: {
-								items: [melee.fire_axe],
+								items: [melee.FireAxe],
 								categories: ['Stimulant']
 							},
 							rare: {
@@ -153,15 +142,15 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 				helmet: {
 					pool: {
 						common: {
-							items: [helmets.psycho_mask],
+							items: [helmets.PsychoMask],
 							categories: []
 						},
 						rare: {
-							items: [helmets.riot_helmet],
+							items: [helmets.RiotHelmet],
 							categories: []
 						},
 						rarest: {
-							items: [helmets.swat_helmet],
+							items: [helmets.SwatHelmet],
 							categories: []
 						}
 					},
@@ -170,11 +159,11 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 				armor: {
 					pool: {
 						common: {
-							items: [armor.light_armor],
+							items: [armor.LightArmor],
 							categories: []
 						},
 						rare: {
-							items: [armor.swat_armor],
+							items: [armor.SwatArmor],
 							categories: []
 						}
 					},
@@ -206,4 +195,4 @@ export const mall2: OldRegion<'Norwood Mall'> = {
 			'You were spotted by a {mob} inside the antique store.'
 		]
 	}
-}
+})

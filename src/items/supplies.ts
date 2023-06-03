@@ -1,62 +1,66 @@
-import { Supply } from '../../types/Items.js'
-import { melee } from './melee.js'
+import { Supply } from '../../structures/items/Supply.js'
+import { Chainsaw, FireAxe } from './melee.js'
 
 
-const supplyObject = <T>(et: { [K in keyof T]: Supply & { name: K } }) => et
+export const WoodLog = new Supply({
+	type: 'Supply',
+	name: 'wood_log',
+	aliases: ['wood'],
+	discordIcon: '<:wood_log:1005187227535560815>',
+	slotsUsed: 0.5
+})
 
-export const supplies = supplyObject({
-	wood_log: {
-		type: 'Supply',
-		name: 'wood_log',
-		aliases: ['wood'],
-		icon: '<:wood_log:1005187227535560815>',
-		slotsUsed: 0.5,
-		regions: undefined
-	},
-	wood_twig: {
-		type: 'Supply',
-		name: 'wood_twig',
-		aliases: ['twig'],
-		icon: '<:wood_twig:1007113351006003210>',
-		slotsUsed: 0.2,
-		regions: undefined
-	},
-	get wood_plank (): Supply & { name: 'wood_plank' } {
-		return {
-			type: 'Supply',
-			name: 'wood_plank',
-			aliases: ['plank'],
-			icon: '<:wood_plank:1009832931805630504>',
-			slotsUsed: 0.3,
-			regions: undefined,
-			craftingRecipes: [
+export const WoodTwig = new Supply({
+	type: 'Supply',
+	name: 'wood_twig',
+	aliases: ['twig'],
+	discordIcon: '<:wood_twig:1007113351006003210>',
+	slotsUsed: 0.2
+})
+
+export const Nails = new Supply({
+	type: 'Supply',
+	name: 'nails',
+	aliases: ['nail'],
+	discordIcon: '<:nails:1006847745388191835>',
+	slotsUsed: 0.1
+})
+
+export const Lighter = new Supply({
+	type: 'Supply',
+	name: 'lighter',
+	aliases: [],
+	discordIcon: '<:lighter:1006890846622335006>',
+	slotsUsed: 0.1
+})
+
+export const TechTrash = new Supply({
+	type: 'Supply',
+	name: 'tech_trash',
+	aliases: ['tech', 'trash'],
+	description: 'Various bits and gadgets salvaged from computers.',
+	discordIcon: '<:tech_trash:933851376981790820>',
+	slotsUsed: 2
+})
+
+
+// craftable supplies
+export const WoodPlank = new Supply({
+	type: 'Supply',
+	name: 'wood_plank',
+	aliases: ['plank'],
+	discordIcon: '<:wood_plank:1009832931805630504>',
+	slotsUsed: 0.3,
+	craftingRecipes: [
+		{
+			possibleTools: [FireAxe, Chainsaw],
+			supplies: [
 				{
-					possibleTools: [melee.fire_axe, melee.chainsaw],
-					supplies: [
-						{
-							item: this.wood_log,
-							amount: 1
-						}
-					],
-					yield: 1
+					item: WoodLog,
+					amount: 1
 				}
-			]
+			],
+			yield: 1
 		}
-	},
-	nails: {
-		type: 'Supply',
-		name: 'nails',
-		aliases: ['nail'],
-		icon: '<:nails:1006847745388191835>',
-		slotsUsed: 0.1,
-		regions: ['Eastside Suburbs', 'Mulberry Farm']
-	},
-	lighter: {
-		type: 'Supply',
-		name: 'lighter',
-		aliases: [],
-		icon: '<:lighter:1006890846622335006>',
-		slotsUsed: 0.1,
-		regions: ['Eastside Suburbs', 'Mulberry Farm']
-	}
+	]
 })
