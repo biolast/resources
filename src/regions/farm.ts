@@ -6,6 +6,12 @@ import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
 import * as ranged from '../items/ranged.js'
 import * as foods from '../items/foods.js'
+import * as backpacks from '../items/backpacks.js'
+import * as medicals from '../items/medicals.js'
+import * as supplies from '../items/supplies.js'
+import * as ammunition from '../items/ammunition.js'
+import * as stimulants from '../items/stimulants.js'
+import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
 
 export const Farm = new Region({
@@ -16,178 +22,107 @@ export const Farm = new Region({
 	distance: 5,
 	scavengeLoot: {
 		pool: {
-			common: {
-				items: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, helmets.SaucePan, foods.Corn],
-				categories: ['Medical']
-			},
-			rare: {
-				items: [melee.Hammer, helmets.WoodenHelmet, armor.HeavyJacket, melee.Hatchet],
-				categories: ['Backpack']
-			}
+			common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, helmets.SaucePan, foods.Corn, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+			rare: [melee.Hammer, helmets.WoodenHelmet, armor.HeavyJacket, melee.Hatchet, medicals.Medkit]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
 		{
-			name: 'Bedroom',
-			loot: {
-				pool: {
-					common: {
-						items: [melee.SledgeHammer],
-						categories: ['Ammunition']
-					},
-					uncommon: {
-						items: [armor.WoodenArmor],
-						categories: ['Ranged Weapon']
-					}
-				},
-				rolls: DEFAULT_SCAVENGE_ROLLS
+			key: keys.GunSafeCode,
+			pool: {
+				common: [melee.SledgeHammer, ammunition.PistolBullet],
+				uncommon: [armor.WoodenArmor, ranged.Pistol]
 			},
-			requiresKey: keys.GunSafeCode
+			rolls: DEFAULT_SCAVENGE_ROLLS
 		},
 		{
-			name: 'Daves Drug Room',
-			loot: {
-				pool: {
-					common: {
-						items: [],
-						categories: ['Stimulant']
-					}
-				},
-				rolls: {
-					min: 2,
-					max: 2
-				}
+			key: keys.DavesDrugKey,
+			pool: {
+				common: [stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine],
+				uncommon: [stimulants.DavesMixture]
 			},
-			requiresKey: keys.DavesDrugKey
+			rolls: {
+				min: 2,
+				max: 2
+			}
 		}
 	],
-	mobs: {
-		spawnTypes: [
-			{
+	mobs: [
+		{
+			weight: 50,
+			mob: new GenericMob({
 				type: 'raider',
-				boss: false,
-				spawnWeight: 50,
-				name: 'Raider',
+				names: ['Raider'],
 				weaponPool: {
-					common: {
-						items: [ranged.Pistol],
-						categories: []
-					}
+					common: [ranged.Pistol]
 				},
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.WoodenHelmet],
-							categories: []
-						}
+						common: [helmets.WoodenHelmet]
 					},
 					chance: 25
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.HeavyJacket],
-							categories: []
-						},
-						uncommon: {
-							items: [armor.WoodenArmor],
-							categories: []
-						}
+						common: [armor.HeavyJacket],
+						uncommon: [armor.WoodenArmor]
 					},
 					chance: 100
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn],
-								categories: []
-							},
-							uncommon: {
-								items: [],
-								categories: ['Backpack', 'Supply', 'Medical']
-							},
-							rare: {
-								items: [melee.SledgeHammer],
-								categories: ['Key']
-							}
-						},
-						rolls: DEFAULT_RAIDER_MOB_ROLLS
-					}
+					pool: {
+						common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn],
+						uncommon: [medicals.Bandage, medicals.Splint, medicals.AntiBiotics, backpacks.ClothBackpack, supplies.Nails, supplies.Lighter],
+						rare: [melee.SledgeHammer, keys.GunSafeCode, keys.DavesDrugKey]
+					},
+					rolls: DEFAULT_RAIDER_MOB_ROLLS
 				}
-			},
-			{
+			})
+		},
+		{
+			weight: 50,
+			mob: new GenericMob({
 				type: 'walker',
-				boss: false,
-				spawnWeight: 50,
-				name: ['Bloated Walker', 'Walker', 'Crawler'],
+				names: ['Bloated Walker', 'Walker', 'Crawler'],
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.SaucePan],
-							categories: []
-						},
-						rare: {
-							items: [helmets.WoodenHelmet],
-							categories: []
-						}
+						common: [helmets.SaucePan],
+						rare: [helmets.WoodenHelmet]
 					},
 					chance: 50
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.HeavyJacket],
-							categories: []
-						},
-						rare: {
-							items: [armor.WoodenArmor],
-							categories: []
-						}
+						common: [armor.HeavyJacket],
+						rare: [armor.WoodenArmor]
 					},
 					chance: 50
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn],
-								categories: ['Medical']
-							},
-							uncommon: {
-								items: [],
-								categories: ['Ammunition', 'Backpack', 'Collectible', 'Supply']
-							}
-						},
-						rolls: DEFAULT_ZOMBIE_MOB_ROLLS
-					}
+					pool: {
+						common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						uncommon: [ammunition.PistolBullet, backpacks.ClothBackpack, supplies.Nails, supplies.Lighter]
+					},
+					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}
-			},
-			{
+			})
+		},
+		{
+			weight: 15,
+			mob: new GenericMob({
 				type: 'passive animal',
-				boss: false,
-				spawnWeight: 15,
-				name: 'Deer',
+				names: ['Deer'],
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [foods.RawMeat],
-								categories: []
-							}
-						},
-						rolls: {
-							min: 2,
-							max: 3
-						}
+					pool: {
+						common: [foods.RawMeat]
+					},
+					rolls: {
+						min: 3,
+						max: 3
 					}
 				}
-			}
-		],
-		huntQuotes: [
-			'You spot a {mob} inside an old barn.',
-			'You hear a {mob} rustling in the cornfield.'
-		]
-	}
+			})
+		}
+	]
 })

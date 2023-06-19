@@ -5,8 +5,12 @@ import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
 import * as ranged from '../items/ranged.js'
-import * as ammunition from '../items/ammunition.js'
+import * as foods from '../items/foods.js'
+import * as backpacks from '../items/backpacks.js'
 import * as medicals from '../items/medicals.js'
+import * as ammunition from '../items/ammunition.js'
+import * as stimulants from '../items/stimulants.js'
+import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
 
 export const Mall = new Region({
@@ -17,182 +21,96 @@ export const Mall = new Region({
 	distance: 31,
 	scavengeLoot: {
 		pool: {
-			common: {
-				items: [melee.Katana],
-				categories: ['Food', 'Medical']
-			},
-			rare: {
-				items: [ammunition.Shotgun20GaugeBuckshot, armor.LightArmor, helmets.RiotHelmet, helmets.PsychoMask],
-				categories: []
-			},
-			rarest: {
-				items: [ammunition.RifleBullet],
-				categories: ['Backpack', 'Ranged Weapon']
-			}
+			common: [melee.Katana, foods.CannedMeat, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+			rare: [ammunition.Shotgun20GaugeBuckshot, armor.LightArmor, helmets.RiotHelmet, helmets.PsychoMask, medicals.Medkit],
+			rarest: [ammunition.RifleBullet, backpacks.ClothBackpack, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
 		{
-			name: 'Dereks Hunting Shop',
-			loot: {
-				pool: {
-					common: {
-						items: [],
-						categories: ['Ammunition']
-					},
-					uncommon: {
-						items: [],
-						categories: ['Ranged Weapon', 'Throwable Weapon']
-					},
-					rare: {
-						items: [armor.SwatArmor, helmets.SwatHelmet],
-						categories: []
-					}
-				},
-				rolls: DEFAULT_SCAVENGE_ROLLS
+			key: keys.DereksShopKey,
+			pool: {
+				common: [ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot],
+				uncommon: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun],
+				rare: [armor.SwatArmor, helmets.SwatHelmet]
 			},
-			requiresKey: keys.DereksShopKey
+			rolls: DEFAULT_SCAVENGE_ROLLS
 		},
 		{
-			name: 'Florreds Pharmacy',
-			loot: {
-				pool: {
-					common: {
-						items: [medicals.AntiBiotics],
-						categories: ['Stimulant']
-					}
-				},
-				rolls: {
-					min: 2,
-					max: 2
-				}
+			key: keys.FlorredsPharmacyKey,
+			pool: {
+				common: [medicals.AntiBiotics, stimulants.Adrenaline, stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine]
 			},
-			requiresKey: keys.FlorredsPharmacyKey
+			rolls: {
+				min: 2,
+				max: 2
+			}
 		}
 	],
-	mobs: {
-		spawnTypes: [
-			{
+	mobs: [
+		{
+			weight: 70,
+			mob: new GenericMob({
 				type: 'raider',
-				boss: false,
-				spawnWeight: 70,
-				name: 'Raider',
+				names: ['Raider'],
 				weaponPool: {
-					common: {
-						items: [ranged.DoubleBarrelShotgun],
-						categories: []
-					},
-					rare: {
-						items: [ranged.HuntingRifle, ranged.PumpShotgun],
-						categories: []
-					}
+					common: [ranged.DoubleBarrelShotgun],
+					rare: [ranged.HuntingRifle, ranged.PumpShotgun]
 				},
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.RiotHelmet],
-							categories: []
-						},
-						uncommon: {
-							items: [helmets.PsychoMask, helmets.SwatHelmet],
-							categories: []
-						}
+						common: [helmets.RiotHelmet],
+						uncommon: [helmets.PsychoMask, helmets.SwatHelmet]
 					},
 					chance: 100
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.LightArmor],
-							categories: []
-						},
-						uncommon: {
-							items: [armor.SwatArmor],
-							categories: []
-						}
+						common: [armor.LightArmor],
+						uncommon: [armor.SwatArmor]
 					},
 					chance: 100
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [melee.Katana],
-								categories: ['Food', 'Medical']
-							},
-							uncommon: {
-								items: [melee.FireAxe],
-								categories: ['Stimulant']
-							},
-							rare: {
-								items: [],
-								categories: ['Ranged Weapon', 'Throwable Weapon']
-							}
-						},
-						rolls: DEFAULT_RAIDER_MOB_ROLLS
-					}
+					pool: {
+						common: [melee.Katana, foods.CannedMeat, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						uncommon: [melee.FireAxe, medicals.Medkit, stimulants.Adrenaline, stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine],
+						rare: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
+					},
+					rolls: DEFAULT_RAIDER_MOB_ROLLS
 				}
-			},
-			{
+			})
+		},
+		{
+			weight: 30,
+			mob: new GenericMob({
 				type: 'walker',
-				boss: false,
-				spawnWeight: 30,
-				name: ['Bloated Walker', 'Walker', 'Crawler'],
+				names: ['Bloated Walker', 'Walker', 'Crawler'],
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.PsychoMask],
-							categories: []
-						},
-						rare: {
-							items: [helmets.RiotHelmet],
-							categories: []
-						},
-						rarest: {
-							items: [helmets.SwatHelmet],
-							categories: []
-						}
+						common: [helmets.PsychoMask],
+						rare: [helmets.RiotHelmet],
+						rarest: [helmets.SwatHelmet]
 					},
 					chance: 30
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.LightArmor],
-							categories: []
-						},
-						rare: {
-							items: [armor.SwatArmor],
-							categories: []
-						}
+						common: [armor.LightArmor],
+						rare: [armor.SwatArmor]
 					},
 					chance: 100
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [],
-								categories: ['Melee Weapon', 'Food', 'Ammunition']
-							},
-							uncommon: {
-								items: [],
-								categories: ['Backpack', 'Collectible', 'Medical']
-							},
-							rare: {
-								items: [],
-								categories: ['Key', 'Ranged Weapon', 'Stimulant']
-							}
-						},
-						rolls: DEFAULT_ZOMBIE_MOB_ROLLS
-					}
+					pool: {
+						common: [foods.CannedMeat, ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot, melee.Fork, melee.FireAxe, melee.Katana],
+						uncommon: [medicals.Bandage, medicals.Splint, medicals.AntiBiotics, backpacks.ClothBackpack],
+						rare: [medicals.Medkit, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, stimulants.Adrenaline, stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine, keys.DereksShopKey, keys.FlorredsPharmacyKey]
+					},
+					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}
-			}
-		],
-		huntQuotes: [
-			'You find a {mob} hanging around the food court.',
-			'You were spotted by a {mob} inside the antique store.'
-		]
-	}
+			})
+		}
+	]
 })

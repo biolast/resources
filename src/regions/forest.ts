@@ -6,6 +6,10 @@ import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
 import * as ranged from '../items/ranged.js'
 import * as foods from '../items/foods.js'
+import * as backpacks from '../items/backpacks.js'
+import * as medicals from '../items/medicals.js'
+import * as ammunition from '../items/ammunition.js'
+import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
 
 export const Forest = new Region({
@@ -16,199 +20,116 @@ export const Forest = new Region({
 	distance: 11,
 	scavengeLoot: {
 		pool: {
-			common: {
-				items: [melee.Knife, melee.Pitchfork],
-				categories: ['Medical']
-			},
-			uncommon: {
-				items: [melee.SledgeHammer, melee.FireAxe],
-				categories: []
-			},
-			rare: {
-				items: [foods.CannedMeat],
-				categories: []
-			}
+			common: [melee.Knife, melee.Pitchfork, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+			uncommon: [melee.SledgeHammer, melee.FireAxe, medicals.Medkit],
+			rare: [foods.CannedMeat]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
 		{
-			name: 'Abandoned Cabin',
-			loot: {
-				pool: {
-					common: {
-						items: [],
-						categories: ['Ammunition']
-					},
-					uncommon: {
-						items: [melee.Chainsaw, armor.LightArmor, helmets.CultistMask],
-						categories: ['Ranged Weapon']
-					}
-				},
-				rolls: DEFAULT_SCAVENGE_ROLLS
+			key: keys.CultistKey,
+			pool: {
+				common: [ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot],
+				uncommon: [melee.Chainsaw, armor.LightArmor, helmets.CultistMask, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 			},
-			requiresKey: keys.CultistKey
+			rolls: DEFAULT_SCAVENGE_ROLLS
 		}
 	],
-	mobs: {
-		spawnTypes: [
-			{
+	mobs: [
+		{
+			weight: 60,
+			mob: new GenericMob({
 				type: 'raider',
-				boss: false,
-				spawnWeight: 60,
-				name: 'Cultist',
+				names: ['Cultist'],
 				weaponPool: {
-					common: {
-						items: [ranged.Pistol],
-						categories: []
-					},
-					rare: {
-						items: [ranged.SubmachineGun, ranged.DoubleBarrelShotgun],
-						categories: []
-					}
+					common: [ranged.Pistol],
+					rare: [ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 				},
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.WoodenHelmet],
-							categories: []
-						},
-						uncommon: {
-							items: [helmets.CultistMask],
-							categories: []
-						}
+						common: [helmets.WoodenHelmet],
+						uncommon: [helmets.CultistMask]
 					},
 					chance: 50
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.WoodenArmor],
-							categories: []
-						},
-						uncommon: {
-							items: [armor.LightArmor],
-							categories: []
-						}
+						common: [armor.WoodenArmor],
+						uncommon: [armor.LightArmor]
 					},
 					chance: 100
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [melee.Knife],
-								categories: ['Medical']
-							},
-							uncommon: {
-								items: [foods.CannedMeat],
-								categories: ['Backpack']
-							},
-							rare: {
-								items: [melee.FireAxe],
-								categories: ['Key', 'Ranged Weapon']
-							}
-						},
-						rolls: DEFAULT_RAIDER_MOB_ROLLS
-					}
+					pool: {
+						common: [melee.Knife, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						uncommon: [foods.CannedMeat, backpacks.ClothBackpack],
+						rare: [melee.FireAxe, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, keys.CultistKey]
+					},
+					rolls: DEFAULT_RAIDER_MOB_ROLLS
 				}
-			},
-			{
+			})
+		},
+		{
+			weight: 40,
+			mob: new GenericMob({
 				type: 'walker',
-				boss: false,
-				spawnWeight: 40,
-				name: ['Bloated Walker', 'Walker', 'Crawler'],
+				names: ['Bloated Walker', 'Walker', 'Crawler'],
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.WoodenHelmet],
-							categories: []
-						},
-						rare: {
-							items: [helmets.CultistMask],
-							categories: []
-						}
+						common: [helmets.WoodenHelmet],
+						rare: [helmets.CultistMask]
 					},
 					chance: 30
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.WoodenArmor],
-							categories: []
-						},
-						rare: {
-							items: [armor.LightArmor],
-							categories: []
-						}
+						common: [armor.WoodenArmor],
+						rare: [armor.LightArmor]
 					},
 					chance: 60
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [melee.Knife],
-								categories: ['Medical']
-							},
-							uncommon: {
-								items: [melee.FireAxe],
-								categories: ['Ammunition', 'Backpack', 'Collectible']
-							},
-							rare: {
-								items: [],
-								categories: ['Ranged Weapon']
-							}
-						},
-						rolls: DEFAULT_ZOMBIE_MOB_ROLLS
-					}
+					pool: {
+						common: [melee.Knife, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						uncommon: [melee.FireAxe, medicals.Medkit, ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot, backpacks.ClothBackpack],
+						rare: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
+					},
+					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}
-			},
-			{
+			})
+		},
+		{
+			weight: 15,
+			mob: new GenericMob({
 				type: 'passive animal',
-				boss: false,
-				spawnWeight: 15,
-				name: 'Deer',
+				names: ['Deer'],
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [foods.RawMeat],
-								categories: []
-							}
-						},
-						rolls: {
-							min: 2,
-							max: 3
-						}
+					pool: {
+						common: [foods.RawMeat]
+					},
+					rolls: {
+						min: 3,
+						max: 3
 					}
 				}
-			},
-			{
+			})
+		},
+		{
+			weight: 10,
+			mob: new GenericMob({
 				type: 'aggressive animal',
-				boss: false,
-				spawnWeight: 10,
-				name: 'Bear',
+				names: ['Bear'],
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [foods.RawMeat],
-								categories: []
-							}
-						},
-						rolls: {
-							min: 4,
-							max: 4
-						}
+					pool: {
+						common: [foods.RawMeat]
+					},
+					rolls: {
+						min: 5,
+						max: 5
 					}
 				}
-			}
-		],
-		huntQuotes: [
-			'While traversing the woods, you step on a branch and alert a nearby {mob}.',
-			'You stumble upon some kind of cursed altar and see a {mob} beside it.',
-			'After navigating through the trees for what felt like forever, you spot a {mob}.'
-		]
-	}
+			})
+		}
+	]
 })

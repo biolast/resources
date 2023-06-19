@@ -3,6 +3,12 @@ import { Region } from '../../structures/Region.js'
 import * as keys from '../items/keys.js'
 import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
+import * as melee from '../items/melee.js'
+import * as backpacks from '../items/backpacks.js'
+import * as medicals from '../items/medicals.js'
+import * as foods from '../items/foods.js'
+import * as supplies from '../items/supplies.js'
+import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
 
 export const Suburbs = new Region({
@@ -13,88 +19,51 @@ export const Suburbs = new Region({
 	distance: 0,
 	scavengeLoot: {
 		pool: {
-			common: {
-				items: [],
-				categories: ['Food', 'Melee Weapon']
-			},
-			uncommon: {
-				items: [],
-				categories: ['Medical']
-			},
-			rare: {
-				items: [],
-				categories: ['Supply']
-			}
+			common: [foods.Apple, melee.Fork, melee.WoodenBat],
+			uncommon: [melee.MetalBat, melee.Hammer, medicals.Bandage],
+			rare: [medicals.Splint, medicals.AntiBiotics, supplies.Nails, supplies.Lighter]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
 		{
-			name: 'Backyard Shed',
-			loot: {
-				pool: {
-					common: {
-						items: [],
-						categories: ['Body Armor', 'Helmet']
-					}
-				},
-				rolls: {
-					min: 3,
-					max: 3
-				}
+			key: keys.ShedKey,
+			pool: {
+				common: [helmets.HardHat, helmets.CyclingHelmet, armor.HeavyJacket]
 			},
-			requiresKey: keys.ShedKey
+			rolls: {
+				min: 3,
+				max: 3
+			}
 		}
 	],
-	mobs: {
-		spawnTypes: [
-			{
+	mobs: [
+		{
+			weight: 100,
+			mob: new GenericMob({
 				type: 'walker',
-				boss: false,
-				spawnWeight: 100,
-				name: ['Walker', 'Crawler'],
+				names: ['Walker', 'Crawler'],
 				helmet: {
 					pool: {
-						common: {
-							items: [helmets.HardHat, helmets.CyclingHelmet],
-							categories: []
-						}
+						common: [helmets.HardHat, helmets.CyclingHelmet]
 					},
 					chance: 40
 				},
 				armor: {
 					pool: {
-						common: {
-							items: [armor.HeavyJacket],
-							categories: []
-						}
+						common: [armor.HeavyJacket]
 					},
 					chance: 25
 				},
 				loot: {
-					generated: {
-						pool: {
-							common: {
-								items: [],
-								categories: ['Medical', 'Melee Weapon']
-							},
-							uncommon: {
-								items: [],
-								categories: ['Backpack', 'Supply']
-							},
-							rare: {
-								items: [],
-								categories: ['Key', 'Collectible']
-							}
-						},
-						rolls: DEFAULT_ZOMBIE_MOB_ROLLS
-					}
+					pool: {
+						common: [melee.Fork, melee.WoodenBat, medicals.Bandage],
+						uncommon: [melee.MetalBat, melee.Hammer, medicals.Splint, medicals.AntiBiotics, supplies.Nails, supplies.Lighter],
+						rare: [keys.ShedKey, backpacks.SmallPouch]
+					},
+					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}
-			}
-		],
-		huntQuotes: [
-			'While exploring an abandoned house you stumble upon a {mob}.',
-			'You see a {mob} wandering the quiet streets.'
-		]
-	}
+			})
+		}
+	]
 })

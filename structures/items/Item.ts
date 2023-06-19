@@ -16,17 +16,13 @@ export type ItemType = 'Ranged Weapon'
 	| 'Supply'
 
 export interface CraftingRecipe {
-	/**
-	 * Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed.
-	 */
+	/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
 	possibleTools: Item[]
 	supplies: {
 		item: Item
 		amount: number
 	}[]
-	/**
-	 * How much of the item this recipe creates
-	 */
+	/** How much of the item this recipe creates */
 	yield: number
 }
 
