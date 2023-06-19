@@ -1,4 +1,4 @@
-import { LootPool } from '../../src/utils.js'
+import { LootPool } from '../../utils.js'
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'

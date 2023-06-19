@@ -13,7 +13,7 @@
 		"lint": "eslint . --ext .ts,.js,.json"
 	},
 	"exports": {
-		"types": "./dist/src/index.d.ts",
+		"types": "./dist/index.d.ts",
 		"import": "./dist/index.js"
 	},
 	"files": ["dist"],

@@ -19,7 +19,7 @@ export default {
 		dynamicImportVariables(),
 		copy({
 			targets: [
-				{ src: 'src/fonts', dest: 'dist/fonts' }
+				{ src: 'src/resources/fonts', dest: 'dist/resources/fonts' }
 			]
 		})
 	]

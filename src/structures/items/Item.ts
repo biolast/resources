@@ -1,4 +1,4 @@
-import unknownIcon from '../../src/images/unknown_icon.png'
+import unknownIcon from '../../resources/images/unknown_icon.png'
 
 
 export type ItemType = 'Ranged Weapon'

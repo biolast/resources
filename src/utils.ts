@@ -1,4 +1,4 @@
-import { Item } from '../structures/items/Item.js'
+import { Item } from './structures/items/Item.js'
 
 
 export interface LootPool<T extends Item = Item> {
