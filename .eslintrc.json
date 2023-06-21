@@ -2,5 +2,13 @@
 	"extends": "@blobfysh/eslint-config/typescript",
 	"settings": {
 		"import/ignore": ["plugin-typescript"]
-	}
+	},
+	"overrides": [
+		{
+			"files": ["package.json"],
+			"rules": {
+				"jsonc/array-bracket-newline": "off"
+			}
+		}
+	]
 }
