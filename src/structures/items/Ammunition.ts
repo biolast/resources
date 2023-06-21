@@ -1,5 +1,4 @@
 import { Item, ItemProperties } from './Item.js'
-import { RangedWeapon } from './RangedWeapon.js'
 
 
 export class Ammunition<T extends string = string> extends Item<T> {
@@ -15,9 +14,6 @@ export class Ammunition<T extends string = string> extends Item<T> {
 		 * Otherwise, the damage of this bullet will be reduced based on the difference between this number and the victims armor level.
 		 */
 		readonly penetration: number
-
-		/** Weapons this ammo works for */
-		readonly ammoFor: RangedWeapon[]
 
 		/** How many limbs should the damage be spread out to */
 		readonly spreadsDamageToLimbs?: 2 | 3 | 4

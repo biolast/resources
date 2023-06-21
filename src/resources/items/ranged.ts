@@ -1,4 +1,5 @@
 import { RangedWeapon } from '../../structures/items/RangedWeapon.js'
+import * as ammunition from './ammunition.js'
 
 
 export const Pistol = new RangedWeapon({
@@ -9,7 +10,8 @@ export const Pistol = new RangedWeapon({
 	durability: 12,
 	slotsUsed: 2,
 	accuracy: 45,
-	speed: 20
+	speed: 20,
+	ammo: [ammunition.PistolBullet]
 })
 
 export const SubmachineGun = new RangedWeapon({
@@ -20,7 +22,8 @@ export const SubmachineGun = new RangedWeapon({
 	durability: 20,
 	slotsUsed: 3,
 	accuracy: 85,
-	speed: 28
+	speed: 28,
+	ammo: [ammunition.PistolBullet]
 })
 
 export const DoubleBarrelShotgun = new RangedWeapon({
@@ -31,7 +34,8 @@ export const DoubleBarrelShotgun = new RangedWeapon({
 	durability: 8,
 	slotsUsed: 3,
 	accuracy: 68,
-	speed: 14
+	speed: 14,
+	ammo: [ammunition.Shotgun20GaugeBuckshot, ammunition.Shotgun20GaugeSlug]
 })
 
 export const HuntingRifle = new RangedWeapon({
@@ -42,7 +46,8 @@ export const HuntingRifle = new RangedWeapon({
 	durability: 15,
 	slotsUsed: 4,
 	accuracy: 95,
-	speed: 3
+	speed: 3,
+	ammo: [ammunition.RifleBullet]
 })
 
 export const PumpShotgun = new RangedWeapon({
@@ -53,7 +58,8 @@ export const PumpShotgun = new RangedWeapon({
 	durability: 14,
 	slotsUsed: 4,
 	accuracy: 30,
-	speed: 10
+	speed: 10,
+	ammo: [ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug]
 })
 
 export const AssaultRifle = new RangedWeapon({
@@ -64,7 +70,8 @@ export const AssaultRifle = new RangedWeapon({
 	durability: 26,
 	slotsUsed: 4,
 	accuracy: 63,
-	speed: 29
+	speed: 29,
+	ammo: [ammunition.RifleBullet]
 })
 
 export const AutoShotgun = new RangedWeapon({
@@ -75,7 +82,8 @@ export const AutoShotgun = new RangedWeapon({
 	durability: 20,
 	slotsUsed: 4,
 	accuracy: 91,
-	speed: 13
+	speed: 13,
+	ammo: [ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug]
 })
 
 export const HeavySniper = new RangedWeapon({
@@ -86,5 +94,6 @@ export const HeavySniper = new RangedWeapon({
 	durability: 30,
 	slotsUsed: 5,
 	accuracy: 98,
-	speed: 2
+	speed: 2,
+	ammo: [ammunition.SniperBullet]
 })

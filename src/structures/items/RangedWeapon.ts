@@ -1,9 +1,13 @@
+import { Ammunition } from './Ammunition.js'
 import { Item, ItemProperties } from './Item.js'
 
 
 export class RangedWeapon<T extends string = string> extends Item<T> {
 	constructor (public data: ItemProperties<T> & {
 		readonly type: 'Ranged Weapon'
+
+		/** Ammo this weapon can fire */
+		readonly ammo: Ammunition[]
 
 		/** The percent chance for this weapon to hit target (0% - 100%) */
 		readonly accuracy: number

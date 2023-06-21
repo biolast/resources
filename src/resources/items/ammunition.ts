@@ -1,5 +1,4 @@
 import { Ammunition } from '../../structures/items/Ammunition.js'
-import * as ranged from './ranged.js'
 
 
 export const PistolBullet = new Ammunition({
@@ -9,7 +8,6 @@ export const PistolBullet = new Ammunition({
 	aliases: ['9x19', '9mm', 'bullet', 'pistol_ammo'],
 	damage: 30,
 	penetration: 1.7,
-	ammoFor: [ranged.Pistol, ranged.SubmachineGun],
 	slotsUsed: 1
 })
 
@@ -21,7 +19,6 @@ export const Shotgun20GaugeBuckshot = new Ammunition({
 	description: 'Fires many small pellets at a target.',
 	damage: 46,
 	penetration: 2.6,
-	ammoFor: [ranged.DoubleBarrelShotgun],
 	slotsUsed: 1,
 	spreadsDamageToLimbs: 2
 })
@@ -34,7 +31,6 @@ export const Shotgun20GaugeSlug = new Ammunition({
 	description: 'Fires a single, large projectile.',
 	damage: 37,
 	penetration: 3.0,
-	ammoFor: [ranged.DoubleBarrelShotgun],
 	slotsUsed: 1
 })
 
@@ -45,7 +41,6 @@ export const RifleBullet = new Ammunition({
 	aliases: ['rifle_ammo'],
 	damage: 45,
 	penetration: 3.8,
-	ammoFor: [ranged.AssaultRifle, ranged.HuntingRifle],
 	slotsUsed: 1
 })
 
@@ -56,7 +51,6 @@ export const Shotgun12GaugeBuckshot = new Ammunition({
 	aliases: ['12_guage', '12g_buckshot', '12g_shell', '12g_shotgun', '12g', '12g_buck'],
 	damage: 50,
 	penetration: 3.5,
-	ammoFor: [ranged.PumpShotgun, ranged.AutoShotgun],
 	slotsUsed: 1,
 	spreadsDamageToLimbs: 2
 })
@@ -69,7 +63,6 @@ export const Shotgun12GaugeSlug = new Ammunition({
 	description: 'A 12-gauge slug shell that fires a single, large projectile.',
 	damage: 48,
 	penetration: 3.8,
-	ammoFor: [ranged.PumpShotgun, ranged.AutoShotgun],
 	slotsUsed: 1
 })
 
@@ -80,6 +73,5 @@ export const SniperBullet = new Ammunition({
 	aliases: ['sniper_ammo'],
 	damage: 75,
 	penetration: 4.0,
-	ammoFor: [ranged.HeavySniper],
 	slotsUsed: 1
 })
