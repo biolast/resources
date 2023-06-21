@@ -10,15 +10,13 @@
 		"prebuild": "rimraf dist",
 		"build": "rollup --config rollup.config.js",
 		"prepublishOnly": "yarn run build",
-		"lint": "eslint . --ext .ts,.js,.json"
+		"lint": "./node_modules/.bin/eslint . --ext .ts,.js,.json"
 	},
 	"exports": {
 		"types": "./dist/index.d.ts",
 		"import": "./dist/index.js"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"engines": {
 		"node": ">=18"
 	},
