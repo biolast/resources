@@ -56,7 +56,7 @@ export class Item<T extends string = string> {
 		if (this._image) return this._image
 
 		try {
-			this._image = (await import(`../../src/images/items/${this.name}.png`)).default as string
+			this._image = (await import(`../../resources/images/items/${this.name}.png`)).default as string
 		}
 		catch (err) {
 			this._image = unknownIcon

@@ -14,6 +14,6 @@ export class Debuff<T extends string = string> {
 
 	/** get base64 representation of image */
 	async image (): Promise<string> {
-		return (await import(`../src/images/debuffs/${this.name}.png`)).default
+		return (await import(`../resources/images/debuffs/${this.name}.png`)).default
 	}
 }
