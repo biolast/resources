@@ -16,7 +16,7 @@
 		"types": "./dist/index.d.ts",
 		"import": "./dist/index.js"
 	},
-	"files": [ "dist" ],
+	"files": ["dist"],
 	"engines": {
 		"node": ">=18"
 	},
