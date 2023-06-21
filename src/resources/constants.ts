@@ -16,6 +16,21 @@ export const LIMB_TARGETING_ACCURACY_REQUIRED = 50
 /** the max # of stimulants you can use in a fight */
 export const DEFAULT_MAX_STIMULANTS_PER_BATTLE = 1
 
+export const EMBED_COLORS = {
+	get default () {
+		const possibleColors = [9253685]
+		return possibleColors[Math.floor(Math.random() * possibleColors.length)]
+	},
+	get success () {
+		const possibleColors = [9043800]
+		return possibleColors[Math.floor(Math.random() * possibleColors.length)]
+	},
+	get failure () {
+		const possibleColors = [16734296]
+		return possibleColors[Math.floor(Math.random() * possibleColors.length)]
+	}
+}
+
 /** how much will damage be multiplied by when hitting specific limb */
 export const LIMB_DAMAGE_MULTIPLIERS = {
 	head: 1.5,
@@ -23,11 +38,6 @@ export const LIMB_DAMAGE_MULTIPLIERS = {
 	arms: 0.5,
 	legs: 0.5
 } as const
-
-export const DEFAULT_EMBED_COLOR = 9253685
-export const SUCCESS_EMBED_COLOR = 9043800
-export const FAILED_EMBED_COLOR = 16734296
-
 
 /** how many items will scavenging produce */
 export const DEFAULT_SCAVENGE_ROLLS = {
