@@ -84,4 +84,8 @@ export class Region<T extends string = string> {
 
 		return [...new Set(obtainableItems)]
 	}
+
+	toString () {
+		return this.name
+	}
 }

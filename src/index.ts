@@ -54,7 +54,7 @@ export const allItems = Object.values(items)
 export const isValidRegion = (s: string): s is RegionName => s in allRegions.map(r => r.name)
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
 
-export * as Constants from './resources/constants.js'
+export * as constants from './resources/constants.js'
 export {
 	debuffs
 }

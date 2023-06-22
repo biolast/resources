@@ -64,4 +64,8 @@ export class Item<T extends string = string> {
 
 		return this._image
 	}
+
+	toString () {
+		return this.name
+	}
 }

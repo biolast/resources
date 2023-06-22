@@ -32,7 +32,7 @@ export const Mall = new Region({
 			key: keys.DereksShopKey,
 			pool: {
 				common: [ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot],
-				uncommon: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun],
+				uncommon: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, ammunition.Shotgun12GaugeBuckshot],
 				rare: [armor.SwatArmor, helmets.SwatHelmet]
 			},
 			rolls: DEFAULT_SCAVENGE_ROLLS
