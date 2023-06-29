@@ -1,4 +1,4 @@
-name: Test
+name: Run Tests
 
 on:
   # Trigger the workflow on push or pull request,
