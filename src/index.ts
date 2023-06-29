@@ -1,3 +1,11 @@
+import skullImage from '../src/resources/images/skull.png'
+import hpBarEmptyImage from '../src/resources/images/hp_bar_empty.png'
+import hpBarFullImage from '../src/resources/images/hp_bar_full.png'
+import playerHpBarEmptyImage from '../src/resources/images/player_hp_bar_empty.png'
+import playerHpBarFullImage from '../src/resources/images/player_hp_bar_full.png'
+import textBarBackgroundImage from '../src/resources/images/text_bar.png'
+import mobBattleTemplateBackgroundImage from '../src/resources/images/mob_battle_template.png'
+import playerBattleTemplateBackgroundImage from '../src/resources/images/player_battle_template.png'
 import * as debuffs from './resources/debuffs.js'
 import { Farm } from './resources/regions/farm.js'
 import { Forest } from './resources/regions/forest.js'
@@ -18,6 +26,17 @@ import * as foods from './resources/items/foods.js'
 import * as stimulants from './resources/items/stimulants.js'
 import * as supplies from './resources/items/supplies.js'
 
+
+export const images = {
+	skull: skullImage,
+	hpBarEmpty: hpBarEmptyImage,
+	hpBarFull: hpBarFullImage,
+	playerHpBarEmpty: playerHpBarEmptyImage,
+	playerHpBarFull: playerHpBarFullImage,
+	textBarBackground: textBarBackgroundImage,
+	mobBattleTemplateBackground: mobBattleTemplateBackgroundImage,
+	playerBattleTemplateBackground: playerBattleTemplateBackgroundImage
+}
 
 export const items = {
 	...ranged,
