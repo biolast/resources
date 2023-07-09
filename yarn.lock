@@ -875,8 +875,8 @@ __metadata:
   linkType: hard
 
 "@rollup/plugin-dynamic-import-vars@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "@rollup/plugin-dynamic-import-vars@npm:2.0.3"
+  version: 2.0.4
+  resolution: "@rollup/plugin-dynamic-import-vars@npm:2.0.4"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     estree-walker: ^2.0.2
@@ -887,7 +887,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 53d4ed4c3c5cc78804eb38584d844983ea7f9af7e445a60814f865994f222d079f4ac5f73424ca5acb5f719340fd0a1c161a9cbd80c6d9ed9e778472972d839d
+  checksum: 8775ff85762c124e98e766533a02e7a3f7e6a729bf5c8c4f6746efe72cf7b1138b167aebf080783b687470edd5c36a635a27c2caa3ef1ef3f023bf980e3fe175
   languageName: node
   linkType: hard
 
