@@ -55,7 +55,6 @@ export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i
 export * as constants from './resources/constants.js'
 
 // export types
-export * from './structures/Region.js'
 export * from './structures/items/Ammunition.js'
 export * from './structures/items/Backpack.js'
 export * from './structures/items/BodyArmor.js'
