@@ -1,6 +1,5 @@
 import { DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { Region } from '../../structures/Region.js'
-import * as keys from '../items/keys.js'
 import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
@@ -21,21 +20,11 @@ export const Suburbs = new Region({
 		pool: {
 			common: [foods.Apple, melee.Fork, melee.WoodenBat],
 			uncommon: [melee.MetalBat, melee.Hammer, medicals.Bandage],
-			rare: [medicals.Splint, medicals.AntiBiotics, supplies.Nails, supplies.Lighter]
+			rare: [supplies.Nails, supplies.Lighter]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
-		{
-			key: keys.ShedKey,
-			pool: {
-				common: [helmets.HardHat, helmets.CyclingHelmet, armor.HeavyJacket]
-			},
-			rolls: {
-				min: 3,
-				max: 3
-			}
-		}
 	],
 	mobs: [
 		{
@@ -58,8 +47,8 @@ export const Suburbs = new Region({
 				loot: {
 					pool: {
 						common: [melee.Fork, melee.WoodenBat, medicals.Bandage],
-						uncommon: [melee.MetalBat, melee.Hammer, medicals.Splint, medicals.AntiBiotics, supplies.Nails, supplies.Lighter],
-						rare: [keys.ShedKey, backpacks.SmallPouch]
+						uncommon: [melee.MetalBat, melee.Hammer, supplies.Nails, supplies.Lighter],
+						rare: [backpacks.SmallPouch]
 					},
 					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}

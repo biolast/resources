@@ -1,6 +1,5 @@
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { Region } from '../../structures/Region.js'
-import * as keys from '../items/keys.js'
 import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
@@ -21,20 +20,12 @@ export const Farm = new Region({
 	distance: 5,
 	scavengeLoot: {
 		pool: {
-			common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, helmets.SaucePan, foods.Corn, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+			common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, helmets.SaucePan, foods.Corn, medicals.Bandage],
 			rare: [melee.Hammer, helmets.WoodenHelmet, armor.HeavyJacket, melee.Hatchet, medicals.Medkit]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
-		{
-			key: keys.GunSafeCode,
-			pool: {
-				common: [melee.SledgeHammer, ammunition.PistolBullet],
-				uncommon: [armor.WoodenArmor, ranged.Pistol]
-			},
-			rolls: DEFAULT_SCAVENGE_ROLLS
-		}
 	],
 	mobs: [
 		{
@@ -61,8 +52,8 @@ export const Farm = new Region({
 				loot: {
 					pool: {
 						common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn],
-						uncommon: [medicals.Bandage, medicals.Splint, medicals.AntiBiotics, backpacks.ClothBackpack, supplies.Nails, supplies.Lighter],
-						rare: [melee.SledgeHammer, keys.GunSafeCode, keys.DavesDrugKey]
+						uncommon: [medicals.Bandage, backpacks.ClothBackpack, supplies.Nails, supplies.Lighter],
+						rare: [melee.SledgeHammer]
 					},
 					rolls: DEFAULT_RAIDER_MOB_ROLLS
 				}
@@ -89,7 +80,7 @@ export const Farm = new Region({
 				},
 				loot: {
 					pool: {
-						common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						common: [melee.MetalBat, melee.Scythe, melee.Pitchfork, melee.Knife, foods.Corn, medicals.Bandage],
 						uncommon: [ammunition.PistolBullet, backpacks.ClothBackpack, supplies.Nails, supplies.Lighter]
 					},
 					rolls: DEFAULT_ZOMBIE_MOB_ROLLS

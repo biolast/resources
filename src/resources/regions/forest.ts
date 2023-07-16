@@ -1,6 +1,5 @@
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { Region } from '../../structures/Region.js'
-import * as keys from '../items/keys.js'
 import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
@@ -20,21 +19,13 @@ export const Forest = new Region({
 	distance: 11,
 	scavengeLoot: {
 		pool: {
-			common: [melee.Knife, melee.Pitchfork, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+			common: [melee.Knife, melee.Pitchfork, medicals.Bandage],
 			uncommon: [melee.SledgeHammer, melee.FireAxe, medicals.Medkit],
 			rare: [foods.CannedMeat]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
-		{
-			key: keys.CultistKey,
-			pool: {
-				common: [ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot],
-				uncommon: [melee.Chainsaw, armor.LightArmor, helmets.CultistMask, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
-			},
-			rolls: DEFAULT_SCAVENGE_ROLLS
-		}
 	],
 	mobs: [
 		{
@@ -62,9 +53,9 @@ export const Forest = new Region({
 				},
 				loot: {
 					pool: {
-						common: [melee.Knife, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						common: [melee.Knife, medicals.Bandage],
 						uncommon: [foods.CannedMeat, backpacks.ClothBackpack],
-						rare: [melee.FireAxe, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, keys.CultistKey]
+						rare: [melee.FireAxe, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 					},
 					rolls: DEFAULT_RAIDER_MOB_ROLLS
 				}
@@ -91,7 +82,7 @@ export const Forest = new Region({
 				},
 				loot: {
 					pool: {
-						common: [melee.Knife, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						common: [melee.Knife, medicals.Bandage],
 						uncommon: [melee.FireAxe, medicals.Medkit, ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot, backpacks.ClothBackpack],
 						rare: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 					},

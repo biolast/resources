@@ -12,17 +12,6 @@ export const Bandage = new Medical({
 	durability: 3
 })
 
-export const Splint = new Medical({ // TODO might wanna remove this item for now since debuffs got removed. item doesnt fix any limbs
-	type: 'Medical',
-	name: 'splint',
-	discordIcon: '<:splint:933851421848256582>',
-	description: 'Use this to fix broken limbs.',
-	aliases: [],
-	healsFor: 20,
-	slotsUsed: 1,
-	speed: 15
-})
-
 export const Medkit = new Medical({
 	type: 'Medical',
 	name: 'medkit',
@@ -33,17 +22,6 @@ export const Medkit = new Medical({
 	slotsUsed: 2,
 	speed: 6,
 	durability: 8
-})
-
-export const AntiBiotics = new Medical({ // TODO remove item since debuffs got removed its useless
-	type: 'Medical',
-	name: 'anti-biotics',
-	discordIcon: '<:antibiotics:935748154253525012>',
-	description: 'Cures various infections, such as those from walker bites.',
-	aliases: ['antibiotics', 'anti'],
-	healsFor: 20,
-	slotsUsed: 1,
-	speed: 20
 })
 
 export const TraumaKit = new Medical({

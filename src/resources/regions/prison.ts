@@ -1,6 +1,5 @@
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { Region } from '../../structures/Region.js'
-import * as keys from '../items/keys.js'
 import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
@@ -21,30 +20,13 @@ export const Prison = new Region({
 	distance: 52,
 	scavengeLoot: {
 		pool: {
-			common: [medicals.Splint, medicals.AntiBiotics, medicals.Medkit, foods.CannedMeat],
+			common: [medicals.Medkit, foods.CannedMeat],
 			rare: [armor.SwatArmor, helmets.SwatHelmet, melee.Fork],
 			rarest: [medicals.TraumaKit]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
-		{
-			key: keys.CellKey,
-			pool: {
-				common: [foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
-				uncommon: [medicals.TraumaKit],
-				rarest: [ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun]
-			},
-			rolls: DEFAULT_SCAVENGE_ROLLS
-		},
-		{
-			key: keys.ArmoryKey,
-			pool: {
-				common: [ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug, ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun],
-				uncommon: [armor.MilitaryArmor, helmets.MilitaryHelmet]
-			},
-			rolls: DEFAULT_SCAVENGE_ROLLS
-		}
 	],
 	mobs: [
 		{
@@ -73,9 +55,9 @@ export const Prison = new Region({
 				},
 				loot: {
 					pool: {
-						common: [melee.Shank, melee.PoliceBaton, medicals.Splint, medicals.AntiBiotics, medicals.Medkit, medicals.Bandage, foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
+						common: [melee.Shank, melee.PoliceBaton, medicals.Medkit, medicals.Bandage, foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
 						uncommon: [throwables.ExplosiveGrenade, throwables.MolotovCocktail],
-						rare: [ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun, keys.CellKey, keys.ArmoryKey]
+						rare: [ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun]
 					},
 					rolls: DEFAULT_RAIDER_MOB_ROLLS
 				}
@@ -102,7 +84,7 @@ export const Prison = new Region({
 				},
 				loot: {
 					pool: {
-						common: [medicals.Splint, medicals.AntiBiotics, medicals.Medkit, foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
+						common: [medicals.Medkit, foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
 						rare: [ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun, backpacks.Suitcase]
 					},
 					rolls: DEFAULT_ZOMBIE_MOB_ROLLS

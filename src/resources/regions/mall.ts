@@ -1,6 +1,5 @@
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_SCAVENGE_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from '../constants.js'
 import { Region } from '../../structures/Region.js'
-import * as keys from '../items/keys.js'
 import * as armor from '../items/armor.js'
 import * as helmets from '../items/helmets.js'
 import * as melee from '../items/melee.js'
@@ -20,22 +19,13 @@ export const Mall = new Region({
 	distance: 31,
 	scavengeLoot: {
 		pool: {
-			common: [melee.Katana, foods.CannedMeat, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+			common: [melee.Katana, foods.CannedMeat, medicals.Bandage],
 			rare: [ammunition.Shotgun20GaugeBuckshot, armor.LightArmor, helmets.RiotHelmet, helmets.PsychoMask, medicals.Medkit],
 			rarest: [ammunition.RifleBullet, backpacks.ClothBackpack, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 		},
 		rolls: DEFAULT_SCAVENGE_ROLLS
 	},
 	keyAreas: [
-		{
-			key: keys.DereksShopKey,
-			pool: {
-				common: [ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot],
-				uncommon: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, ammunition.Shotgun12GaugeBuckshot],
-				rare: [armor.SwatArmor, helmets.SwatHelmet]
-			},
-			rolls: DEFAULT_SCAVENGE_ROLLS
-		}
 	],
 	mobs: [
 		{
@@ -63,7 +53,7 @@ export const Mall = new Region({
 				},
 				loot: {
 					pool: {
-						common: [melee.Katana, foods.CannedMeat, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
+						common: [melee.Katana, foods.CannedMeat, medicals.Bandage],
 						uncommon: [melee.FireAxe, medicals.Medkit],
 						rare: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 					},
@@ -94,8 +84,8 @@ export const Mall = new Region({
 				loot: {
 					pool: {
 						common: [foods.CannedMeat, ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot, melee.Fork, melee.FireAxe, melee.Katana],
-						uncommon: [medicals.Bandage, medicals.Splint, medicals.AntiBiotics, backpacks.ClothBackpack],
-						rare: [medicals.Medkit, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, keys.DereksShopKey, keys.FlorredsPharmacyKey]
+						uncommon: [medicals.Bandage, backpacks.ClothBackpack],
+						rare: [medicals.Medkit, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 					},
 					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}
