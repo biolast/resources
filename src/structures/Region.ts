@@ -1,4 +1,4 @@
-import { LootPool } from '../utils.js'
+import { LootPool } from '../resources/constants.js'
 import { Item } from './items/Item.js'
 import { GenericMob } from './mobs/GenericMob.js'
 import { UniqueMob } from './mobs/UniqueMob.js'

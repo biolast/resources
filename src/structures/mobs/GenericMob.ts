@@ -1,4 +1,4 @@
-import { LootPool } from '../../utils.js'
+import { LootPool } from '../../resources/constants.js'
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
@@ -58,10 +58,10 @@ interface AggressiveAnimalMobInfo extends MobInfoBase {
 	type: 'aggressive animal'
 }
 
-export type MobInfo = RaiderMobInfo | ZombieMobInfo | PassiveAnimalMobInfo | AggressiveAnimalMobInfo
+export type GenericMobInfo = RaiderMobInfo | ZombieMobInfo | PassiveAnimalMobInfo | AggressiveAnimalMobInfo
 
 export class GenericMob {
-	constructor (public data: MobInfo) {
+	constructor (public data: GenericMobInfo) {
 		this.data = data
 	}
 

@@ -77,3 +77,24 @@ export * as constants from './resources/constants.js'
 export {
 	debuffs
 }
+
+// export types
+export * from './structures/Debuff.js'
+export * from './structures/Region.js'
+export * from './structures/items/Ammunition.js'
+export * from './structures/items/Backpack.js'
+export * from './structures/items/BodyArmor.js'
+export * from './structures/items/Collectible.js'
+export * from './structures/items/Food.js'
+export * from './structures/items/Helmet.js'
+export * from './structures/items/Item.js'
+export * from './structures/items/Key.js'
+export * from './structures/items/Medical.js'
+export * from './structures/items/MeleeWeapon.js'
+export * from './structures/items/RangedWeapon.js'
+export * from './structures/items/Stimulant.js'
+export * from './structures/items/Supply.js'
+export * from './structures/items/ThrowableWeapon.js'
+export * from './structures/mobs/GenericMob.js'
+export * from './structures/mobs/UniqueMob.js'
+export type * from './resources/constants.js'

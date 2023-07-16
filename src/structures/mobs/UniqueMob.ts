@@ -1,4 +1,4 @@
-import { LootPool } from '../../utils.js'
+import { LootPool } from '../../resources/constants.js'
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
@@ -76,10 +76,10 @@ interface AggressiveAnimalMobInfo extends MobInfoBase {
 	chanceToBite: number
 }
 
-export type MobInfo = RaiderMobInfo | ZombieMobInfo | PassiveAnimalMobInfo | AggressiveAnimalMobInfo
+export type UniqueMobInfo = RaiderMobInfo | ZombieMobInfo | PassiveAnimalMobInfo | AggressiveAnimalMobInfo
 
 export class UniqueMob {
-	constructor (public data: MobInfo) {
+	constructor (public data: UniqueMobInfo) {
 		this.data = data
 	}
 
