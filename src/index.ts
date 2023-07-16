@@ -6,11 +6,6 @@ import playerHpBarFullImage from '../src/resources/images/player_hp_bar_full.png
 import textBarBackgroundImage from '../src/resources/images/text_bar.png'
 import mobBattleTemplateBackgroundImage from '../src/resources/images/mob_battle_template.png'
 import playerBattleTemplateBackgroundImage from '../src/resources/images/player_battle_template.png'
-import { Farm } from './resources/regions/farm.js'
-import { Forest } from './resources/regions/forest.js'
-import { Mall } from './resources/regions/mall.js'
-import { Prison } from './resources/regions/prison.js'
-import { Suburbs } from './resources/regions/suburbs.js'
 import * as ranged from './resources/items/ranged.js'
 import * as melee from './resources/items/melee.js'
 import * as armor from './resources/items/armor.js'
@@ -51,21 +46,10 @@ export const items = {
 	...supplies
 }
 
-export const regions = {
-	Suburbs,
-	Farm,
-	Forest,
-	Mall,
-	Prison
-}
-
-export type RegionName = typeof regions[keyof typeof regions]['name']
 export type ItemName = typeof items[keyof typeof items]['name']
 
-export const allRegions = Object.values(regions)
 export const allItems = Object.values(items)
 
-export const isValidRegion = (s: string): s is RegionName => s in allRegions.map(r => r.name)
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
 
 export * as constants from './resources/constants.js'
