@@ -1,5 +1,4 @@
 import { Medical } from '../../structures/items/Medical.js'
-import { Bitten, BrokenArm } from '../debuffs.js'
 
 
 export const Bandage = new Medical({
@@ -10,11 +9,10 @@ export const Bandage = new Medical({
 	healsFor: 12,
 	slotsUsed: 1,
 	speed: 25,
-	durability: 3,
-	curesDebuffs: []
+	durability: 3
 })
 
-export const Splint = new Medical({
+export const Splint = new Medical({ // TODO might wanna remove this item for now since debuffs got removed. item doesnt fix any limbs
 	type: 'Medical',
 	name: 'splint',
 	discordIcon: '<:splint:933851421848256582>',
@@ -22,7 +20,6 @@ export const Splint = new Medical({
 	aliases: [],
 	healsFor: 20,
 	slotsUsed: 1,
-	curesDebuffs: [BrokenArm],
 	speed: 15
 })
 
@@ -35,11 +32,10 @@ export const Medkit = new Medical({
 	healsFor: 22,
 	slotsUsed: 2,
 	speed: 6,
-	durability: 8,
-	curesDebuffs: []
+	durability: 8
 })
 
-export const AntiBiotics = new Medical({
+export const AntiBiotics = new Medical({ // TODO remove item since debuffs got removed its useless
 	type: 'Medical',
 	name: 'anti-biotics',
 	discordIcon: '<:antibiotics:935748154253525012>',
@@ -47,7 +43,6 @@ export const AntiBiotics = new Medical({
 	aliases: ['antibiotics', 'anti'],
 	healsFor: 20,
 	slotsUsed: 1,
-	curesDebuffs: [Bitten],
 	speed: 20
 })
 
@@ -60,6 +55,5 @@ export const TraumaKit = new Medical({
 	healsFor: 35,
 	slotsUsed: 1,
 	durability: 20,
-	curesDebuffs: [Bitten, BrokenArm],
 	speed: 1
 })

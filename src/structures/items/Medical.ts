@@ -1,4 +1,3 @@
-import { Debuff } from '../Debuff.js'
 import { Item, ItemProperties } from './Item.js'
 
 
@@ -14,8 +13,6 @@ export class Medical<T extends string = string> extends Item<T> {
 
 		/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
 		readonly speed: number
-
-		readonly curesDebuffs: Debuff[]
 	}) {
 		super(data)
 

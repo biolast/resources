@@ -9,7 +9,6 @@ import * as foods from '../items/foods.js'
 import * as backpacks from '../items/backpacks.js'
 import * as medicals from '../items/medicals.js'
 import * as ammunition from '../items/ammunition.js'
-import * as stimulants from '../items/stimulants.js'
 import * as throwables from '../items/throwables.js'
 import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
@@ -75,7 +74,7 @@ export const Prison = new Region({
 				loot: {
 					pool: {
 						common: [melee.Shank, melee.PoliceBaton, medicals.Splint, medicals.AntiBiotics, medicals.Medkit, medicals.Bandage, foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
-						uncommon: [stimulants.Adderall, stimulants.Adrenaline, stimulants.Morphine, stimulants.HypoStim, throwables.ExplosiveGrenade, throwables.MolotovCocktail],
+						uncommon: [throwables.ExplosiveGrenade, throwables.MolotovCocktail],
 						rare: [ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun, keys.CellKey, keys.ArmoryKey]
 					},
 					rolls: DEFAULT_RAIDER_MOB_ROLLS
@@ -104,7 +103,6 @@ export const Prison = new Region({
 				loot: {
 					pool: {
 						common: [medicals.Splint, medicals.AntiBiotics, medicals.Medkit, foods.CannedMeat, ammunition.RifleBullet, ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug],
-						uncommon: [stimulants.Adderall, stimulants.Adrenaline, stimulants.Morphine, stimulants.HypoStim],
 						rare: [ranged.HuntingRifle, ranged.PumpShotgun, ranged.AssaultRifle, ranged.AutoShotgun, backpacks.Suitcase]
 					},
 					rolls: DEFAULT_ZOMBIE_MOB_ROLLS

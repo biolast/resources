@@ -17,7 +17,7 @@ export const GunSafeCode = new Key({
 	slotsUsed: 1
 })
 
-export const DavesDrugKey = new Key({
+export const DavesDrugKey = new Key({ // TODO this item is useless now that stimulants dont exist
 	type: 'Key',
 	name: 'daves_drug_key',
 	aliases: ['drug_key', 'daves_key', 'dave'],
@@ -33,7 +33,7 @@ export const DereksShopKey = new Key({
 	slotsUsed: 2
 })
 
-export const FlorredsPharmacyKey = new Key({
+export const FlorredsPharmacyKey = new Key({ // TODO remove this item it was used for stims
 	type: 'Key',
 	name: 'florreds_pharmacy_key',
 	aliases: ['florreds_key', 'pharmacy_key', 'florred'],

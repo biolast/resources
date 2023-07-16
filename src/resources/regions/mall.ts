@@ -9,7 +9,6 @@ import * as foods from '../items/foods.js'
 import * as backpacks from '../items/backpacks.js'
 import * as medicals from '../items/medicals.js'
 import * as ammunition from '../items/ammunition.js'
-import * as stimulants from '../items/stimulants.js'
 import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
 
@@ -36,16 +35,6 @@ export const Mall = new Region({
 				rare: [armor.SwatArmor, helmets.SwatHelmet]
 			},
 			rolls: DEFAULT_SCAVENGE_ROLLS
-		},
-		{
-			key: keys.FlorredsPharmacyKey,
-			pool: {
-				common: [medicals.AntiBiotics, stimulants.Adrenaline, stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine]
-			},
-			rolls: {
-				min: 2,
-				max: 2
-			}
 		}
 	],
 	mobs: [
@@ -75,7 +64,7 @@ export const Mall = new Region({
 				loot: {
 					pool: {
 						common: [melee.Katana, foods.CannedMeat, medicals.Bandage, medicals.Splint, medicals.AntiBiotics],
-						uncommon: [melee.FireAxe, medicals.Medkit, stimulants.Adrenaline, stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine],
+						uncommon: [melee.FireAxe, medicals.Medkit],
 						rare: [ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun]
 					},
 					rolls: DEFAULT_RAIDER_MOB_ROLLS
@@ -106,7 +95,7 @@ export const Mall = new Region({
 					pool: {
 						common: [foods.CannedMeat, ammunition.PistolBullet, ammunition.Shotgun20GaugeBuckshot, melee.Fork, melee.FireAxe, melee.Katana],
 						uncommon: [medicals.Bandage, medicals.Splint, medicals.AntiBiotics, backpacks.ClothBackpack],
-						rare: [medicals.Medkit, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, stimulants.Adrenaline, stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine, keys.DereksShopKey, keys.FlorredsPharmacyKey]
+						rare: [medicals.Medkit, ranged.Pistol, ranged.SubmachineGun, ranged.DoubleBarrelShotgun, keys.DereksShopKey, keys.FlorredsPharmacyKey]
 					},
 					rolls: DEFAULT_ZOMBIE_MOB_ROLLS
 				}

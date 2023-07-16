@@ -1,3 +1,5 @@
+// removed from game for now, might add back later but need to focus on releasing early access
+/**
 import { Stimulant } from '../../structures/items/Stimulant.js'
 
 
@@ -71,3 +73,4 @@ export const DavesMixture = new Stimulant({
 	},
 	speed: 30
 })
+*/

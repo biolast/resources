@@ -10,7 +10,6 @@ import * as backpacks from '../items/backpacks.js'
 import * as medicals from '../items/medicals.js'
 import * as supplies from '../items/supplies.js'
 import * as ammunition from '../items/ammunition.js'
-import * as stimulants from '../items/stimulants.js'
 import { GenericMob } from '../../structures/mobs/GenericMob.js'
 
 
@@ -35,17 +34,6 @@ export const Farm = new Region({
 				uncommon: [armor.WoodenArmor, ranged.Pistol]
 			},
 			rolls: DEFAULT_SCAVENGE_ROLLS
-		},
-		{
-			key: keys.DavesDrugKey,
-			pool: {
-				common: [stimulants.HypoStim, stimulants.Adderall, stimulants.Morphine],
-				uncommon: [stimulants.DavesMixture]
-			},
-			rolls: {
-				min: 2,
-				max: 2
-			}
 		}
 	],
 	mobs: [
