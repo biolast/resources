@@ -1,3 +1,4 @@
+/*
 import { Collectible } from '../../structures/items/Collectible.js'
 
 
@@ -16,3 +17,4 @@ export const WalkerSludge = new Collectible({
 	discordIcon: '<:walker_sludge:931797105448714282>',
 	slotsUsed: 1
 })
+*/

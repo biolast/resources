@@ -30,6 +30,8 @@ export interface ItemProperties<T extends string = string> {
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
 
+	/** level this item can *normally* be obtained at */
+	readonly level?: number // TODO make this required
 	/** Other names that will be resolved to this item */
 	readonly aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
@@ -41,12 +43,33 @@ export interface ItemProperties<T extends string = string> {
 }
 
 export class Item<T extends string = string> {
-	readonly name: T
 	private _image?: string
+	readonly type: ItemType
+	readonly name: T
+	readonly description?: string
+	readonly craftingRecipes?: CraftingRecipe[]
 
-	constructor (public data: ItemProperties<T>) {
-		this.data = data
+	/** level this item can *normally* be obtained at */
+	readonly level?: number // TODO make this required
+	/** Other names that will be resolved to this item */
+	readonly aliases: string[]
+	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
+	readonly discordIcon: string
+	/** How many slots does this item take up in inventories */
+	readonly slotsUsed: number
+	/** How many uses this item has (if applicable) */
+	readonly durability?: number
+
+	constructor (data: ItemProperties<T>) {
+		this.type = data.type
 		this.name = data.name
+		this.description = data.description
+		this.craftingRecipes = data.craftingRecipes
+		this.level = data.level
+		this.aliases = data.aliases
+		this.discordIcon = data.discordIcon
+		this.slotsUsed = data.slotsUsed
+		this.durability = data.durability
 	}
 
 	/** get base64 representation of image */

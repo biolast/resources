@@ -7,7 +7,7 @@ export const HardHat = new Helmet({
 	discordIcon: '<:U_helmet:874671013181415434>',
 	aliases: ['construction_hat', 'hard', 'level_1_helm'],
 	durability: 6,
-	level: 1,
+	protectionLevel: 1,
 	slotsUsed: 2
 })
 
@@ -17,7 +17,7 @@ export const CyclingHelmet = new Helmet({
 	discordIcon: '<:U_helmet:874671013181415434>',
 	aliases: ['bike_helm', 'cycle_helm', 'cycling'],
 	durability: 5,
-	level: 1,
+	protectionLevel: 1,
 	slotsUsed: 2
 })
 
@@ -27,7 +27,7 @@ export const SaucePan = new Helmet({
 	discordIcon: '<:sauce_pan:931822494468419655>',
 	aliases: ['pan'],
 	durability: 6,
-	level: 1,
+	protectionLevel: 1,
 	slotsUsed: 2
 })
 
@@ -37,7 +37,7 @@ export const WoodenHelmet = new Helmet({
 	discordIcon: '<:U_helmet:874671013181415434>',
 	aliases: ['wood_helmet', 'helmet', 'level_2_helm'],
 	durability: 9,
-	level: 2,
+	protectionLevel: 2,
 	slotsUsed: 2
 })
 
@@ -47,7 +47,7 @@ export const CultistMask = new Helmet({
 	discordIcon: '<:U_helmet:874671013181415434>',
 	aliases: ['cultist'],
 	durability: 4,
-	level: 3,
+	protectionLevel: 3,
 	slotsUsed: 1
 })
 
@@ -57,7 +57,7 @@ export const RiotHelmet = new Helmet({
 	discordIcon: '<:U_helmet:874671013181415434>',
 	aliases: ['riot', 'level_3_helm'],
 	durability: 10,
-	level: 3,
+	protectionLevel: 3,
 	slotsUsed: 2
 })
 
@@ -67,7 +67,7 @@ export const PsychoMask = new Helmet({
 	discordIcon: '<:psycho_mask:931813743397044254>',
 	aliases: ['psycho', 'mask'],
 	durability: 5,
-	level: 3,
+	protectionLevel: 3,
 	slotsUsed: 1
 })
 
@@ -77,7 +77,7 @@ export const SwatHelmet = new Helmet({
 	discordIcon: '<:aramid_helmet:931797015376068618>',
 	aliases: ['swathelm', 'level_4_helm', 'steel_helm'],
 	durability: 11,
-	level: 4,
+	protectionLevel: 4,
 	slotsUsed: 1
 })
 
@@ -87,7 +87,7 @@ export const MilitaryHelmet = new Helmet({
 	discordIcon: '<:U_helmet:874671013181415434>',
 	aliases: ['mili_helm', 'level_5_helm'],
 	durability: 14,
-	level: 5,
+	protectionLevel: 5,
 	slotsUsed: 2
 })
 
@@ -98,6 +98,6 @@ export const PolyethyleneHelmet = new Helmet({
 	aliases: ['poly_helm', 'polyeth_helm', 'polyethylene_helm', 'level_6_helm'],
 	description: 'Polyethylene (UHMWPE) armor is designed to have better stopping power and weigh less than steel armor.',
 	durability: 25,
-	level: 6,
+	protectionLevel: 6,
 	slotsUsed: 2
 })

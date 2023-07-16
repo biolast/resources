@@ -12,9 +12,7 @@ import * as armor from './resources/items/armor.js'
 import * as helmets from './resources/items/helmets.js'
 import * as ammunition from './resources/items/ammunition.js'
 import * as medicals from './resources/items/medicals.js'
-import * as keys from './resources/items/keys.js'
 import * as backpacks from './resources/items/backpacks.js'
-import * as collectibles from './resources/items/collectibles.js'
 import * as throwables from './resources/items/throwables.js'
 import * as foods from './resources/items/foods.js'
 import * as supplies from './resources/items/supplies.js'
@@ -38,9 +36,7 @@ export const items = {
 	...helmets,
 	...ammunition,
 	...medicals,
-	...keys,
 	...backpacks,
-	...collectibles,
 	...throwables,
 	...foods,
 	...supplies
@@ -58,7 +54,6 @@ export * as constants from './resources/constants.js'
 export * from './structures/items/Ammunition.js'
 export * from './structures/items/Backpack.js'
 export * from './structures/items/BodyArmor.js'
-export * from './structures/items/Collectible.js'
 export * from './structures/items/Food.js'
 export * from './structures/items/Helmet.js'
 export * from './structures/items/Item.js'
