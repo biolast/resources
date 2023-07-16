@@ -6,7 +6,6 @@ import playerHpBarFullImage from '../src/resources/images/player_hp_bar_full.png
 import textBarBackgroundImage from '../src/resources/images/text_bar.png'
 import mobBattleTemplateBackgroundImage from '../src/resources/images/mob_battle_template.png'
 import playerBattleTemplateBackgroundImage from '../src/resources/images/player_battle_template.png'
-import * as debuffs from './resources/debuffs.js'
 import { Farm } from './resources/regions/farm.js'
 import { Forest } from './resources/regions/forest.js'
 import { Mall } from './resources/regions/mall.js'
@@ -23,7 +22,6 @@ import * as backpacks from './resources/items/backpacks.js'
 import * as collectibles from './resources/items/collectibles.js'
 import * as throwables from './resources/items/throwables.js'
 import * as foods from './resources/items/foods.js'
-import * as stimulants from './resources/items/stimulants.js'
 import * as supplies from './resources/items/supplies.js'
 
 
@@ -50,7 +48,6 @@ export const items = {
 	...collectibles,
 	...throwables,
 	...foods,
-	...stimulants,
 	...supplies
 }
 
@@ -62,11 +59,9 @@ export const regions = {
 	Prison
 }
 
-export type DebuffType = typeof debuffs[keyof typeof debuffs]['name']
 export type RegionName = typeof regions[keyof typeof regions]['name']
 export type ItemName = typeof items[keyof typeof items]['name']
 
-export const allDebuffs = Object.values(debuffs)
 export const allRegions = Object.values(regions)
 export const allItems = Object.values(items)
 
@@ -74,12 +69,8 @@ export const isValidRegion = (s: string): s is RegionName => s in allRegions.map
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
 
 export * as constants from './resources/constants.js'
-export {
-	debuffs
-}
 
 // export types
-export * from './structures/Debuff.js'
 export * from './structures/Region.js'
 export * from './structures/items/Ammunition.js'
 export * from './structures/items/Backpack.js'
@@ -92,7 +83,6 @@ export * from './structures/items/Key.js'
 export * from './structures/items/Medical.js'
 export * from './structures/items/MeleeWeapon.js'
 export * from './structures/items/RangedWeapon.js'
-export * from './structures/items/Stimulant.js'
 export * from './structures/items/Supply.js'
 export * from './structures/items/ThrowableWeapon.js'
 export * from './structures/mobs/GenericMob.js'
