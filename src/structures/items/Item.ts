@@ -17,13 +17,13 @@ export type ItemType = 'Ranged Weapon'
 
 export interface CraftingRecipe {
 	/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
-	possibleTools: Item[]
-	supplies: {
-		item: Item
-		amount: number
+	readonly possibleTools: Item[]
+	readonly supplies: {
+		readonly item: Item
+		readonly amount: number
 	}[]
 	/** How much of the item this recipe creates */
-	yield: number
+	readonly yield: number
 }
 
 export interface ItemProperties<T extends string = string> {
