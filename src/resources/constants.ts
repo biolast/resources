@@ -12,13 +12,10 @@ export const DEFAULT_MAX_ENERGY = 30
 
 /**
  * the percentage of accuracy needed for player to be able to target a limb in battles.
- * this percentage INCLUDES stimulant bonuses as well, so a 30% accuracy weapon with a +25% accuracy stimulant
+ * this percentage INCLUDES bonuses as well, so a 30% accuracy weapon with a +25% accuracy bonus
  * would have 55% total accuracy.
  */
 export const LIMB_TARGETING_ACCURACY_REQUIRED = 50
-
-/** the max # of stimulants you can use in a fight */
-export const DEFAULT_MAX_STIMULANTS_PER_BATTLE = 1
 
 export const EMBED_COLORS = {
 	get default () {
