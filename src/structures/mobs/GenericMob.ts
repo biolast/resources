@@ -1,4 +1,4 @@
-import { LootPool } from '../../resources/constants.js'
+import { LootPool, getLootPoolItems } from '../../resources/constants.js'
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
@@ -69,38 +69,48 @@ export class GenericMob {
 
 	getObtainableItems (): Item[] {
 		const obtainableItems = []
+		const scavenge = getLootPoolItems(this.data.loot.pool)
 
 		obtainableItems.push(
-			...this.data.loot.pool.common || [],
-			...this.data.loot.pool.uncommon || [],
-			...this.data.loot.pool.rare || [],
-			...this.data.loot.pool.rarest || []
+			...scavenge.common,
+			...scavenge.uncommon,
+			...scavenge.rare,
+			...scavenge.rarest
 		)
 
 		if ('helmet' in this.data && this.data.helmet) {
+			const helmet = getLootPoolItems(this.data.helmet.pool)
 			obtainableItems.push(
-				...this.data.helmet.pool.common || [],
-				...this.data.helmet.pool.uncommon || [],
-				...this.data.helmet.pool.rare || [],
-				...this.data.helmet.pool.rarest || []
+				...helmet.common,
+				...helmet.uncommon,
+				...helmet.rare,
+				...helmet.rarest
 			)
 		}
 
 		if ('armor' in this.data && this.data.armor) {
+			const armor = getLootPoolItems(this.data.armor.pool)
 			obtainableItems.push(
-				...this.data.armor.pool.common || [],
-				...this.data.armor.pool.uncommon || [],
-				...this.data.armor.pool.rare || [],
-				...this.data.armor.pool.rarest || []
+				...armor.common,
+				...armor.uncommon,
+				...armor.rare,
+				...armor.rarest
 			)
 		}
 
 		if ('weaponPool' in this.data) {
+			const weapon = getLootPoolItems(this.data.weaponPool)
+			const ammo = getLootPoolItems(this.data.weaponPool, true)
+
 			obtainableItems.push(
-				...this.data.weaponPool.common || [],
-				...this.data.weaponPool.uncommon || [],
-				...this.data.weaponPool.rare || [],
-				...this.data.weaponPool.rarest || []
+				...weapon.common,
+				...weapon.uncommon,
+				...weapon.rare,
+				...weapon.rarest,
+				...ammo.common,
+				...ammo.uncommon,
+				...ammo.rare,
+				...ammo.rarest
 			)
 		}
 

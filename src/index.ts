@@ -48,8 +48,6 @@ export const allItems = Object.values(items)
 
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
 
-export * as constants from './resources/constants.js'
-
 // export types
 export * from './structures/items/Ammunition.js'
 export * from './structures/items/Backpack.js'
@@ -64,4 +62,4 @@ export * from './structures/items/Supply.js'
 export * from './structures/items/ThrowableWeapon.js'
 export * from './structures/mobs/GenericMob.js'
 export * from './structures/mobs/UniqueMob.js'
-export type * from './resources/constants.js'
+export * from './resources/constants.js'

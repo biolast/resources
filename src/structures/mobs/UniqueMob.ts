@@ -1,4 +1,4 @@
-import { LootPool } from '../../resources/constants.js'
+import { LootPool, getLootPoolItems } from '../../resources/constants.js'
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
@@ -103,11 +103,13 @@ export class UniqueMob {
 		}
 
 		if (this.data.generatedLoot) {
+			const weapon = getLootPoolItems(this.data.generatedLoot.pool)
+
 			obtainableItems.push(
-				...this.data.generatedLoot.pool.common || [],
-				...this.data.generatedLoot.pool.uncommon || [],
-				...this.data.generatedLoot.pool.rare || [],
-				...this.data.generatedLoot.pool.rarest || []
+				...weapon.common,
+				...weapon.uncommon,
+				...weapon.rare,
+				...weapon.rarest
 			)
 		}
 
