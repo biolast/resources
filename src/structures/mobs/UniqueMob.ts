@@ -1,9 +1,9 @@
-import { LootPool, getLootPoolItems } from '../../resources/constants.js'
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
 import { RangedWeapon } from '../items/RangedWeapon.js'
 import { Item } from '../items/Item.js'
+import { LootPool, getLootPoolItems } from '../../utils.js'
 import { MobType } from './GenericMob.js'
 
 
