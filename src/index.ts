@@ -42,16 +42,13 @@ export const items = {
 	...supplies
 }
 
-export type ItemName = typeof items[keyof typeof items]['name']
-
 export const allItems = Object.values(items)
 
+export type ItemName = typeof items[keyof typeof items]['name']
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
 
 export * as constants from './resources/constants.js'
 export * from './utils.js'
-
-// export types
 export * from './structures/items/Ammunition.js'
 export * from './structures/items/Backpack.js'
 export * from './structures/items/BodyArmor.js'

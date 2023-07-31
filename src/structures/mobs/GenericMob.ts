@@ -65,8 +65,6 @@ export class GenericMob {
 		this.data = data
 	}
 
-	// TODO add function to generate active mob
-
 	getObtainableItems (): Item[] {
 		const obtainableItems = []
 		const scavenge = getLootPoolItems(this.data.loot.pool)
