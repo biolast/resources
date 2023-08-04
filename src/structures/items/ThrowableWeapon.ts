@@ -2,8 +2,7 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
 export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
-	type: 'Throwable Weapon'
-	subtype: 'Fragmentation Grenade' | 'Incendiary Grenade'
+	type: 'Fragmentation Grenade' | 'Incendiary Grenade'
 	durability: 1
 
 	/** The amount of damage this weapon deals when used */
@@ -22,9 +21,7 @@ export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 	speed: number
 
 	constructor (data: Omit<ItemProperties<T>, 'durability'> & {
-		type: 'Throwable Weapon'
-		subtype: 'Fragmentation Grenade' | 'Incendiary Grenade'
-		durability: 1
+		type: 'Fragmentation Grenade' | 'Incendiary Grenade'
 
 		/** The amount of damage this weapon deals when used */
 		damage: number
@@ -44,7 +41,6 @@ export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 		super(data)
 
 		this.type = data.type
-		this.subtype = data.subtype
 		this.durability = 1
 		this.damage = data.damage
 		this.accuracy = data.accuracy

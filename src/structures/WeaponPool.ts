@@ -6,10 +6,12 @@ import { ItemDrop, ItemDropExistential, LootPool } from './LootPool.js'
 
 type Weapon = RangedWeapon | MeleeWeapon
 
-type WeaponDrop<T extends Weapon = Weapon> = T extends RangedWeapon ? ItemDrop<T> & {
+type WeaponDrop<T extends Weapon = Weapon> = T extends RangedWeapon ? RangedWeaponDrop<T> : ItemDrop<T>
+
+type RangedWeaponDrop<T extends RangedWeapon = RangedWeapon> = ItemDrop<T> & {
 	/** ammo to use with ranged weapon */
 	ammo: NonEmptyArray<T['ammo'][number]>
-} : ItemDrop<T>
+}
 
 /**
  *
@@ -19,6 +21,8 @@ type WeaponDrop<T extends Weapon = Weapon> = T extends RangedWeapon ? ItemDrop<T
  * weapon({ item: Pistol, ammo: [PistolBullet] })
  */
 export const weapon = <T extends Weapon>(drop: WeaponDrop<T>): ItemDropExistential<T, WeaponDrop<T>> => cb => cb(drop)
+
+export const isRangedWeaponDrop = (d: ItemDrop): d is RangedWeaponDrop => 'ammo' in d
 
 /**
  * used to roll a random weapon
@@ -103,7 +107,7 @@ export class WeaponPool<
 	 * drop?.rarity
 	 * drop?.item
 	 *
-	 * if ('ammo' in drop) {
+	 * if (isRangedWeaponDrop(drop)) {
 	 *		drop.ammo // possible ammo weapon can fire, this is only present if item is ranged weapon
 	 *		drop.item // item is a ranged weapon
 	 * }

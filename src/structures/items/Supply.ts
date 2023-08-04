@@ -2,13 +2,11 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
 export class Supply<T extends string = string> extends ItemBase<T> {
-	readonly type: 'Supply'
+	durability: undefined
 
-	constructor (data: Omit<ItemProperties<T>, 'durability'> & {
-		readonly type: 'Supply'
-	}) {
+	constructor (data: Omit<ItemProperties<T>, 'durability'>) {
 		super(data)
 
-		this.type = data.type
+		this.durability = undefined
 	}
 }

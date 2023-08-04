@@ -1,17 +1,6 @@
 import unknownIcon from '../../resources/images/unknown_icon.png'
 
 
-export type ItemType = 'Ranged Weapon'
-	| 'Melee Weapon'
-	| 'Helmet'
-	| 'Body Armor'
-	| 'Ammunition'
-	| 'Medical'
-	| 'Backpack'
-	| 'Throwable Weapon'
-	| 'Food'
-	| 'Supply'
-
 export interface CraftingRecipe {
 	/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
 	readonly possibleTools: ItemBase[]
@@ -24,7 +13,6 @@ export interface CraftingRecipe {
 }
 
 export interface ItemProperties<T extends string = string> {
-	readonly type: ItemType
 	readonly name: T
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
@@ -43,7 +31,6 @@ export interface ItemProperties<T extends string = string> {
 
 export abstract class ItemBase<T extends string = string> {
 	private _image?: string
-	readonly type: ItemType
 	readonly name: T
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
@@ -60,7 +47,6 @@ export abstract class ItemBase<T extends string = string> {
 	readonly durability?: number
 
 	constructor (data: ItemProperties<T>) {
-		this.type = data.type
 		this.name = data.name
 		this.description = data.description
 		this.craftingRecipes = data.craftingRecipes

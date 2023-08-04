@@ -2,8 +2,6 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
 export class MeleeWeapon<T extends string = string> extends ItemBase<T> {
-	readonly type: 'Melee Weapon'
-
 	/** The amount of damage this melee weapon deals when used */
 	readonly damage: number
 	/** The percent chance for this weapon to hit target (0% - 100%) */
@@ -20,8 +18,6 @@ export class MeleeWeapon<T extends string = string> extends ItemBase<T> {
 	readonly speed: number
 
 	constructor (data: ItemProperties<T> & {
-		readonly type: 'Melee Weapon'
-
 		/** The amount of damage this melee weapon deals when used */
 		readonly damage: number
 		/** The percent chance for this weapon to hit target (0% - 100%) */
@@ -39,7 +35,6 @@ export class MeleeWeapon<T extends string = string> extends ItemBase<T> {
 	}) {
 		super(data)
 
-		this.type = data.type
 		this.damage = data.damage
 		this.accuracy = data.accuracy
 		this.durability = data.durability

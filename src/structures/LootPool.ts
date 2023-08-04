@@ -1,7 +1,4 @@
-import { PumpShotgun } from '../resources/items/ranged.js'
-import { Apple } from '../resources/items/foods.js'
 import { Ammunition, Backpack, BodyArmor, Food, Helmet, Medical, MeleeWeapon, Supply, ThrowableWeapon } from '../index.js'
-import { WoodenBat } from '../resources/items/melee.js'
 import { NonEmptyArray } from '../resources/constants.js'
 import { RangedWeapon } from './items/RangedWeapon.js'
 
@@ -178,15 +175,4 @@ export class LootPool<
 		}
 	}
 }
-
-
-const exampleLootPool = new LootPool({
-	common: [loot({ item: Apple }), loot({ item: WoodenBat })],
-	uncommon: undefined,
-	rare: undefined,
-	rarest: [loot({ item: PumpShotgun })]
-})
-
-console.log(exampleLootPool.getRandomDrop()?.item) // random item from loot pool
-console.log(exampleLootPool.getLootPoolDrops().common) // undefined
 

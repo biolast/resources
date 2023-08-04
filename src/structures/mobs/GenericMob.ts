@@ -1,9 +1,7 @@
 import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
-import { MeleeWeapon } from '../items/MeleeWeapon.js'
-import { RangedWeapon } from '../items/RangedWeapon.js'
-import { ItemBase } from '../items/ItemBase.js'
-import { LootPool, getLootPoolItems } from '../../utils.js'
+import { Item, LootPool } from '../LootPool.js'
+import { isRangedWeaponDrop, WeaponPool } from '../WeaponPool.js'
 
 
 export type MobType = 'walker' | 'raider' | 'aggressive animal' | 'passive animal'
@@ -34,7 +32,7 @@ interface RaiderMobInfo extends MobInfoBase {
 		/** Chance the mob is wearing armor (1 - 100%) */
 		chance: number
 	}
-	weaponPool: LootPool<MeleeWeapon | RangedWeapon>
+	weaponPool: WeaponPool
 }
 
 interface ZombieMobInfo extends MobInfoBase {
@@ -65,51 +63,54 @@ export class GenericMob {
 		this.data = data
 	}
 
-	getObtainableItems (): ItemBase[] {
+	getObtainableItems (): Item[] {
 		const obtainableItems = []
-		const scavenge = getLootPoolItems(this.data.loot.pool)
+		const scavenge = this.data.loot.pool.getLootPoolDrops()
 
-		obtainableItems.push(
+		obtainableItems.push(...[
 			...scavenge.common,
 			...scavenge.uncommon,
 			...scavenge.rare,
 			...scavenge.rarest
-		)
+		].map(d => d.item))
 
 		if ('helmet' in this.data && this.data.helmet) {
-			const helmet = getLootPoolItems(this.data.helmet.pool)
-			obtainableItems.push(
+			const helmet = this.data.helmet.pool.getLootPoolDrops()
+			obtainableItems.push(...[
 				...helmet.common,
 				...helmet.uncommon,
 				...helmet.rare,
 				...helmet.rarest
-			)
+			].map(d => d.item))
 		}
 
 		if ('armor' in this.data && this.data.armor) {
-			const armor = getLootPoolItems(this.data.armor.pool)
-			obtainableItems.push(
+			const armor = this.data.armor.pool.getLootPoolDrops()
+			obtainableItems.push(...[
 				...armor.common,
 				...armor.uncommon,
 				...armor.rare,
 				...armor.rarest
-			)
+			].map(d => d.item))
 		}
 
 		if ('weaponPool' in this.data) {
-			const weapon = getLootPoolItems(this.data.weaponPool)
-			const ammo = getLootPoolItems(this.data.weaponPool, true)
+			const weaponDrops = this.data.weaponPool.getLootPoolDrops()
+			const weapons = [
+				...weaponDrops.common,
+				...weaponDrops.uncommon,
+				...weaponDrops.rare,
+				...weaponDrops.rarest
+			]
+			const ammunition = []
 
-			obtainableItems.push(
-				...weapon.common,
-				...weapon.uncommon,
-				...weapon.rare,
-				...weapon.rarest,
-				...ammo.common,
-				...ammo.uncommon,
-				...ammo.rare,
-				...ammo.rarest
-			)
+			for (const weap of weapons) {
+				if (isRangedWeaponDrop(weap)) {
+					ammunition.push(...weap.ammo)
+				}
+			}
+
+			obtainableItems.push(...ammunition, ...weapons.map(d => d.item))
 		}
 
 		return [...new Set(obtainableItems)]

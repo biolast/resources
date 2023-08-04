@@ -3,7 +3,6 @@ import { Chainsaw, FireAxe } from './melee.js'
 
 
 export const WoodLog = new Supply({
-	type: 'Supply',
 	name: 'wood_log',
 	aliases: ['wood'],
 	discordIcon: '<:wood_log:1005187227535560815>',
@@ -11,7 +10,6 @@ export const WoodLog = new Supply({
 })
 
 export const WoodTwig = new Supply({
-	type: 'Supply',
 	name: 'wood_twig',
 	aliases: ['twig'],
 	discordIcon: '<:wood_twig:1007113351006003210>',
@@ -19,7 +17,6 @@ export const WoodTwig = new Supply({
 })
 
 export const Nails = new Supply({
-	type: 'Supply',
 	name: 'nails',
 	aliases: ['nail'],
 	discordIcon: '<:nails:1006847745388191835>',
@@ -27,7 +24,6 @@ export const Nails = new Supply({
 })
 
 export const Lighter = new Supply({
-	type: 'Supply',
 	name: 'lighter',
 	aliases: [],
 	discordIcon: '<:lighter:1006890846622335006>',
@@ -35,7 +31,6 @@ export const Lighter = new Supply({
 })
 
 export const TechTrash = new Supply({
-	type: 'Supply',
 	name: 'tech_trash',
 	aliases: ['tech', 'trash'],
 	description: 'Various bits and gadgets salvaged from computers.',
@@ -46,7 +41,6 @@ export const TechTrash = new Supply({
 
 // craftable supplies
 export const WoodPlank = new Supply({
-	type: 'Supply',
 	name: 'wood_plank',
 	aliases: ['plank'],
 	discordIcon: '<:wood_plank:1009832931805630504>',

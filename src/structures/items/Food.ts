@@ -2,8 +2,6 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
 export class Food<T extends string = string> extends ItemBase<T> {
-	readonly type: 'Food'
-
 	/** How much energy this item provides */
 	readonly energy: number
 	/** The combination of ingredients to cook on campfire that will create this dish (combining is separate from cooking, refer to cooksInto for cooking) */
@@ -12,8 +10,6 @@ export class Food<T extends string = string> extends ItemBase<T> {
 	readonly cooksInto?: Food
 
 	constructor (data: Omit<ItemProperties<T>, 'durability'> & {
-		readonly type: 'Food'
-
 		/** How much energy this item provides */
 		readonly energy: number
 		/** The combination of ingredients to cook on campfire that will create this dish (combining is separate from cooking, refer to cooksInto for cooking) */
@@ -23,7 +19,6 @@ export class Food<T extends string = string> extends ItemBase<T> {
 	}) {
 		super(data)
 
-		this.type = data.type
 		this.energy = data.energy
 		this.recipes = data.recipes
 		this.cooksInto = data.cooksInto

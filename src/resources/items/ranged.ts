@@ -3,7 +3,6 @@ import * as ammunition from './ammunition.js'
 
 
 export const Pistol = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'pistol',
 	discordIcon: '<:glock17:931424425851621417>',
 	aliases: ['glock'],
@@ -11,11 +10,11 @@ export const Pistol = new RangedWeapon({
 	slotsUsed: 2,
 	accuracy: 45,
 	speed: 20,
-	ammo: [ammunition.PistolBullet]
+	ammo: [ammunition.PistolBullet],
+	scavengeLevel: 2
 })
 
 export const SubmachineGun = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'submachine_gun',
 	discordIcon: '<:submachine_gun:1063592662613114923>',
 	aliases: ['submachine', 'smg'],
@@ -23,11 +22,11 @@ export const SubmachineGun = new RangedWeapon({
 	slotsUsed: 3,
 	accuracy: 85,
 	speed: 28,
-	ammo: [ammunition.PistolBullet]
+	ammo: [ammunition.PistolBullet],
+	scavengeLevel: 4
 })
 
 export const DoubleBarrelShotgun = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'double-barrel_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
 	aliases: ['double_barrel_shotgun', 'double_barrel', 'double_shotgun', 'double_shotty', 'db_shotgun', 'db_shotty', 'db'],
@@ -39,7 +38,6 @@ export const DoubleBarrelShotgun = new RangedWeapon({
 })
 
 export const HuntingRifle = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'hunting_rifle',
 	discordIcon: '<:U_rifle:869647344344387624>',
 	aliases: ['hunting'],
@@ -51,7 +49,6 @@ export const HuntingRifle = new RangedWeapon({
 })
 
 export const PumpShotgun = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'pump_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
 	aliases: ['pump_shotty', 'shotty', 'pumpy'],
@@ -63,7 +60,6 @@ export const PumpShotgun = new RangedWeapon({
 })
 
 export const AssaultRifle = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'assault_rifle',
 	discordIcon: '<:ak47:933852988416618496>',
 	aliases: ['ak', 'ak47', 'rifle'],
@@ -75,7 +71,6 @@ export const AssaultRifle = new RangedWeapon({
 })
 
 export const AutoShotgun = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'auto_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
 	aliases: ['auto_shotty'],
@@ -87,7 +82,6 @@ export const AutoShotgun = new RangedWeapon({
 })
 
 export const HeavySniper = new RangedWeapon({
-	type: 'Ranged Weapon',
 	name: 'heavy_sniper',
 	discordIcon: '<:awm:944974499579846718>',
 	aliases: ['awp', 'sniper'],

@@ -3,8 +3,6 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
 export class RangedWeapon<T extends string = string, A extends Ammunition = Ammunition> extends ItemBase<T> {
-	readonly type: 'Ranged Weapon'
-
 	/** Ammo this weapon can fire */
 	readonly ammo: A[]
 	/** The percent chance for this weapon to hit target (0% - 100%) */
@@ -15,8 +13,6 @@ export class RangedWeapon<T extends string = string, A extends Ammunition = Ammu
 	readonly speed: number
 
 	constructor (data: ItemProperties<T> & {
-		readonly type: 'Ranged Weapon'
-
 		/** Ammo this weapon can fire */
 		readonly ammo: A[]
 		/** The percent chance for this weapon to hit target (0% - 100%) */
@@ -28,7 +24,6 @@ export class RangedWeapon<T extends string = string, A extends Ammunition = Ammu
 	}) {
 		super(data)
 
-		this.type = data.type
 		this.ammo = data.ammo
 		this.accuracy = data.accuracy
 		this.durability = data.durability

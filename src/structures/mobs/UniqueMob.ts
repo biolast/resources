@@ -2,8 +2,7 @@ import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
 import { RangedWeapon } from '../items/RangedWeapon.js'
-import { ItemBase } from '../items/ItemBase.js'
-import { LootPool, getLootPoolItems } from '../../utils.js'
+import { Item, LootPool } from '../LootPool.js'
 import { MobType } from './GenericMob.js'
 
 
@@ -13,7 +12,7 @@ interface MobInfoBase {
 	name: string
 	/** Items the mob has in their inventory */
 	inventory: {
-		item: ItemBase
+		item: Item
 		amount: number
 		durability?: number
 	}[]
@@ -83,7 +82,7 @@ export class UniqueMob {
 		this.data = data
 	}
 
-	getObtainableItems (): ItemBase[] {
+	getObtainableItems (): Item[] {
 		const obtainableItems = []
 
 		for (const itemAmnt of this.data.inventory) {
@@ -103,14 +102,14 @@ export class UniqueMob {
 		}
 
 		if (this.data.generatedLoot) {
-			const weapon = getLootPoolItems(this.data.generatedLoot.pool)
+			const weapon = this.data.generatedLoot.pool.getLootPoolDrops()
 
-			obtainableItems.push(
+			obtainableItems.push(...[
 				...weapon.common,
 				...weapon.uncommon,
 				...weapon.rare,
 				...weapon.rarest
-			)
+			].map(d => d.item))
 		}
 
 		return [...new Set(obtainableItems)]
