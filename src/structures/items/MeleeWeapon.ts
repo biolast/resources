@@ -1,7 +1,7 @@
-import { Item, ItemProperties } from './Item.js'
+import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class MeleeWeapon<T extends string = string> extends Item<T> {
+export class MeleeWeapon<T extends string = string> extends ItemBase<T> {
 	readonly type: 'Melee Weapon'
 
 	/** The amount of damage this melee weapon deals when used */

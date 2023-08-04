@@ -8,16 +8,15 @@ export type ItemType = 'Ranged Weapon'
 	| 'Ammunition'
 	| 'Medical'
 	| 'Backpack'
-	| 'Collectible'
 	| 'Throwable Weapon'
 	| 'Food'
 	| 'Supply'
 
 export interface CraftingRecipe {
 	/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
-	readonly possibleTools: Item[]
+	readonly possibleTools: ItemBase[]
 	readonly supplies: {
-		readonly item: Item
+		readonly item: ItemBase
 		readonly amount: number
 	}[]
 	/** How much of the item this recipe creates */
@@ -30,8 +29,8 @@ export interface ItemProperties<T extends string = string> {
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
 
-	/** level this item can *normally* be obtained at */
-	readonly level?: number // TODO make this required
+	/** level this item can be scavenged at (or undefined if it can't be scavenged) */
+	readonly scavengeLevel?: number
 	/** Other names that will be resolved to this item */
 	readonly aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
@@ -42,15 +41,15 @@ export interface ItemProperties<T extends string = string> {
 	readonly durability?: number
 }
 
-export class Item<T extends string = string> {
+export abstract class ItemBase<T extends string = string> {
 	private _image?: string
 	readonly type: ItemType
 	readonly name: T
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
 
-	/** level this item can *normally* be obtained at */
-	readonly level?: number // TODO make this required
+	/** level this item can be scavenged at (or undefined if it can't be scavenged) */
+	readonly scavengeLevel?: number
 	/** Other names that will be resolved to this item */
 	readonly aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
@@ -65,7 +64,7 @@ export class Item<T extends string = string> {
 		this.name = data.name
 		this.description = data.description
 		this.craftingRecipes = data.craftingRecipes
-		this.level = data.level
+		this.scavengeLevel = data.scavengeLevel
 		this.aliases = data.aliases
 		this.discordIcon = data.discordIcon
 		this.slotsUsed = data.slotsUsed

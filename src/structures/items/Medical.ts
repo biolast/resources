@@ -1,7 +1,7 @@
-import { Item, ItemProperties } from './Item.js'
+import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class Medical<T extends string = string> extends Item<T> {
+export class Medical<T extends string = string> extends ItemBase<T> {
 	readonly type: 'Medical'
 
 	/** How many times this item can be used to heal before it breaks. Leave undefined if this item is single-use */

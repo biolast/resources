@@ -1,9 +1,7 @@
-import { Item, ItemProperties } from './Item.js'
+import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class Ammunition<T extends string = string> extends Item<T> {
-	readonly type: 'Ammunition'
-
+export class Ammunition<T extends string = string> extends ItemBase<T> {
 	/** Damage expected from this round if shot at the targets CHEST, head shots will do 1.5x damage, arms and legs do 0.5x damage */
 	readonly damage: number
 	/**
@@ -16,8 +14,6 @@ export class Ammunition<T extends string = string> extends Item<T> {
 	readonly spreadsDamageToLimbs?: 2 | 3 | 4
 
 	constructor (data: Omit<ItemProperties<T>, 'durability'> & {
-		readonly type: 'Ammunition'
-
 		/** Damage expected from this round if shot at the targets CHEST, head shots will do 1.5x damage, arms and legs do 0.5x damage */
 		readonly damage: number
 		/**
@@ -31,7 +27,6 @@ export class Ammunition<T extends string = string> extends Item<T> {
 	}) {
 		super(data)
 
-		this.type = data.type
 		this.damage = data.damage
 		this.penetration = data.penetration
 		this.spreadsDamageToLimbs = data.spreadsDamageToLimbs

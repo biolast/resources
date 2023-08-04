@@ -1,8 +1,8 @@
 import { Ammunition } from './Ammunition.js'
-import { Item, ItemProperties } from './Item.js'
+import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class RangedWeapon<T extends string = string, A extends Ammunition = Ammunition> extends Item<T> {
+export class RangedWeapon<T extends string = string, A extends Ammunition = Ammunition> extends ItemBase<T> {
 	readonly type: 'Ranged Weapon'
 
 	/** Ammo this weapon can fire */

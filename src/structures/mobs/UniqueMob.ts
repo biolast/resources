@@ -2,7 +2,7 @@ import { BodyArmor } from '../items/BodyArmor.js'
 import { Helmet } from '../items/Helmet.js'
 import { MeleeWeapon } from '../items/MeleeWeapon.js'
 import { RangedWeapon } from '../items/RangedWeapon.js'
-import { Item } from '../items/Item.js'
+import { ItemBase } from '../items/ItemBase.js'
 import { LootPool, getLootPoolItems } from '../../utils.js'
 import { MobType } from './GenericMob.js'
 
@@ -13,7 +13,7 @@ interface MobInfoBase {
 	name: string
 	/** Items the mob has in their inventory */
 	inventory: {
-		item: Item
+		item: ItemBase
 		amount: number
 		durability?: number
 	}[]
@@ -83,7 +83,7 @@ export class UniqueMob {
 		this.data = data
 	}
 
-	getObtainableItems (): Item[] {
+	getObtainableItems (): ItemBase[] {
 		const obtainableItems = []
 
 		for (const itemAmnt of this.data.inventory) {

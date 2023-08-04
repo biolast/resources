@@ -1,5 +1,7 @@
 export * from './names.js'
 
+export type NonEmptyArray<T> = [T, ...T[]]
+
 /** the default storage space for player inventories */
 export const DEFAULT_BACKPACK_LIMIT = 15.0
 

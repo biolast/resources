@@ -1,7 +1,7 @@
-import { Item, ItemProperties } from './Item.js'
+import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class Helmet<T extends string = string> extends Item<T> {
+export class Helmet<T extends string = string> extends ItemBase<T> {
 	readonly type: 'Helmet'
 
 	/** How many times this armor can be shot before it breaks */

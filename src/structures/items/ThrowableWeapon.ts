@@ -1,7 +1,7 @@
-import { Item, ItemProperties } from './Item.js'
+import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class ThrowableWeapon<T extends string = string> extends Item<T> {
+export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 	type: 'Throwable Weapon'
 	subtype: 'Fragmentation Grenade' | 'Incendiary Grenade'
 	durability: 1

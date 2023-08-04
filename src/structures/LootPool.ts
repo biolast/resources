@@ -1,43 +1,30 @@
 import { PumpShotgun } from '../resources/items/ranged.js'
 import { Apple } from '../resources/items/foods.js'
-import { Shotgun12GaugeSlug } from '../resources/items/ammunition.js'
 import { Ammunition, Backpack, BodyArmor, Food, Helmet, Medical, MeleeWeapon, Supply, ThrowableWeapon } from '../index.js'
 import { WoodenBat } from '../resources/items/melee.js'
+import { NonEmptyArray } from '../resources/constants.js'
 import { RangedWeapon } from './items/RangedWeapon.js'
-import { Item, ItemType } from './items/Item.js'
 
 
-type ItemTypeToClass<I extends ItemType, Name extends string = string> = I extends 'Ammunition' ? Ammunition<Name> :
-	I extends 'Body Armor' ? BodyArmor<Name> :
-		I extends 'Backpack' ? Backpack<Name> :
-			I extends 'Food' ? Food<Name> :
-				I extends 'Helmet' ? Helmet<Name> :
-					I extends 'Medical' ? Medical<Name> :
-						I extends 'Melee Weapon' ? MeleeWeapon<Name> :
-							I extends 'Ranged Weapon' ? RangedWeapon<Name> :
-								I extends 'Supply' ? Supply<Name> :
-									I extends 'Throwable Weapon' ? ThrowableWeapon<Name> :
-										never
+export type Item<Name extends string = string> = Ammunition<Name>
+	| BodyArmor<Name>
+	| Backpack<Name>
+	| Food<Name>
+	| Helmet<Name>
+	| Medical<Name>
+	| MeleeWeapon<Name>
+	| RangedWeapon<Name>
+	| Supply<Name>
+	| ThrowableWeapon<Name>
 
-type ItemDrop<T extends Item = Item> = T extends RangedWeapon ? { item: T, ammo: T['ammo'][number] } : { item: T }
-type ItemDropExistential<I extends ItemType, Itm extends Item & { type: I } = Item & { type: I }> = <R>(cb: <T extends Itm>(drop: ItemDrop<T>) => R) => R
+export type ItemDrop<T extends Item = Item> = { item: T }
+export type ItemDropExistential<I extends Item, DropType extends ItemDrop<I> = ItemDrop<I>> = <R>(cb: <T extends DropType>(drop: T) => R) => R
 
 /**
- * Extracts {@link ItemType} from {@link ItemDropExistential}
+ * Extracts {@link Item} from {@link ItemDropExistential}
  */
-type ExistentialItemType<T> = T extends ItemDropExistential<infer Type>[] ? Type : never
-
-export interface PossibleItemDrops<
-	C extends ItemDropExistential<ItemType>[],
-	U extends ItemDropExistential<ItemType>[] | undefined,
-	R extends ItemDropExistential<ItemType>[] | undefined,
-	Rrest extends ItemDropExistential<ItemType>[] | undefined
-> {
-	readonly common: (ItemTypeToClass<ExistentialItemType<C>> & { type: ExistentialItemType<C> })[]
-	readonly uncommon: U extends undefined ? U : (ItemTypeToClass<ExistentialItemType<U>> & { type: ExistentialItemType<U> })[]
-	readonly rare: R extends undefined ? R : (ItemTypeToClass<ExistentialItemType<R>> & { type: ExistentialItemType<R> })[]
-	readonly rarest: Rrest extends undefined ? Rrest : (ItemTypeToClass<ExistentialItemType<Rrest>> & { type: ExistentialItemType<Rrest> })[]
-}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type ExistentialToItemDrops<T> = T extends ItemDropExistential<infer Itm, infer ItmDrop>[] ? ItmDrop[] : never
 
 /**
  *
@@ -46,22 +33,42 @@ export interface PossibleItemDrops<
  * loot({ item: Apple })
  * loot({ item: Pistol })
  */
-export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T['type']> => cb => cb(drop)
+export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T> => cb => cb(drop)
 
+/**
+ * used to roll random items based on their rarity
+ *
+ * @example
+ * const pool = new LootPool({
+ *		common: [loot({ item: Apple }), loot({ item: HeavyJacket })],
+ *		uncommon: [loot({ item: WoodenBat })],
+ *		rare: undefined,
+ *		rarest: [loot({ item: PumpShotgun })]
+ *	})
+ *
+ * console.log(pool.getRandomDrop()?.item) // random item from the pool
+ */
 export class LootPool<
-	C extends ItemDropExistential<ItemType>[] = ItemDropExistential<ItemType>[],
-	U extends ItemDropExistential<ItemType>[] | undefined = ItemDropExistential<ItemType>[],
-	R extends ItemDropExistential<ItemType>[] | undefined = ItemDropExistential<ItemType>[],
-	Rrest extends ItemDropExistential<ItemType>[] | undefined = ItemDropExistential<ItemType>[]
+	LimitItemsToType extends Item = Item,
+	Common extends Item = LimitItemsToType, // holds types for common items
+	Uncommon extends Item = LimitItemsToType, // holds types for uncommon items
+	Rare extends Item = LimitItemsToType, // holds types for rare items
+	Rarest extends Item = LimitItemsToType, // holds types for rarest items
+	C extends NonEmptyArray<ItemDropExistential<Common>> = NonEmptyArray<ItemDropExistential<Common>>,
+	U extends NonEmptyArray<ItemDropExistential<Uncommon>> | undefined = NonEmptyArray<ItemDropExistential<Uncommon>>,
+	R extends NonEmptyArray<ItemDropExistential<Rare>> | undefined = NonEmptyArray<ItemDropExistential<Rare>>,
+	Rrest extends NonEmptyArray<ItemDropExistential<Rarest>> | undefined = NonEmptyArray<ItemDropExistential<Rarest>>
 > {
-	private readonly common: C
-	private readonly uncommon: U
-	private readonly rare: R
-	private readonly rarest: Rrest
+	protected readonly common: C
+	protected readonly uncommon: U
+	protected readonly rare: R
+	protected readonly rarest: Rrest
 
 	constructor (data: {
 		/**
 		 * array of loot that can be rolled (60% chance to roll)
+		 *
+		 * make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
 		 * common: [loot({ item: Apple }), loot({ item: Pistol })]
@@ -70,6 +77,8 @@ export class LootPool<
 		/**
 		 * array of loot that can be rolled (25% chance to roll)
 		 *
+		 * make sure to enclose each drop inside of the {@link loot()} function
+		 *
 		 * @example
 		 * uncommon: [loot({ item: Apple }), loot({ item: Pistol })]
 		 */
@@ -77,12 +86,16 @@ export class LootPool<
 		/**
 		 * array of loot that can be rolled (10% chance to roll)
 		 *
+		 * make sure to enclose each drop inside of the {@link loot()} function
+		 *
 		 * @example
 		 * rare: [loot({ item: Apple }), loot({ item: Pistol })]
 		 */
 		readonly rare: R
 		/**
 		 * array of loot that can be rolled (5% chance to roll)
+		 *
+		 * make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
 		 * rarest: [loot({ item: Apple }), loot({ item: Pistol })]
@@ -95,62 +108,72 @@ export class LootPool<
 		this.rarest = data.rarest
 	}
 
-	getLootPoolItems (): PossibleItemDrops<C, U, R, Rrest> {
-		const commonItems = this.common.map(drop => drop(i => i.item))
+	getLootPoolDrops (): {
+		common: ExistentialToItemDrops<C>
+		uncommon: ExistentialToItemDrops<U>
+		rare: ExistentialToItemDrops<R>
+		rarest: ExistentialToItemDrops<Rrest>
+	} {
+		const commonItems = this.common.map(drop => drop(i => i))
 		let uncommonItems
 		let rareItems
 		let rarestItems
 
 		if (this.uncommon) {
-			uncommonItems = this.uncommon.map(drop => drop(i => i.item))
+			uncommonItems = this.uncommon.map(drop => drop(i => i))
 		}
 
 		if (this.rare) {
-			rareItems = this.rare.map(drop => drop(i => i.item))
+			rareItems = this.rare.map(drop => drop(i => i))
 		}
 
 		if (this.rarest) {
-			rarestItems = this.rarest.map(drop => drop(i => i.item))
+			rarestItems = this.rarest.map(drop => drop(i => i))
 		}
 
 		return {
-			common: commonItems,
-			uncommon: uncommonItems,
-			rare: rareItems,
-			rarest: rarestItems
-		} as PossibleItemDrops<C, U, R, Rrest>
+			common: commonItems as ExistentialToItemDrops<C>,
+			uncommon: uncommonItems as ExistentialToItemDrops<U>,
+			rare: rareItems as ExistentialToItemDrops<R>,
+			rarest: rarestItems as ExistentialToItemDrops<Rrest>
+		}
 	}
 
-	getRandomItem (): {
+	/**
+	 * retrieves a random {@link ItemDrop} from the loot pool
+	 *
+	 * @example
+	 * exampleLootPool.getRandomDrop()?.rarity
+	 * exampleLootPool.getRandomDrop()?.item
+	 */
+	getRandomDrop (): {
 		rarity: 'Common' | 'Uncommon' | 'Rare' | 'Insanely Rare'
-		item: ItemTypeToClass<ExistentialItemType<C | U | R | Rrest>> & { type: ExistentialItemType<C | U | R | Rrest> }
-	} | undefined {
-		const possibleItems = this.getLootPoolItems()
+	} & (ExistentialToItemDrops<C>[number] | ExistentialToItemDrops<U>[number] | ExistentialToItemDrops<R>[number] | ExistentialToItemDrops<Rrest>[number]) | undefined {
+		const possibleItems = this.getLootPoolDrops()
 		const rand = Math.floor((Math.random() * 100) + 1) // generate random number 1 - 100 (inclusive) could make this more secure in the future?
 
 		if (possibleItems.rarest?.length && rand <= 5) {
 			return {
 				rarity: 'Insanely Rare',
-				item: possibleItems.rarest[Math.floor(Math.random() * possibleItems.rarest.length)] as ItemTypeToClass<ExistentialItemType<Rrest>> & { type: ExistentialItemType<Rrest> }
+				...possibleItems.rarest[Math.floor(Math.random() * possibleItems.rarest.length)] as ExistentialToItemDrops<Rrest>[number]
 			}
 		}
 		else if (possibleItems.rare?.length && rand > 5 && rand <= 15) {
 			return {
 				rarity: 'Rare',
-				item: possibleItems.rare[Math.floor(Math.random() * possibleItems.rare.length)] as ItemTypeToClass<ExistentialItemType<R>> & { type: ExistentialItemType<R> }
+				...possibleItems.rare[Math.floor(Math.random() * possibleItems.rare.length)] as ExistentialToItemDrops<R>[number]
 			}
 		}
 		else if (possibleItems.uncommon?.length && rand > 15 && rand <= 40) {
-			const drop = possibleItems.uncommon[Math.floor(Math.random() * possibleItems.uncommon.length)] as ItemTypeToClass<ExistentialItemType<U>> & { type: ExistentialItemType<U> }
 			return {
 				rarity: 'Uncommon',
-				item: drop
+				...possibleItems.uncommon[Math.floor(Math.random() * possibleItems.uncommon.length)] as ExistentialToItemDrops<U>[number]
 			}
 		}
 		else if (possibleItems.common.length) {
 			return {
 				rarity: 'Common',
-				item: possibleItems.common[Math.floor(Math.random() * possibleItems.common.length)] as ItemTypeToClass<ExistentialItemType<C>> & { type: ExistentialItemType<C> }
+				...possibleItems.common[Math.floor(Math.random() * possibleItems.common.length)] as ExistentialToItemDrops<C>[number]
 			}
 		}
 	}
@@ -158,13 +181,12 @@ export class LootPool<
 
 
 const exampleLootPool = new LootPool({
-	common: [loot({ item: Apple })],
-	uncommon: [loot({ item: WoodenBat })],
+	common: [loot({ item: Apple }), loot({ item: WoodenBat })],
+	uncommon: undefined,
 	rare: undefined,
-	rarest: [loot({ item: PumpShotgun, ammo: Shotgun12GaugeSlug })]
+	rarest: [loot({ item: PumpShotgun })]
 })
 
-console.log(exampleLootPool.getRandomItem()?.item) // random item from loot pool
-console.log(exampleLootPool.getLootPoolItems().common) // array of items with type "Melee Weapon" or "Food"
-console.log(exampleLootPool.getLootPoolItems().rare) // undefined
+console.log(exampleLootPool.getRandomDrop()?.item) // random item from loot pool
+console.log(exampleLootPool.getLootPoolDrops().common) // undefined
 
