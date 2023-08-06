@@ -14,7 +14,18 @@ export type Item<Name extends string = string> = Ammunition<Name>
 	| Supply<Name>
 	| ThrowableWeapon<Name>
 
-export type ItemDrop<T extends Item = Item> = { item: T }
+export type ItemDrop<T extends Item = Item> = T['durability'] extends number ?
+	{
+		item: T
+		durability: {
+			min: number
+			max: number
+		}
+	} :
+	{
+		item: T
+	}
+
 export type ItemDropExistential<I extends Item, DropType extends ItemDrop<I> = ItemDrop<I>> = <R>(cb: <T extends DropType>(drop: T) => R) => R
 
 /**
@@ -28,7 +39,7 @@ type ExistentialToItemDrops<T> = T extends ItemDropExistential<infer Itm, infer 
  * @param drop Object containing item property
  * @example
  * loot({ item: Apple })
- * loot({ item: Pistol })
+ * loot({ item: Pistol, durability: { min: 3, max: 6 } })
  */
 export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T> => cb => cb(drop)
 
@@ -37,7 +48,7 @@ export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T> 
  *
  * @example
  * const pool = new LootPool({
- *		common: [loot({ item: Apple }), loot({ item: HeavyJacket })],
+ *		common: [loot({ item: Apple }), loot({ item: HeavyJacket, durability: 4 })],
  *		uncommon: [loot({ item: WoodenBat })],
  *		rare: undefined,
  *		rarest: [loot({ item: PumpShotgun })]
@@ -175,4 +186,3 @@ export class LootPool<
 		}
 	}
 }
-

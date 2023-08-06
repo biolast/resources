@@ -17,8 +17,8 @@ type RangedWeaponDrop<T extends RangedWeapon = RangedWeapon> = ItemDrop<T> & {
  *
  * @param drop Object containing item property, ammo is required for ranged weapons
  * @example
- * weapon({ item: WoodenBat })
- * weapon({ item: Pistol, ammo: [PistolBullet] })
+ * weapon({ item: WoodenBat, durability: { min: 4, max: 8 } })
+ * weapon({ item: Pistol, ammo: [PistolBullet], durability: { min: 6, max: 8 } })
  */
 export const weapon = <T extends Weapon>(drop: WeaponDrop<T>): ItemDropExistential<T, WeaponDrop<T>> => cb => cb(drop)
 
@@ -29,10 +29,10 @@ export const isRangedWeaponDrop = (d: ItemDrop): d is RangedWeaponDrop => 'ammo'
  *
  * @example
  * const pool = new WeaponPool({
- *		common: [weapon({ item: WoodenBat }), weapon({ item: Fork })],
- *		uncommon: [weapon({ item: FireAxe })],
+ *		common: [weapon({ item: WoodenBat, durability: { min: 6, max: 8 } }), weapon({ item: Fork })],
+ *		uncommon: [weapon({ item: FireAxe, durability: { min: 1, max: 4 } })],
  *		rare: undefined,
- *		rarest: [weapon({ item: PumpShotgun, ammo: [Shotgun12GaugeSlug] })]
+ *		rarest: [weapon({ item: PumpShotgun, ammo: [Shotgun12GaugeSlug], durability: { min: 10, max: 15 } })]
  *	})
  *
  * console.log(pool.getRandomDrop()?.item) // random weapon from the pool

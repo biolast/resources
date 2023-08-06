@@ -1,5 +1,4 @@
-import { allItems } from '../src/index.js'
-import { Food } from '../src/structures/items/Food.js'
+import { allItems, Food } from '../src/index.js'
 
 
 const aliases: string[] = []
