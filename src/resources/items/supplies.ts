@@ -1,6 +1,15 @@
 import { Supply } from '../../structures/items/Supply.js'
 import { Chainsaw, FireAxe } from './melee.js'
+import { CanOpener } from './tools.js'
 
+
+export const CannedCorn = new Supply({
+	name: 'canned_corn',
+	description: `Can be opened using a ${CanOpener.discordIcon} \`${CanOpener.toString()}\``,
+	discordIcon: undefined,
+	aliases: ['canned_food'],
+	slotsUsed: 1
+})
 
 export const WoodLog = new Supply({
 	name: 'wood_log',
@@ -35,13 +44,6 @@ export const Nails = new Supply({
 	aliases: ['nail'],
 	discordIcon: '<:nails:1006847745388191835>',
 	slotsUsed: 0.5
-})
-
-export const Lighter = new Supply({
-	name: 'lighter',
-	aliases: [],
-	discordIcon: '<:lighter:1006890846622335006>',
-	slotsUsed: 1
 })
 
 export const TechTrash = new Supply({

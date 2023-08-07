@@ -73,7 +73,9 @@ export abstract class ItemBase<T extends string = string> {
 		return this._image
 	}
 
-	toString () {
-		return this.name
+	toString (displayName?: string, options: Partial<{ showDisplayName: boolean }> = {}): string {
+		const { showDisplayName = true } = options
+
+		return showDisplayName && displayName ? displayName : this.name.replace(/_/g, ' ')
 	}
 }

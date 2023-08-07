@@ -1,4 +1,5 @@
 import { BodyArmor } from '../../structures/items/BodyArmor.js'
+import { Fabric, WoodPlank } from './supplies.js'
 
 
 export const HeavyJacket = new BodyArmor({
@@ -8,7 +9,19 @@ export const HeavyJacket = new BodyArmor({
 	durability: 7,
 	protectionLevel: 1,
 	slotsUsed: 2,
-	scavengeLevel: 1
+	scavengeLevel: 1,
+	craftingRecipes: [
+		{
+			levelRequired: 1,
+			supplies: [
+				{
+					item: Fabric,
+					amount: 4
+				}
+			],
+			yield: 1
+		}
+	]
 })
 
 export const WoodenArmor = new BodyArmor({
@@ -18,16 +31,32 @@ export const WoodenArmor = new BodyArmor({
 	durability: 9,
 	protectionLevel: 2,
 	slotsUsed: 3,
-	scavengeLevel: 2
+	scavengeLevel: 2,
+	craftingRecipes: [
+		{
+			levelRequired: 2,
+			supplies: [
+				{
+					item: Fabric,
+					amount: 4
+				},
+				{
+					item: WoodPlank,
+					amount: 2
+				}
+			],
+			yield: 1
+		}
+	]
 })
 
 export const LightArmor = new BodyArmor({
 	name: 'light_armor',
 	discordIcon: '<:aramid_armor:931433099705860107>',
 	aliases: ['lightweight', 'level_3_armor', 'light'],
-	durability: 10,
+	durability: 14,
 	protectionLevel: 3,
-	slotsUsed: 2,
+	slotsUsed: 3,
 	scavengeLevel: 3
 })
 
@@ -36,9 +65,9 @@ export const SwatArmor = new BodyArmor({
 	discordIcon: '<:swat_armor:1062852232103604346>',
 	description: 'Steel body armor that looks like it can stop a couple of bullets',
 	aliases: ['swat', 'level_4_armor', 'steel_armor'],
-	durability: 11,
+	durability: 15,
 	protectionLevel: 4,
-	slotsUsed: 3,
+	slotsUsed: 4,
 	scavengeLevel: 4
 })
 
@@ -46,9 +75,9 @@ export const MilitaryArmor = new BodyArmor({
 	name: 'military_armor',
 	discordIcon: '<:military_armor:1062852231478657094>',
 	aliases: ['mili_armor', 'military', 'level_5_armor'],
-	durability: 14,
+	durability: 20,
 	protectionLevel: 5,
-	slotsUsed: 4,
+	slotsUsed: 5,
 	scavengeLevel: 5
 })
 
@@ -59,6 +88,6 @@ export const PolyethyleneArmor = new BodyArmor({
 	description: 'Polyethylene (UHMWPE) is designed to have better stopping power and weigh less than steel.',
 	durability: 25,
 	protectionLevel: 6,
-	slotsUsed: 2,
+	slotsUsed: 3,
 	scavengeLevel: undefined
 })

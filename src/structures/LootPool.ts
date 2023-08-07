@@ -1,6 +1,7 @@
 import { Ammunition, Backpack, BodyArmor, Food, Helmet, Medical, MeleeWeapon, Supply, ThrowableWeapon } from '../index.js'
 import { NonEmptyArray } from '../resources/constants.js'
 import { RangedWeapon } from './items/RangedWeapon.js'
+import { Tool } from './items/Tool.js'
 
 
 export type Item<Name extends string = string> = Ammunition<Name>
@@ -13,6 +14,7 @@ export type Item<Name extends string = string> = Ammunition<Name>
 	| RangedWeapon<Name>
 	| Supply<Name>
 	| ThrowableWeapon<Name>
+	| Tool<Name>
 
 export type ItemDrop<T extends Item = Item> = T['durability'] extends number ?
 	{

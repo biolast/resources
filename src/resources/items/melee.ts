@@ -1,4 +1,6 @@
 import { MeleeWeapon } from '../../structures/items/MeleeWeapon.js'
+import { Nails } from './supplies.js'
+import { Hammer } from './tools.js'
 
 
 export const WoodenBat = new MeleeWeapon({
@@ -14,43 +16,41 @@ export const WoodenBat = new MeleeWeapon({
 	scavengeLevel: 1
 })
 
-export const MetalBat = new MeleeWeapon({
-	name: 'metal_bat',
-	discordIcon: '<:metal_bat:933850956796420096>',
-	aliases: [],
+export const Shank = new MeleeWeapon({
+	name: 'shank',
+	discordIcon: '<:metal_shank:931835720908296212>',
+	aliases: ['metal_shank'],
+	durability: 6,
+	slotsUsed: 1,
+	accuracy: 20,
+	damage: 10,
+	penetration: 0.8,
+	speed: 30
+})
+
+export const MetalPipe = new MeleeWeapon({
+	name: 'metal_pipe',
+	discordIcon: undefined,
+	aliases: ['pipe'],
 	durability: 10,
 	slotsUsed: 3,
 	accuracy: 40,
-	damage: 10,
+	damage: 15,
 	penetration: 0.8,
-	speed: 9,
+	speed: 4,
 	scavengeLevel: 2
 })
 
-export const Hammer = new MeleeWeapon({
-	name: 'hammer',
-	discordIcon: '<:hammer_tool:1006841288403988560>',
-	description: 'Useful for building.',
-	aliases: [],
-	durability: 7,
-	slotsUsed: 1,
-	accuracy: 40,
-	damage: 11,
-	penetration: 0.7,
-	speed: 11,
-	scavengeLevel: 2
-})
-
-export const Scythe = new MeleeWeapon({
-	name: 'scythe',
-	discordIcon: '<:scythe:930978902132789278>',
+export const MetalBat = new MeleeWeapon({
+	name: 'metal_bat',
+	discordIcon: '<:metal_bat:933850956796420096>',
 	aliases: [],
 	durability: 9,
 	slotsUsed: 3,
 	accuracy: 70,
 	damage: 15,
-	penetration: 0.75,
-	speed: 4,
+	penetration: 0.8,
+	speed: 9,
 	scavengeLevel: 2
 })
 
@@ -158,14 +158,33 @@ export const PoliceBaton = new MeleeWeapon({
 	speed: 8
 })
 
-export const Shank = new MeleeWeapon({
-	name: 'shank',
-	discordIcon: '<:metal_shank:931835720908296212>',
-	aliases: ['metal_shank'],
-	durability: 6,
-	slotsUsed: 1,
-	accuracy: 80,
-	damage: 25,
-	penetration: 2.7,
-	speed: 30
+
+// craftable weapons
+export const SpikedWoodenBat = new MeleeWeapon({
+	name: 'spiked_wooden_bat',
+	discordIcon: undefined,
+	aliases: ['spiked_bat', 'nail_bat', 'spiky_bat'],
+	durability: 10,
+	slotsUsed: 3,
+	accuracy: 45,
+	damage: 18,
+	penetration: 1.0,
+	speed: 9,
+	craftingRecipes: [
+		{
+			levelRequired: 2,
+			possibleTools: [Hammer],
+			supplies: [
+				{
+					item: WoodenBat,
+					amount: 1
+				},
+				{
+					item: Nails,
+					amount: 2
+				}
+			],
+			yield: 1
+		}
+	]
 })

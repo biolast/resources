@@ -1,4 +1,6 @@
 import { Food } from '../../structures/items/Food.js'
+import { CannedCorn } from './supplies.js'
+import { CanOpener } from './tools.js'
 
 
 export const Apple = new Food({
@@ -10,21 +12,12 @@ export const Apple = new Food({
 	scavengeLevel: 1
 })
 
-export const Corn = new Food({
-	name: 'corn',
-	discordIcon: '<:corn_food:931425274720051231>',
+export const RoastedCorn = new Food({
+	name: 'roasted_corn',
+	discordIcon: undefined,
 	aliases: [],
 	slotsUsed: 1,
-	energy: 3,
-	scavengeLevel: 1
-})
-
-export const CannedMeat = new Food({
-	name: 'canned_meat',
-	discordIcon: '<:canned_meat:1061630553834651741>',
-	aliases: ['canned_food', 'can_meat'],
-	slotsUsed: 1,
-	energy: 5,
+	energy: 13,
 	scavengeLevel: 1
 })
 
@@ -33,12 +26,35 @@ export const CookedAnimalMeat = new Food({
 	discordIcon: '<:cooked_meat:1062014892456026144>',
 	aliases: ['steak', 'beef'],
 	slotsUsed: 1,
-	energy: 10,
+	energy: 15,
 	scavengeLevel: 1
 })
 
 
 // cookable foods
+export const Corn = new Food({
+	name: 'corn',
+	discordIcon: '<:corn_food:931425274720051231>',
+	aliases: [],
+	slotsUsed: 1,
+	energy: 8,
+	scavengeLevel: 1,
+	cooksInto: RoastedCorn,
+	craftingRecipes: [
+		{
+			levelRequired: 1,
+			possibleTools: [CanOpener],
+			supplies: [
+				{
+					item: CannedCorn,
+					amount: 1
+				}
+			],
+			yield: 1
+		}
+	]
+})
+
 export const RawAnimalMeat = new Food({
 	name: 'raw_animal_meat',
 	description: 'Probably best not to eat raw food.',
