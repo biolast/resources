@@ -3,7 +3,6 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 	type: 'Fragmentation Grenade' | 'Incendiary Grenade'
-	durability: 1
 
 	/** The amount of damage this weapon deals when used */
 	damage: number
@@ -17,7 +16,7 @@ export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 	 * Otherwise, the damage will be reduced based on the difference between this number and the victims armor level.
 	 */
 	penetration: number
-	/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+	/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 	speed: number
 
 	constructor (data: Omit<ItemProperties<T>, 'durability'> & {
@@ -35,13 +34,12 @@ export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 		 * Otherwise, the damage will be reduced based on the difference between this number and the victims armor level.
 		 */
 		penetration: number
-		/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+		/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 		speed: number
 	}) {
 		super(data)
 
 		this.type = data.type
-		this.durability = 1
 		this.damage = data.damage
 		this.accuracy = data.accuracy
 		this.spreadsDamageToLimbs = data.spreadsDamageToLimbs

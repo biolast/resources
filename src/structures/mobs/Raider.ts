@@ -6,19 +6,19 @@ import { MobBase, MobProperties } from './MobBase.js'
 
 
 export class Raider extends MobBase {
-	/** pool of possible helmets mob can wear */
+	/** {@link LootPool} of possible helmets mob can wear */
 	helmet: LootPool<Helmet>
-	/** pool of possible armor mob can wear */
+	/** {@link LootPool} of possible armor mob can wear */
 	armor: LootPool<BodyArmor>
-	/** pool of possible weapons this raider can use */
+	/** {@link WeaponPool} of possible weapons this raider can use */
 	weapon: WeaponPool
 
 	constructor (data: MobProperties & {
-		/** pool of possible helmets mob can wear */
+		/** {@link LootPool} of possible helmets mob can wear */
 		helmet: LootPool<Helmet>
-		/** pool of possible armor mob can wear */
+		/** {@link LootPool} of possible armor mob can wear */
 		armor: LootPool<BodyArmor>
-		/** pool of possible weapons this raider can use */
+		/** {@link WeaponPool} of possible weapons this raider can use */
 		weapon: WeaponPool
 	}) {
 		super(data)

@@ -1,25 +1,12 @@
 import { MeleeWeapon } from '../../structures/items/MeleeWeapon.js'
 
 
-export const Fork = new MeleeWeapon({
-	name: 'fork',
-	discordIcon: '<:fork:931424880417726465>',
-	aliases: [],
-	durability: 2,
-	slotsUsed: 1,
-	accuracy: 40,
-	damage: 5,
-	penetration: 0.7,
-	speed: 9,
-	scavengeLevel: 1
-})
-
 export const WoodenBat = new MeleeWeapon({
 	name: 'wooden_bat',
 	discordIcon: '<:wooden_bat:933850956481826968>',
 	aliases: ['bat'],
 	durability: 8,
-	slotsUsed: 1,
+	slotsUsed: 3,
 	accuracy: 45,
 	damage: 10,
 	penetration: 0.5,
@@ -30,9 +17,9 @@ export const WoodenBat = new MeleeWeapon({
 export const MetalBat = new MeleeWeapon({
 	name: 'metal_bat',
 	discordIcon: '<:metal_bat:933850956796420096>',
-	aliases: ['metal'],
+	aliases: [],
 	durability: 10,
-	slotsUsed: 1,
+	slotsUsed: 3,
 	accuracy: 40,
 	damage: 10,
 	penetration: 0.8,
@@ -59,7 +46,7 @@ export const Scythe = new MeleeWeapon({
 	discordIcon: '<:scythe:930978902132789278>',
 	aliases: [],
 	durability: 9,
-	slotsUsed: 2,
+	slotsUsed: 3,
 	accuracy: 70,
 	damage: 15,
 	penetration: 0.75,
@@ -86,7 +73,7 @@ export const SledgeHammer = new MeleeWeapon({
 	discordIcon: '<:sledge_hammer:931833719596134450>',
 	aliases: ['sledge'],
 	durability: 10,
-	slotsUsed: 3,
+	slotsUsed: 5,
 	accuracy: 65,
 	damage: 24,
 	penetration: 1.25,
@@ -112,7 +99,7 @@ export const Pitchfork = new MeleeWeapon({
 	discordIcon: '<:pitchfork:930980133949550633>',
 	aliases: ['pitch'],
 	durability: 8,
-	slotsUsed: 2,
+	slotsUsed: 3,
 	accuracy: 65,
 	damage: 15,
 	penetration: 1.0,
@@ -126,11 +113,12 @@ export const FireAxe = new MeleeWeapon({
 	aliases: ['axe'],
 	description: 'Good for chopping trees and zombies!',
 	durability: 8,
-	slotsUsed: 2,
+	slotsUsed: 3,
 	accuracy: 75,
 	damage: 20,
 	penetration: 1.9,
-	speed: 6
+	speed: 6,
+	scavengeLevel: 3
 })
 
 export const Chainsaw = new MeleeWeapon({
@@ -138,11 +126,12 @@ export const Chainsaw = new MeleeWeapon({
 	discordIcon: '<:chainsaw:931797015329906699>',
 	aliases: ['saw', 'chain'],
 	durability: 8,
-	slotsUsed: 3,
+	slotsUsed: 5,
 	accuracy: 70,
 	damage: 25,
 	penetration: 2.3,
-	speed: 4
+	speed: 4,
+	scavengeLevel: 4
 })
 
 export const Katana = new MeleeWeapon({
@@ -150,7 +139,7 @@ export const Katana = new MeleeWeapon({
 	discordIcon: '<:replica_katana:931826279278321664>',
 	aliases: [],
 	durability: 8,
-	slotsUsed: 1,
+	slotsUsed: 2,
 	accuracy: 70,
 	damage: 20,
 	penetration: 1.9,
@@ -162,7 +151,7 @@ export const PoliceBaton = new MeleeWeapon({
 	discordIcon: '<:police_baton:931835720904081418>',
 	aliases: ['baton'],
 	durability: 8,
-	slotsUsed: 1,
+	slotsUsed: 2,
 	accuracy: 85,
 	damage: 30,
 	penetration: 1.5,

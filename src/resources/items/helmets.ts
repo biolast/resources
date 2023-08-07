@@ -3,7 +3,7 @@ import { Helmet } from '../../structures/items/Helmet.js'
 
 export const HardHat = new Helmet({
 	name: 'hard_hat',
-	discordIcon: '<:U_helmet:874671013181415434>',
+	discordIcon: undefined,
 	aliases: ['construction_hat', 'hard', 'level_1_helm'],
 	durability: 6,
 	protectionLevel: 1,
@@ -13,7 +13,7 @@ export const HardHat = new Helmet({
 
 export const CyclingHelmet = new Helmet({
 	name: 'cycling_helmet',
-	discordIcon: '<:U_helmet:874671013181415434>',
+	discordIcon: undefined,
 	aliases: ['bike_helm', 'cycle_helm', 'cycling'],
 	durability: 5,
 	protectionLevel: 1,
@@ -23,7 +23,7 @@ export const CyclingHelmet = new Helmet({
 
 export const WoodenHelmet = new Helmet({
 	name: 'wooden_helmet',
-	discordIcon: '<:U_helmet:874671013181415434>',
+	discordIcon: undefined,
 	aliases: ['wood_helmet', 'helmet', 'level_2_helm'],
 	durability: 9,
 	protectionLevel: 2,
@@ -33,7 +33,7 @@ export const WoodenHelmet = new Helmet({
 
 export const RiotHelmet = new Helmet({
 	name: 'riot_helmet',
-	discordIcon: '<:U_helmet:874671013181415434>',
+	discordIcon: undefined,
 	aliases: ['riot', 'level_3_helm'],
 	durability: 10,
 	protectionLevel: 3,
@@ -53,7 +53,7 @@ export const SwatHelmet = new Helmet({
 
 export const MilitaryHelmet = new Helmet({
 	name: 'military_helmet',
-	discordIcon: '<:U_helmet:874671013181415434>',
+	discordIcon: undefined,
 	aliases: ['mili_helm', 'level_5_helm'],
 	durability: 14,
 	protectionLevel: 5,
@@ -63,10 +63,11 @@ export const MilitaryHelmet = new Helmet({
 
 export const PolyethyleneHelmet = new Helmet({
 	name: 'polyethylene_helmet',
-	discordIcon: '<:U_helmet:874671013181415434>',
+	discordIcon: undefined,
 	aliases: ['poly_helm', 'polyeth_helm', 'polyethylene_helm', 'level_6_helm'],
 	description: 'Polyethylene (UHMWPE) armor is designed to have better stopping power and weigh less than steel armor.',
 	durability: 25,
 	protectionLevel: 6,
-	slotsUsed: 2
+	slotsUsed: 2,
+	scavengeLevel: undefined
 })

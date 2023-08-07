@@ -6,28 +6,42 @@ export const WoodLog = new Supply({
 	name: 'wood_log',
 	aliases: ['wood'],
 	discordIcon: '<:wood_log:1005187227535560815>',
-	slotsUsed: 0.5
+	slotsUsed: 1
+})
+
+export const Fabric = new Supply({
+	name: 'fabric',
+	aliases: ['cloth'],
+	discordIcon: undefined,
+	slotsUsed: 1
+})
+
+export const Metal = new Supply({
+	name: 'metal',
+	aliases: ['steel'],
+	discordIcon: undefined,
+	slotsUsed: 1
 })
 
 export const WoodTwig = new Supply({
 	name: 'wood_twig',
 	aliases: ['twig'],
 	discordIcon: '<:wood_twig:1007113351006003210>',
-	slotsUsed: 0.2
+	slotsUsed: 0.25
 })
 
 export const Nails = new Supply({
 	name: 'nails',
 	aliases: ['nail'],
 	discordIcon: '<:nails:1006847745388191835>',
-	slotsUsed: 0.1
+	slotsUsed: 0.5
 })
 
 export const Lighter = new Supply({
 	name: 'lighter',
 	aliases: [],
 	discordIcon: '<:lighter:1006890846622335006>',
-	slotsUsed: 0.1
+	slotsUsed: 1
 })
 
 export const TechTrash = new Supply({
@@ -44,9 +58,10 @@ export const WoodPlank = new Supply({
 	name: 'wood_plank',
 	aliases: ['plank'],
 	discordIcon: '<:wood_plank:1009832931805630504>',
-	slotsUsed: 0.3,
+	slotsUsed: 0.5,
 	craftingRecipes: [
 		{
+			levelRequired: 2,
 			possibleTools: [FireAxe, Chainsaw],
 			supplies: [
 				{

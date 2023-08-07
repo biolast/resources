@@ -2,9 +2,9 @@ import { Item, LootPool } from '../LootPool.js'
 
 
 export interface MobProperties {
-	/** name of the mob (displayed in battle menu) */
+	/** Name of the mob (displayed in battle menu) */
 	name: string
-	/** items mob can have in their inventory */
+	/** Items mob can have in their inventory */
 	loot: {
 		pool: LootPool
 		rolls: {
@@ -15,9 +15,9 @@ export interface MobProperties {
 }
 
 export abstract class MobBase {
-	/** name of the mob (displayed in battle menu) */
+	/** Name of the mob (displayed in battle menu) */
 	name: string
-	/** items mob can have in their inventory */
+	/** Items mob can have in their inventory */
 	loot: {
 		pool: LootPool
 		rolls: {

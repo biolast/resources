@@ -22,14 +22,14 @@ export const Corn = new Food({
 export const CannedMeat = new Food({
 	name: 'canned_meat',
 	discordIcon: '<:canned_meat:1061630553834651741>',
-	aliases: ['canned_food'],
+	aliases: ['canned_food', 'can_meat'],
 	slotsUsed: 1,
 	energy: 5,
 	scavengeLevel: 1
 })
 
-export const CookedMeat = new Food({
-	name: 'cooked_meat',
+export const CookedAnimalMeat = new Food({
+	name: 'cooked_animal_meat',
 	discordIcon: '<:cooked_meat:1062014892456026144>',
 	aliases: ['steak', 'beef'],
 	slotsUsed: 1,
@@ -39,13 +39,13 @@ export const CookedMeat = new Food({
 
 
 // cookable foods
-export const RawMeat = new Food({
-	name: 'raw_meat',
+export const RawAnimalMeat = new Food({
+	name: 'raw_animal_meat',
 	description: 'Probably best not to eat raw food.',
 	discordIcon: '<:raw_meat:1062014895341715456>',
 	aliases: ['meat'],
 	slotsUsed: 1,
 	energy: 1,
-	cooksInto: CookedMeat,
+	cooksInto: CookedAnimalMeat,
 	scavengeLevel: 1
 })

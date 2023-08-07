@@ -44,7 +44,7 @@ type ExistentialToItemDrops<T> = T extends ItemDropExistential<infer Itm, infer 
 export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T> => cb => cb(drop)
 
 /**
- * used to roll random items based on their rarity
+ * Used to roll random items based on their rarity
  *
  * @example
  * const pool = new LootPool({
@@ -74,36 +74,36 @@ export class LootPool<
 
 	constructor (data: {
 		/**
-		 * array of loot that can be rolled (60% chance to roll)
+		 * Array of loot that can be rolled (60% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link loot()} function
+		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
 		 * common: [loot({ item: Apple }), loot({ item: Pistol })]
 		 */
 		readonly common: C
 		/**
-		 * array of loot that can be rolled (25% chance to roll)
+		 * Array of loot that can be rolled (25% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link loot()} function
+		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
 		 * uncommon: [loot({ item: Apple }), loot({ item: Pistol })]
 		 */
 		readonly uncommon: U
 		/**
-		 * array of loot that can be rolled (10% chance to roll)
+		 * Array of loot that can be rolled (10% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link loot()} function
+		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
 		 * rare: [loot({ item: Apple }), loot({ item: Pistol })]
 		 */
 		readonly rare: R
 		/**
-		 * array of loot that can be rolled (5% chance to roll)
+		 * Array of loot that can be rolled (5% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link loot()} function
+		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
 		 * rarest: [loot({ item: Apple }), loot({ item: Pistol })]
@@ -148,7 +148,7 @@ export class LootPool<
 	}
 
 	/**
-	 * retrieves a random {@link ItemDrop} from the loot pool
+	 * Retrieves a random {@link ItemDrop} from the loot pool
 	 *
 	 * @example
 	 * exampleLootPool.getRandomDrop()?.rarity

@@ -1,4 +1,5 @@
 import { Backpack } from '../../structures/items/Backpack.js'
+import { Fabric, Metal } from './supplies.js'
 
 
 export const SmallPouch = new Backpack({
@@ -7,7 +8,19 @@ export const SmallPouch = new Backpack({
 	aliases: ['pouch'],
 	slots: 5,
 	slotsUsed: 1,
-	scavengeLevel: 1
+	scavengeLevel: 1,
+	craftingRecipes: [
+		{
+			levelRequired: 1,
+			supplies: [
+				{
+					item: Fabric,
+					amount: 2
+				}
+			],
+			yield: 1
+		}
+	]
 })
 
 export const ClothBackpack = new Backpack({
@@ -16,7 +29,19 @@ export const ClothBackpack = new Backpack({
 	aliases: ['backpack'],
 	slots: 10,
 	slotsUsed: 1,
-	scavengeLevel: 2
+	scavengeLevel: 2,
+	craftingRecipes: [
+		{
+			levelRequired: 2,
+			supplies: [
+				{
+					item: Fabric,
+					amount: 4
+				}
+			],
+			yield: 1
+		}
+	]
 })
 
 export const DuffleBag = new Backpack({
@@ -24,8 +49,20 @@ export const DuffleBag = new Backpack({
 	discordIcon: '<:duffle_bag:933852647394537573>',
 	aliases: ['duffle', 'bag'],
 	slots: 20,
-	slotsUsed: 2,
-	scavengeLevel: 3
+	slotsUsed: 3,
+	scavengeLevel: 3,
+	craftingRecipes: [
+		{
+			levelRequired: 3,
+			supplies: [
+				{
+					item: Fabric,
+					amount: 8
+				}
+			],
+			yield: 1
+		}
+	]
 })
 
 export const Suitcase = new Backpack({
@@ -33,6 +70,22 @@ export const Suitcase = new Backpack({
 	discordIcon: '<:suitcase:938466039266685018>',
 	aliases: ['suit', 'case'],
 	slots: 30,
-	slotsUsed: 2,
-	scavengeLevel: 4
+	slotsUsed: 5,
+	scavengeLevel: 4,
+	craftingRecipes: [
+		{
+			levelRequired: 4,
+			supplies: [
+				{
+					item: Fabric,
+					amount: 5
+				},
+				{
+					item: Metal,
+					amount: 5
+				}
+			],
+			yield: 1
+		}
+	]
 })

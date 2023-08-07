@@ -17,7 +17,7 @@ export const WoodenArmor = new BodyArmor({
 	aliases: ['wood_armor', 'level_2_armor'],
 	durability: 9,
 	protectionLevel: 2,
-	slotsUsed: 2,
+	slotsUsed: 3,
 	scavengeLevel: 2
 })
 
@@ -54,10 +54,11 @@ export const MilitaryArmor = new BodyArmor({
 
 export const PolyethyleneArmor = new BodyArmor({
 	name: 'polyethylene_armor',
-	discordIcon: '<:U_shield:601366669474136074>',
+	discordIcon: undefined,
 	aliases: ['poly_armor', 'polyeth', 'polyethylene', 'level_6_armor'],
-	description: 'Polyethylene (UHMWPE) armor is designed to have better stopping power and weigh less than steel armor.',
+	description: 'Polyethylene (UHMWPE) is designed to have better stopping power and weigh less than steel.',
 	durability: 25,
 	protectionLevel: 6,
-	slotsUsed: 2
+	slotsUsed: 2,
+	scavengeLevel: undefined
 })

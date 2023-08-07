@@ -25,7 +25,7 @@ export const weapon = <T extends Weapon>(drop: WeaponDrop<T>): ItemDropExistenti
 export const isRangedWeaponDrop = (d: ItemDrop): d is RangedWeaponDrop => 'ammo' in d
 
 /**
- * used to roll a random weapon
+ * Used to roll a random weapon
  *
  * @example
  * const pool = new WeaponPool({
@@ -54,36 +54,36 @@ export class WeaponPool<
 
 	constructor (data: {
 		/**
-		 * array of weapons that can be rolled (60% chance to roll)
+		 * Array of weapons that can be rolled (60% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link weapon()} function
+		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
 		 * common: [weapon({ item: Pistol, ammo: PistolBullet })]
 		 */
 		readonly common: C
 		/**
-		 * array of weapons that can be rolled (25% chance to roll)
+		 * Array of weapons that can be rolled (25% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link weapon()} function
+		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
 		 * uncommon: [weapon({ item: Pistol, ammo: PistolBullet })]
 		 */
 		readonly uncommon: U
 		/**
-		 * array of weapons that can be rolled (10% chance to roll)
+		 * Array of weapons that can be rolled (10% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link weapon()} function
+		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
 		 * rare: [weapon({ item: Pistol, ammo: PistolBullet })]
 		 */
 		readonly rare: R
 		/**
-		 * array of weapons that can be rolled (5% chance to roll)
+		 * Array of weapons that can be rolled (5% chance to roll)
 		 *
-		 * make sure to enclose each drop inside of the {@link weapon()} function
+		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
 		 * rarest: [weapon({ item: Pistol, ammo: PistolBullet })]
@@ -99,7 +99,7 @@ export class WeaponPool<
 	}
 
 	/**
-	 * retrieves a random {@link WeaponDrop} from the loot pool
+	 * Retrieves a random {@link WeaponDrop} from the loot pool
 	 *
 	 * @example
 	 * const drop = exampleLootPool.getRandomDrop()

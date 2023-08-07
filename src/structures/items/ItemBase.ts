@@ -2,8 +2,10 @@ import unknownIcon from '../../resources/images/unknown_icon.png'
 
 
 export interface CraftingRecipe {
-	/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
-	readonly possibleTools: ItemBase[]
+	/** Level required to use this recipe */
+	readonly levelRequired: number
+	/** Player will need 1 of these tools, 1 durability will be consumed. Leave undefined if no tool is needed */
+	readonly possibleTools?: ItemBase[]
 	readonly supplies: {
 		readonly item: ItemBase
 		readonly amount: number
@@ -17,12 +19,12 @@ export interface ItemProperties<T extends string = string> {
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
 
-	/** level this item can be scavenged at (or undefined if it can't be scavenged) */
+	/** Level this item can be scavenged at (or undefined if it can't be scavenged) */
 	readonly scavengeLevel?: number
 	/** Other names that will be resolved to this item */
 	readonly aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
-	readonly discordIcon: string
+	readonly discordIcon?: string
 	/** How many slots does this item take up in inventories */
 	readonly slotsUsed: number
 	/** How many uses this item has (if applicable) */
@@ -35,12 +37,12 @@ export abstract class ItemBase<T extends string = string> {
 	readonly description?: string
 	readonly craftingRecipes?: CraftingRecipe[]
 
-	/** level this item can be scavenged at (or undefined if it can't be scavenged) */
+	/** Level this item can be scavenged at (or undefined if it can't be scavenged) */
 	readonly scavengeLevel?: number
 	/** Other names that will be resolved to this item */
 	readonly aliases: string[]
 	/** Discord string representation of an icon (ie. <1232412412:emoji>) */
-	readonly discordIcon: string
+	readonly discordIcon?: string
 	/** How many slots does this item take up in inventories */
 	readonly slotsUsed: number
 	/** How many uses this item has (if applicable) */
@@ -57,7 +59,7 @@ export abstract class ItemBase<T extends string = string> {
 		this.durability = data.durability
 	}
 
-	/** get base64 representation of image */
+	/** Get base64 representation of image */
 	async image (): Promise<string> {
 		if (this._image) return this._image
 

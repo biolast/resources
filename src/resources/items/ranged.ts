@@ -19,7 +19,7 @@ export const SubmachineGun = new RangedWeapon({
 	discordIcon: '<:submachine_gun:1063592662613114923>',
 	aliases: ['submachine', 'smg'],
 	durability: 20,
-	slotsUsed: 3,
+	slotsUsed: 4,
 	accuracy: 85,
 	speed: 28,
 	ammo: [ammunition.PistolBullet],
@@ -28,10 +28,10 @@ export const SubmachineGun = new RangedWeapon({
 
 export const DoubleBarrelShotgun = new RangedWeapon({
 	name: 'double-barrel_shotgun',
-	discordIcon: '<:U_rifle:869647344344387624>',
+	discordIcon: undefined,
 	aliases: ['double_barrel_shotgun', 'double_barrel', 'double_shotgun', 'double_shotty', 'db_shotgun', 'db_shotty', 'db'],
-	durability: 8,
-	slotsUsed: 3,
+	durability: 15,
+	slotsUsed: 4,
 	accuracy: 68,
 	speed: 14,
 	ammo: [ammunition.Shotgun20GaugeBuckshot, ammunition.Shotgun20GaugeSlug]
@@ -39,9 +39,9 @@ export const DoubleBarrelShotgun = new RangedWeapon({
 
 export const HuntingRifle = new RangedWeapon({
 	name: 'hunting_rifle',
-	discordIcon: '<:U_rifle:869647344344387624>',
+	discordIcon: undefined,
 	aliases: ['hunting'],
-	durability: 15,
+	durability: 24,
 	slotsUsed: 4,
 	accuracy: 95,
 	speed: 3,
@@ -50,10 +50,10 @@ export const HuntingRifle = new RangedWeapon({
 
 export const PumpShotgun = new RangedWeapon({
 	name: 'pump_shotgun',
-	discordIcon: '<:U_rifle:869647344344387624>',
+	discordIcon: undefined,
 	aliases: ['pump_shotty', 'shotty', 'pumpy'],
-	durability: 14,
-	slotsUsed: 4,
+	durability: 20,
+	slotsUsed: 5,
 	accuracy: 30,
 	speed: 10,
 	ammo: [ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug]
@@ -64,7 +64,7 @@ export const AssaultRifle = new RangedWeapon({
 	discordIcon: '<:ak47:933852988416618496>',
 	aliases: ['ak', 'ak47', 'rifle'],
 	durability: 26,
-	slotsUsed: 4,
+	slotsUsed: 5,
 	accuracy: 63,
 	speed: 29,
 	ammo: [ammunition.RifleBullet]
@@ -72,10 +72,10 @@ export const AssaultRifle = new RangedWeapon({
 
 export const AutoShotgun = new RangedWeapon({
 	name: 'auto_shotgun',
-	discordIcon: '<:U_rifle:869647344344387624>',
+	discordIcon: undefined,
 	aliases: ['auto_shotty'],
 	durability: 20,
-	slotsUsed: 4,
+	slotsUsed: 5,
 	accuracy: 91,
 	speed: 13,
 	ammo: [ammunition.Shotgun12GaugeBuckshot, ammunition.Shotgun12GaugeSlug]
@@ -86,7 +86,7 @@ export const HeavySniper = new RangedWeapon({
 	discordIcon: '<:awm:944974499579846718>',
 	aliases: ['awp', 'sniper'],
 	durability: 30,
-	slotsUsed: 5,
+	slotsUsed: 7,
 	accuracy: 98,
 	speed: 2,
 	ammo: [ammunition.SniperBullet]

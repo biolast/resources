@@ -5,15 +5,15 @@ import { MobBase, MobProperties } from './MobBase.js'
 
 
 export class Walker extends MobBase {
-	/** pool of possible helmets mob can wear */
+	/** {@link LootPool} of possible helmets mob can wear */
 	helmet: LootPool<Helmet>
-	/** pool of possible armor mob can wear */
+	/** {@link LootPool} of possible armor mob can wear */
 	armor: LootPool<BodyArmor>
 
 	constructor (data: MobProperties & {
-		/** pool of possible helmets mob can wear */
+		/** {@link LootPool} of possible helmets mob can wear */
 		helmet: LootPool<Helmet>
-		/** pool of possible armor mob can wear */
+		/** {@link LootPool} of possible armor mob can wear */
 		armor: LootPool<BodyArmor>
 	}) {
 		super(data)

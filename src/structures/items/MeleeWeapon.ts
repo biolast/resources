@@ -14,7 +14,7 @@ export class MeleeWeapon<T extends string = string> extends ItemBase<T> {
 	 * Otherwise, the damage will be reduced based on the difference between this number and the victims armor level.
 	 */
 	readonly penetration: number
-	/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+	/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 	readonly speed: number
 
 	constructor (data: ItemProperties<T> & {
@@ -30,7 +30,7 @@ export class MeleeWeapon<T extends string = string> extends ItemBase<T> {
 		 * Otherwise, the damage will be reduced based on the difference between this number and the victims armor level.
 		 */
 		readonly penetration: number
-		/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+		/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 		readonly speed: number
 	}) {
 		super(data)

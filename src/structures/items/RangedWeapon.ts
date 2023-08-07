@@ -9,7 +9,7 @@ export class RangedWeapon<T extends string = string, A extends Ammunition = Ammu
 	readonly accuracy: number
 	/** How many times this weapon can be used to attack */
 	readonly durability: number
-	/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+	/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 	readonly speed: number
 
 	constructor (data: ItemProperties<T> & {
@@ -19,7 +19,7 @@ export class RangedWeapon<T extends string = string, A extends Ammunition = Ammu
 		readonly accuracy: number
 		/** How many times this weapon can be used to attack */
 		readonly durability: number
-		/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+		/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 		readonly speed: number
 	}) {
 		super(data)

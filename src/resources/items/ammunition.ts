@@ -50,7 +50,7 @@ export const Shotgun12GaugeBuckshot = new Ammunition({
 	aliases: ['12_guage', '12g_buckshot', '12g_shell', '12g_shotgun', '12g', '12g_buck'],
 	damage: 50,
 	penetration: 3.5,
-	slotsUsed: 1,
+	slotsUsed: 2,
 	spreadsDamageToLimbs: 2,
 	scavengeLevel: 4
 })
@@ -62,7 +62,7 @@ export const Shotgun12GaugeSlug = new Ammunition({
 	description: 'A 12-gauge slug shell that fires a single, large projectile.',
 	damage: 48,
 	penetration: 3.8,
-	slotsUsed: 1,
+	slotsUsed: 2,
 	scavengeLevel: 5
 })
 
@@ -72,5 +72,6 @@ export const SniperBullet = new Ammunition({
 	aliases: ['sniper_ammo'],
 	damage: 75,
 	penetration: 4.0,
-	slotsUsed: 1
+	slotsUsed: 2.5,
+	scavengeLevel: undefined
 })

@@ -2,15 +2,15 @@ export * from './names.js'
 
 export type NonEmptyArray<T> = [T, ...T[]]
 
-/** the default storage space for player inventories */
+/** The default storage space for player inventories */
 export const DEFAULT_BACKPACK_LIMIT = 15.0
 
-/** how much energy a player can have max */
+/** How much energy a player can have max */
 export const DEFAULT_MAX_ENERGY = 30
 
 /**
- * the percentage of accuracy needed for player to be able to target a limb in battles.
- * this percentage INCLUDES bonuses as well, so a 30% accuracy weapon with a +25% accuracy bonus
+ * The percentage of accuracy needed for player to be able to target a limb in battles.
+ * This percentage INCLUDES bonuses as well, so a 30% accuracy weapon with a +25% accuracy bonus
  * would have 55% total accuracy.
  */
 export const LIMB_TARGETING_ACCURACY_REQUIRED = 50
@@ -30,7 +30,7 @@ export const EMBED_COLORS = {
 	}
 }
 
-/** how much will damage be multiplied by when hitting specific limb */
+/** How much will damage be multiplied by when hitting specific limb */
 export const LIMB_DAMAGE_MULTIPLIERS = {
 	head: 1.5,
 	chest: 1.0,
@@ -38,37 +38,37 @@ export const LIMB_DAMAGE_MULTIPLIERS = {
 	legs: 0.5
 } as const
 
-/** how many items will scavenging produce */
+/** How many items will scavenging produce */
 export const DEFAULT_SCAVENGE_ROLLS = {
 	min: 2,
 	max: 3
 } as const
 
-/** how many items will a raider mob have in their inventory, increasing beyond 4 max overflows the battle image inventory */
+/** How many items will a raider mob have in their inventory, increasing beyond 4 max overflows the battle image inventory */
 export const DEFAULT_RAIDER_MOB_ROLLS = {
 	min: 3,
 	max: 4
 } as const
-/** how many items will a zombie mob have in their inventory, increasing beyond 5 max overflows the battle image inventory */
+/** How many items will a zombie mob have in their inventory, increasing beyond 5 max overflows the battle image inventory */
 export const DEFAULT_ZOMBIE_MOB_ROLLS = {
 	min: 3,
 	max: 5
 } as const
 
 
-/** how many shelves does a new base start with */
+/** How many shelves does a new base start with */
 export const BASE_STARTING_SHELVES = 1
-/** how many beds does a new base start with */
+/** How many beds does a new base start with */
 export const BASE_STARTING_BEDS = 1
 
-/** how many shelves can a user build max */
+/** How many shelves can a user build max */
 export const BASE_STARTING_MAX_SHELVES = 10
-/** how many beds can a user build max */
+/** How many beds can a user build max */
 export const BASE_STARTING_MAX_BEDS = 5
 
-/** how much space can base storage hold with each shelf */
+/** How much space can base storage hold with each shelf */
 export const BASE_STORAGE_SPACE_PER_SHELF = 10.0
-/** how many zombies does 1 wood spike trap kill when base is raided by horde */
+/** How many zombies does 1 wood spike trap kill when base is raided by horde */
 export const BASE_WOOD_SPIKE_PROTECTION = 10
 
 /**
@@ -78,11 +78,11 @@ export const BASE_WOOD_SPIKE_PROTECTION = 10
  */
 export const LEVEL_FORMULA = (level: number) => Math.floor(200 * (level ** 1.7))
 
-/** aliases for commands when user is sending commands using messages instead of slash commands */
+/** Aliases for commands when user is sending commands using messages instead of slash commands */
 export const TEXT_COMMAND_ALIASES: {
-	/** slash command the aliases will resolve to, can be a sub command as well */
+	/** Slash command the aliases will resolve to, can be a sub command as well */
 	command: string
-	/** possible aliases */
+	/** Possible aliases */
 	aliases: string[]
 }[] = [
 	// info command aliases

@@ -6,7 +6,7 @@ export class Medical<T extends string = string> extends ItemBase<T> {
 	readonly durability?: number
 	/** Amount this medical item will heal player for */
 	readonly healsFor: number
-	/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+	/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 	readonly speed: number
 
 	constructor (data: ItemProperties<T> & {
@@ -14,7 +14,7 @@ export class Medical<T extends string = string> extends ItemBase<T> {
 		readonly durability?: number
 		/** Amount this medical item will heal player for */
 		readonly healsFor: number
-		/** How fast this weapon attacks in duels (player who uses item with higher speed goes first) */
+		/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
 		readonly speed: number
 	}) {
 		super(data)
