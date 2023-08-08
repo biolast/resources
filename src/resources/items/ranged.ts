@@ -6,7 +6,7 @@ export const Pistol = new RangedWeapon({
 	name: 'pistol',
 	discordIcon: '<:glock17:931424425851621417>',
 	aliases: ['glock'],
-	durability: 12,
+	durability: 15,
 	slotsUsed: 2,
 	accuracy: 45,
 	speed: 20,

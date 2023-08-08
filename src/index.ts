@@ -47,8 +47,6 @@ export const allItems = Object.values(items)
 export type ItemName = typeof items[keyof typeof items]['name']
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
 
-export * as constants from './resources/constants.js'
-export * from './utils.js'
 export * from './structures/LootPool.js'
 export * from './structures/WeaponPool.js'
 export * from './structures/items/Ammunition.js'
@@ -63,3 +61,4 @@ export * from './structures/items/Supply.js'
 export * from './structures/items/ThrowableWeapon.js'
 export * from './structures/mobs/Raider.js'
 export * from './structures/mobs/Walker.js'
+export * as constants from './resources/constants.js'

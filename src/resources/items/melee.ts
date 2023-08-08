@@ -1,5 +1,5 @@
 import { MeleeWeapon } from '../../structures/items/MeleeWeapon.js'
-import { Nails } from './supplies.js'
+import { Fabric, Metal, Nails } from './supplies.js'
 import { Hammer } from './tools.js'
 
 
@@ -20,12 +20,28 @@ export const Shank = new MeleeWeapon({
 	name: 'shank',
 	discordIcon: '<:metal_shank:931835720908296212>',
 	aliases: ['metal_shank'],
-	durability: 6,
+	durability: 3,
 	slotsUsed: 1,
 	accuracy: 20,
-	damage: 10,
+	damage: 15,
 	penetration: 0.8,
-	speed: 30
+	speed: 30,
+	craftingRecipes: [
+		{
+			levelRequired: 1,
+			supplies: [
+				{
+					item: Metal,
+					amount: 1
+				},
+				{
+					item: Fabric,
+					amount: 2
+				}
+			],
+			yield: 1
+		}
+	]
 })
 
 export const MetalPipe = new MeleeWeapon({
@@ -59,25 +75,25 @@ export const Hatchet = new MeleeWeapon({
 	discordIcon: '<:hatchet:1062080142748426250>',
 	aliases: [],
 	description: 'Good for chopping trees and zombies!',
-	durability: 2,
+	durability: 5,
 	slotsUsed: 1,
 	accuracy: 70,
-	damage: 12,
-	penetration: 0.6,
+	damage: 14,
+	penetration: 1.0,
 	speed: 14,
 	scavengeLevel: 2
 })
 
-export const SledgeHammer = new MeleeWeapon({
-	name: 'sledgehammer',
-	discordIcon: '<:sledge_hammer:931833719596134450>',
-	aliases: ['sledge'],
-	durability: 10,
-	slotsUsed: 5,
+export const Crowbar = new MeleeWeapon({
+	name: 'crowbar',
+	discordIcon: undefined,
+	aliases: ['prybar', 'crow', 'bar'],
+	durability: 8,
+	slotsUsed: 3,
 	accuracy: 65,
-	damage: 24,
-	penetration: 1.25,
-	speed: 3,
+	damage: 15,
+	penetration: 1.0,
+	speed: 4,
 	scavengeLevel: 2
 })
 
@@ -94,16 +110,16 @@ export const Knife = new MeleeWeapon({
 	scavengeLevel: 2
 })
 
-export const Pitchfork = new MeleeWeapon({
-	name: 'pitchfork',
-	discordIcon: '<:pitchfork:930980133949550633>',
-	aliases: ['pitch'],
-	durability: 8,
-	slotsUsed: 3,
+export const SledgeHammer = new MeleeWeapon({
+	name: 'sledgehammer',
+	discordIcon: '<:sledge_hammer:931833719596134450>',
+	aliases: ['sledge'],
+	durability: 10,
+	slotsUsed: 5,
 	accuracy: 65,
-	damage: 15,
-	penetration: 1.0,
-	speed: 4,
+	damage: 24,
+	penetration: 1.25,
+	speed: 3,
 	scavengeLevel: 2
 })
 
@@ -120,18 +136,16 @@ export const FireAxe = new MeleeWeapon({
 	speed: 6,
 	scavengeLevel: 3
 })
-
-export const Chainsaw = new MeleeWeapon({
-	name: 'chainsaw',
-	discordIcon: '<:chainsaw:931797015329906699>',
-	aliases: ['saw', 'chain'],
+export const PoliceBaton = new MeleeWeapon({
+	name: 'police_baton',
+	discordIcon: '<:police_baton:931835720904081418>',
+	aliases: ['baton'],
 	durability: 8,
-	slotsUsed: 5,
-	accuracy: 70,
-	damage: 25,
-	penetration: 2.3,
-	speed: 4,
-	scavengeLevel: 4
+	slotsUsed: 2,
+	accuracy: 85,
+	damage: 30,
+	penetration: 1.5,
+	speed: 8
 })
 
 export const Katana = new MeleeWeapon({
@@ -146,16 +160,17 @@ export const Katana = new MeleeWeapon({
 	speed: 8
 })
 
-export const PoliceBaton = new MeleeWeapon({
-	name: 'police_baton',
-	discordIcon: '<:police_baton:931835720904081418>',
-	aliases: ['baton'],
+export const Chainsaw = new MeleeWeapon({
+	name: 'chainsaw',
+	discordIcon: '<:chainsaw:931797015329906699>',
+	aliases: ['saw', 'chain'],
 	durability: 8,
-	slotsUsed: 2,
-	accuracy: 85,
-	damage: 30,
-	penetration: 1.5,
-	speed: 8
+	slotsUsed: 5,
+	accuracy: 70,
+	damage: 25,
+	penetration: 2.3,
+	speed: 4,
+	scavengeLevel: 4
 })
 
 

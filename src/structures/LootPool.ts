@@ -46,6 +46,16 @@ type ExistentialToItemDrops<T> = T extends ItemDropExistential<infer Itm, infer 
 export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T> => cb => cb(drop)
 
 /**
+ * Utility function for generating item min-max durability in loot pools
+ * @example
+ * loot({ item: Pistol, durability: generateDurability(Pistol.durability, 0.75) }) // durability min will be 75% of items max durability, max will be same as the items max
+ */
+export const generateLootDurability = (durability: number, multiplier: number): { min: number, max: number } => ({
+	min: Math.round(durability * multiplier),
+	max: durability
+})
+
+/**
  * Used to roll random items based on their rarity
  *
  * @example
@@ -69,10 +79,10 @@ export class LootPool<
 	R extends NonEmptyArray<ItemDropExistential<Rare>> | undefined = NonEmptyArray<ItemDropExistential<Rare>>,
 	Rrest extends NonEmptyArray<ItemDropExistential<Rarest>> | undefined = NonEmptyArray<ItemDropExistential<Rarest>>
 > {
-	protected readonly common: C
-	protected readonly uncommon: U
-	protected readonly rare: R
-	protected readonly rarest: Rrest
+	readonly common: C
+	readonly uncommon: U
+	readonly rare: R
+	readonly rarest: Rrest
 
 	constructor (data: {
 		/**

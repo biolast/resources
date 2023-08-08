@@ -11,6 +11,14 @@ export const CannedCorn = new Supply({
 	slotsUsed: 1
 })
 
+export const CannedBeans = new Supply({
+	name: 'canned_beans',
+	description: `Can be opened using a ${CanOpener.discordIcon} \`${CanOpener.toString()}\``,
+	discordIcon: undefined,
+	aliases: [],
+	slotsUsed: 1
+})
+
 export const WoodLog = new Supply({
 	name: 'wood_log',
 	aliases: ['wood'],

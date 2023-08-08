@@ -1,5 +1,6 @@
 import { Food } from '../../structures/items/Food.js'
-import { CannedCorn } from './supplies.js'
+import { Knife, Shank } from './melee.js'
+import { CannedBeans, CannedCorn } from './supplies.js'
 import { CanOpener } from './tools.js'
 
 
@@ -18,6 +19,15 @@ export const RoastedCorn = new Food({
 	aliases: [],
 	slotsUsed: 1,
 	energy: 13,
+	scavengeLevel: 1
+})
+
+export const BakedBeans = new Food({
+	name: 'baked_beans',
+	discordIcon: undefined,
+	aliases: [],
+	slotsUsed: 1,
+	energy: 15,
 	scavengeLevel: 1
 })
 
@@ -43,10 +53,33 @@ export const Corn = new Food({
 	craftingRecipes: [
 		{
 			levelRequired: 1,
-			possibleTools: [CanOpener],
+			possibleTools: [CanOpener, Shank, Knife],
 			supplies: [
 				{
 					item: CannedCorn,
+					amount: 1
+				}
+			],
+			yield: 1
+		}
+	]
+})
+
+export const Beans = new Food({
+	name: 'beans',
+	discordIcon: undefined,
+	aliases: [],
+	slotsUsed: 1,
+	energy: 10,
+	scavengeLevel: 1,
+	cooksInto: BakedBeans,
+	craftingRecipes: [
+		{
+			levelRequired: 1,
+			possibleTools: [CanOpener, Shank, Knife],
+			supplies: [
+				{
+					item: CannedBeans,
 					amount: 1
 				}
 			],
