@@ -30,7 +30,7 @@ export const DoubleBarrelShotgun = new RangedWeapon({
 	name: 'double-barrel_shotgun',
 	discordIcon: undefined,
 	aliases: ['double_barrel_shotgun', 'double_barrel', 'double_shotgun', 'double_shotty', 'db_shotgun', 'db_shotty', 'db'],
-	durability: 15,
+	durability: 12,
 	slotsUsed: 4,
 	accuracy: 68,
 	speed: 14,

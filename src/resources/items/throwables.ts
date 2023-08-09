@@ -14,6 +14,7 @@ export const ExplosiveGrenade = new ThrowableWeapon({
 	speed: 6
 })
 
+// TODO make molotov have special effect
 export const MolotovCocktail = new ThrowableWeapon({
 	type: 'Incendiary Grenade',
 	name: 'molotov_cocktail',

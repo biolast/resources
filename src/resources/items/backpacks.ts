@@ -74,7 +74,7 @@ export const Suitcase = new Backpack({
 	scavengeLevel: 4,
 	craftingRecipes: [
 		{
-			levelRequired: 4,
+			levelRequired: 5,
 			supplies: [
 				{
 					item: Fabric,

@@ -1,9 +1,9 @@
 import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
-export class Medical<T extends string = string> extends ItemBase<T> {
+export class Medical<T extends string = string, D extends number | undefined = number | undefined> extends ItemBase<T> {
 	/** How many times this item can be used to heal before it breaks. Leave undefined if this item is single-use */
-	readonly durability?: number
+	readonly durability: D
 	/** Amount this medical item will heal player for */
 	readonly healsFor: number
 	/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
@@ -11,7 +11,7 @@ export class Medical<T extends string = string> extends ItemBase<T> {
 
 	constructor (data: ItemProperties<T> & {
 		/** How many times this item can be used to heal before it breaks. Leave undefined if this item is single-use */
-		readonly durability?: number
+		readonly durability: D
 		/** Amount this medical item will heal player for */
 		readonly healsFor: number
 		/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */

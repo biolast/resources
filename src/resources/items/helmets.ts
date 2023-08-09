@@ -51,7 +51,7 @@ export const RiotHelmet = new Helmet({
 	name: 'riot_helmet',
 	discordIcon: undefined,
 	aliases: ['riot', 'level_3_helm'],
-	durability: 9,
+	durability: 7,
 	protectionLevel: 3,
 	slotsUsed: 2,
 	scavengeLevel: 3
