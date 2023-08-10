@@ -4,7 +4,7 @@ import { HeavyJacket, LightArmor, MilitaryArmor, SwatArmor, WoodenArmor } from '
 import { ClothBackpack, DuffleBag, SmallPouch } from './items/backpacks.js'
 import { CyclingHelmet, HardHat, MilitaryHelmet, RiotHelmet, SwatHelmet, WoodenHelmet } from './items/helmets.js'
 import { Bandage, Medkit, TraumaKit } from './items/medicals.js'
-import { Crowbar, FireAxe, Hatchet, Katana, Knife, MetalBat, MetalPipe, PoliceBaton, Shank, SledgeHammer, WoodenBat } from './items/melee.js'
+import { Chainsaw, Crowbar, FireAxe, Hatchet, Katana, Knife, MetalBat, MetalPipe, PoliceBaton, Shank, SledgeHammer, WoodenBat } from './items/melee.js'
 import { AssaultRifle, AutoShotgun, DoubleBarrelShotgun, HuntingRifle, Pistol, PumpShotgun, SubmachineGun } from './items/ranged.js'
 import { CannedBeans, CannedCorn, Fabric, Metal, Nails } from './items/supplies.js'
 import { CanOpener, Hammer, Lighter } from './items/tools.js'
@@ -132,6 +132,7 @@ const level4 = new LootPool({
 	],
 	rarest: [
 		loot({ item: DuffleBag }),
+		loot({ item: Chainsaw, durability: generateLootDurability(Chainsaw.durability, 0.75) }),
 		loot({ item: HuntingRifle, durability: generateLootDurability(HuntingRifle.durability, 0.5) }),
 		loot({ item: PumpShotgun, durability: generateLootDurability(PumpShotgun.durability, 0.6) }),
 		loot({ item: SubmachineGun, durability: generateLootDurability(SubmachineGun.durability, 0.5) })
@@ -160,6 +161,7 @@ const level5 = new LootPool({
 		...alwaysRare,
 		loot({ item: RifleBullet }),
 		loot({ item: Shotgun12GaugeSlug }),
+		loot({ item: Chainsaw, durability: generateLootDurability(Chainsaw.durability, 0.75) }),
 		loot({ item: MilitaryHelmet, durability: generateLootDurability(MilitaryHelmet.durability, 0.5) }),
 		loot({ item: MilitaryArmor, durability: generateLootDurability(MilitaryArmor.durability, 0.5) }),
 		loot({ item: TraumaKit, durability: generateLootDurability(TraumaKit.durability, 0.75) }),
