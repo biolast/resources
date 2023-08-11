@@ -39,7 +39,7 @@ type ExistentialToItemDrops<T> = T extends ItemDropExistential<infer Itm, infer 
  *
  * @param drop Object containing item property
  * @example
- * loot({ item: Apple })
+ * loot({ item: CannedCorn })
  * loot({ item: Pistol, durability: { min: 3, max: 6 } })
  */
 export const loot = <T extends Item>(drop: ItemDrop<T>): ItemDropExistential<T> => cb => cb(drop)
@@ -59,10 +59,10 @@ export const generateLootDurability = (durability: number, multiplier: number): 
  *
  * @example
  * const pool = new LootPool({
- *		common: [loot({ item: Apple }), loot({ item: HeavyJacket, durability: 4 })],
- *		uncommon: [loot({ item: WoodenBat })],
- *		rare: undefined,
- *		rarest: [loot({ item: PumpShotgun })]
+ *		common: [loot({ item: CannedCorn }), loot({ item: HeavyJacket, durability: { min: 4, max: 6 } })],
+ *		uncommon: [loot({ item: CannedBeans })],
+ *		rare: [], // getRandomDrop() would return undefined if it rolled an empty array
+ *		rarest: [loot({ item: PumpShotgun, durability: { min: 6, max: 10 } })]
  *	})
  *
  * console.log(pool.getRandomDrop()?.item) // random item from the pool
@@ -90,7 +90,7 @@ export class LootPool<
 		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
-		 * common: [loot({ item: Apple }), loot({ item: Pistol })]
+		 * common: [loot({ item: CannedCorn })]
 		 */
 		readonly common: C
 		/**
@@ -99,7 +99,7 @@ export class LootPool<
 		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
-		 * uncommon: [loot({ item: Apple }), loot({ item: Pistol })]
+		 * uncommon: [loot({ item: CannedCorn })]
 		 */
 		readonly uncommon: U
 		/**
@@ -108,7 +108,7 @@ export class LootPool<
 		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
-		 * rare: [loot({ item: Apple }), loot({ item: Pistol })]
+		 * rare: [loot({ item: CannedCorn })]
 		 */
 		readonly rare: R
 		/**
@@ -117,7 +117,7 @@ export class LootPool<
 		 * Make sure to enclose each drop inside of the {@link loot()} function
 		 *
 		 * @example
-		 * rarest: [loot({ item: Apple }), loot({ item: Pistol })]
+		 * rarest: [loot({ item: CannedCorn })]
 		 */
 		readonly rarest: Rrest
 	}) {

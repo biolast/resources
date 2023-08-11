@@ -31,7 +31,7 @@ export const isRangedWeaponDrop = (d: ItemDrop): d is RangedWeaponDrop => 'ammo'
  * const pool = new WeaponPool({
  *		common: [weapon({ item: WoodenBat, durability: { min: 6, max: 8 } }), weapon({ item: Fork })],
  *		uncommon: [weapon({ item: FireAxe, durability: { min: 1, max: 4 } })],
- *		rare: undefined,
+ *		rare: [], // getRandomDrop() would return undefined if it rolled an empty array
  *		rarest: [weapon({ item: PumpShotgun, ammo: [Shotgun12GaugeSlug], durability: { min: 10, max: 15 } })]
  *	})
  *
@@ -59,7 +59,7 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * common: [weapon({ item: Pistol, ammo: PistolBullet })]
+		 * common: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
 		 */
 		readonly common: C
 		/**
@@ -68,7 +68,7 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * uncommon: [weapon({ item: Pistol, ammo: PistolBullet })]
+		 * uncommon: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
 		 */
 		readonly uncommon: U
 		/**
@@ -77,7 +77,7 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * rare: [weapon({ item: Pistol, ammo: PistolBullet })]
+		 * rare: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
 		 */
 		readonly rare: R
 		/**
@@ -86,7 +86,7 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * rarest: [weapon({ item: Pistol, ammo: PistolBullet })]
+		 * rarest: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
 		 */
 		readonly rarest: Rrest
 	}) {

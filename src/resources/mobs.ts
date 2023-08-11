@@ -62,8 +62,6 @@ export const mobs = [
 			}
 		})
 	},
-
-
 	{
 		levelRequired: 2,
 		mob: new Raider({
