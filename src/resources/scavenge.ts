@@ -53,7 +53,6 @@ const level2 = new LootPool({
 	],
 	uncommon: [
 		loot({ item: PistolBullet }),
-		loot({ item: SmallPouch }),
 		loot({ item: Shank, durability: generateLootDurability(Shank.durability, 0.6) }),
 		loot({ item: MetalPipe, durability: generateLootDurability(MetalPipe.durability, 0.8) }),
 		loot({ item: MetalBat, durability: generateLootDurability(MetalBat.durability, 0.75) })
@@ -61,7 +60,7 @@ const level2 = new LootPool({
 	rare: [
 		...alwaysRare,
 		loot({ item: Medkit, durability: generateLootDurability(Medkit.durability, 0.75) }),
-		loot({ item: ClothBackpack }),
+		loot({ item: SmallPouch }),
 		loot({ item: Hatchet, durability: generateLootDurability(Hatchet.durability, 0.8) }),
 		loot({ item: Crowbar, durability: generateLootDurability(Crowbar.durability, 0.75) }),
 		loot({ item: Knife, durability: generateLootDurability(Knife.durability, 0.8) }),
@@ -69,6 +68,7 @@ const level2 = new LootPool({
 		loot({ item: WoodenArmor, durability: generateLootDurability(WoodenArmor.durability, 0.75) })
 	],
 	rarest: [
+		loot({ item: ClothBackpack }),
 		loot({ item: PoliceBaton, durability: generateLootDurability(PoliceBaton.durability, 0.75) }),
 		loot({ item: Pistol, durability: generateLootDurability(Pistol.durability, 0.75) })
 	]

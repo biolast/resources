@@ -6,11 +6,8 @@ export interface MobProperties {
 	name: string
 	/** Items mob can have in their inventory */
 	loot: {
+		rolls: number
 		pool: LootPool
-		rolls: {
-			min: number
-			max: number
-		}
 	}
 }
 
@@ -19,11 +16,8 @@ export abstract class MobBase {
 	name: string
 	/** Items mob can have in their inventory */
 	loot: {
+		rolls: number
 		pool: LootPool
-		rolls: {
-			min: number
-			max: number
-		}
 	}
 
 	constructor (data: MobProperties) {
