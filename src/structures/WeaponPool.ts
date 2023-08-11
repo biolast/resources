@@ -1,4 +1,3 @@
-import { NonEmptyArray } from '../resources/constants.js'
 import { RangedWeapon } from './items/RangedWeapon.js'
 import { MeleeWeapon } from './items/MeleeWeapon.js'
 import { ItemDrop, ItemDropExistential, LootPool } from './LootPool.js'
@@ -8,6 +7,7 @@ type Weapon = RangedWeapon | MeleeWeapon
 
 type WeaponDrop<T extends Weapon = Weapon> = T extends RangedWeapon ? RangedWeaponDrop<T> : ItemDrop<T>
 
+type NonEmptyArray<T> = [T, ...T[]]
 type RangedWeaponDrop<T extends RangedWeapon = RangedWeapon> = ItemDrop<T> & {
 	/** ammo to use with ranged weapon */
 	ammo: NonEmptyArray<T['ammo'][number]>
@@ -43,14 +43,14 @@ export class WeaponPool<
 	Rare extends Weapon = Weapon,
 	Rarest extends Weapon = Weapon,
 	C extends NonEmptyArray<ItemDropExistential<Common>> = NonEmptyArray<ItemDropExistential<Common>>,
-	U extends NonEmptyArray<ItemDropExistential<Uncommon>> | undefined = NonEmptyArray<ItemDropExistential<Uncommon>>,
-	R extends NonEmptyArray<ItemDropExistential<Rare>> | undefined = NonEmptyArray<ItemDropExistential<Rare>>,
-	Rrest extends NonEmptyArray<ItemDropExistential<Rarest>> | undefined = NonEmptyArray<ItemDropExistential<Rarest>>
+	U extends ItemDropExistential<Uncommon>[] = ItemDropExistential<Uncommon>[],
+	R extends ItemDropExistential<Rare>[] = ItemDropExistential<Rare>[],
+	Rrest extends ItemDropExistential<Rarest>[] = ItemDropExistential<Rarest>[]
 > extends LootPool<Weapon, Common, Uncommon, Rare, Rarest, C, U, R, Rrest> {
-	protected readonly common: C
-	protected readonly uncommon: U
-	protected readonly rare: R
-	protected readonly rarest: Rrest
+	readonly common: C
+	readonly uncommon: U
+	readonly rare: R
+	readonly rarest: Rrest
 
 	constructor (data: {
 		/**

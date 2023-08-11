@@ -1,5 +1,4 @@
 import { Ammunition, Backpack, BodyArmor, Food, Helmet, Medical, MeleeWeapon, Supply, ThrowableWeapon } from '../index.js'
-import { NonEmptyArray } from '../resources/constants.js'
 import { RangedWeapon } from './items/RangedWeapon.js'
 import { Tool } from './items/Tool.js'
 
@@ -74,10 +73,10 @@ export class LootPool<
 	Uncommon extends Item = LimitItemsToType, // holds types for uncommon items
 	Rare extends Item = LimitItemsToType, // holds types for rare items
 	Rarest extends Item = LimitItemsToType, // holds types for rarest items
-	C extends NonEmptyArray<ItemDropExistential<Common>> = NonEmptyArray<ItemDropExistential<Common>>,
-	U extends NonEmptyArray<ItemDropExistential<Uncommon>> | undefined = NonEmptyArray<ItemDropExistential<Uncommon>>,
-	R extends NonEmptyArray<ItemDropExistential<Rare>> | undefined = NonEmptyArray<ItemDropExistential<Rare>>,
-	Rrest extends NonEmptyArray<ItemDropExistential<Rarest>> | undefined = NonEmptyArray<ItemDropExistential<Rarest>>
+	C extends ItemDropExistential<Common>[] = ItemDropExistential<Common>[],
+	U extends ItemDropExistential<Uncommon>[] = ItemDropExistential<Uncommon>[],
+	R extends ItemDropExistential<Rare>[] = ItemDropExistential<Rare>[],
+	Rrest extends ItemDropExistential<Rarest>[] = ItemDropExistential<Rarest>[]
 > {
 	readonly common: C
 	readonly uncommon: U
@@ -134,28 +133,11 @@ export class LootPool<
 		rare: ExistentialToItemDrops<R>
 		rarest: ExistentialToItemDrops<Rrest>
 	} {
-		const commonItems = this.common.map(drop => drop(i => i))
-		let uncommonItems
-		let rareItems
-		let rarestItems
-
-		if (this.uncommon) {
-			uncommonItems = this.uncommon.map(drop => drop(i => i))
-		}
-
-		if (this.rare) {
-			rareItems = this.rare.map(drop => drop(i => i))
-		}
-
-		if (this.rarest) {
-			rarestItems = this.rarest.map(drop => drop(i => i))
-		}
-
 		return {
-			common: commonItems as ExistentialToItemDrops<C>,
-			uncommon: uncommonItems as ExistentialToItemDrops<U>,
-			rare: rareItems as ExistentialToItemDrops<R>,
-			rarest: rarestItems as ExistentialToItemDrops<Rrest>
+			common: this.common.map(drop => drop(i => i)) as ExistentialToItemDrops<C>,
+			uncommon: this.uncommon.map(drop => drop(i => i)) as ExistentialToItemDrops<U>,
+			rare: this.rare.map(drop => drop(i => i)) as ExistentialToItemDrops<R>,
+			rarest: this.rarest.map(drop => drop(i => i)) as ExistentialToItemDrops<Rrest>
 		}
 	}
 
@@ -172,19 +154,19 @@ export class LootPool<
 		const possibleItems = this.getLootPoolDrops()
 		const rand = Math.floor((Math.random() * 100) + 1) // generate random number 1 - 100 (inclusive) could make this more secure in the future?
 
-		if (possibleItems.rarest?.length && rand <= 5) {
+		if (possibleItems.rarest.length && rand <= 5) {
 			return {
 				rarity: 'Insanely Rare',
 				...possibleItems.rarest[Math.floor(Math.random() * possibleItems.rarest.length)] as ExistentialToItemDrops<Rrest>[number]
 			}
 		}
-		else if (possibleItems.rare?.length && rand > 5 && rand <= 15) {
+		else if (possibleItems.rare.length && rand > 5 && rand <= 15) {
 			return {
 				rarity: 'Rare',
 				...possibleItems.rare[Math.floor(Math.random() * possibleItems.rare.length)] as ExistentialToItemDrops<R>[number]
 			}
 		}
-		else if (possibleItems.uncommon?.length && rand > 15 && rand <= 40) {
+		else if (possibleItems.uncommon.length && rand > 15 && rand <= 40) {
 			return {
 				rarity: 'Uncommon',
 				...possibleItems.uncommon[Math.floor(Math.random() * possibleItems.uncommon.length)] as ExistentialToItemDrops<U>[number]

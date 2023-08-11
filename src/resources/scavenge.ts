@@ -22,12 +22,12 @@ const alwaysRare = [
 const level1 = new LootPool({
 	common: [
 		loot({ item: CannedCorn }),
-		loot({ item: Fabric }),
 		loot({ item: Bandage }),
 		loot({ item: WoodenBat, durability: generateLootDurability(WoodenBat.durability, 0.75) })
 	],
 	uncommon: [
 		loot({ item: CannedBeans }),
+		loot({ item: Fabric }),
 		loot({ item: HeavyJacket, durability: generateLootDurability(HeavyJacket.durability, 0.75) }),
 		loot({ item: CyclingHelmet, durability: generateLootDurability(CyclingHelmet.durability, 1) })
 	],

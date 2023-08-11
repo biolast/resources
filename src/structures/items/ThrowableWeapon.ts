@@ -2,22 +2,23 @@ import { ItemBase, ItemProperties } from './ItemBase.js'
 
 
 export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
-	type: 'Fragmentation Grenade' | 'Incendiary Grenade'
+	protected readonly category: 'Throwable Weapon'
+	readonly type: 'Fragmentation Grenade' | 'Incendiary Grenade'
 
 	/** The amount of damage this weapon deals when used */
-	damage: number
+	readonly damage: number
 	/** The percent chance for this weapon to hit target (0% - 100%) */
-	accuracy: number
+	readonly accuracy: number
 	/** How many limbs should the damage be spread out to */
-	spreadsDamageToLimbs?: 2 | 3 | 4
+	readonly spreadsDamageToLimbs?: 2 | 3 | 4
 	/**
 	 * The armor penetration this throwable has, can be a float between 0 - whatever. If this number is greater than the victims armor level, this will deal full damage.
 	 *
 	 * Otherwise, the damage will be reduced based on the difference between this number and the victims armor level.
 	 */
-	penetration: number
+	readonly penetration: number
 	/** How fast this weapon attacks in battles (player who uses item with higher speed goes first) */
-	speed: number
+	readonly speed: number
 
 	constructor (data: Omit<ItemProperties<T>, 'durability'> & {
 		type: 'Fragmentation Grenade' | 'Incendiary Grenade'
@@ -39,6 +40,7 @@ export class ThrowableWeapon<T extends string = string> extends ItemBase<T> {
 	}) {
 		super(data)
 
+		this.category = 'Throwable Weapon'
 		this.type = data.type
 		this.damage = data.damage
 		this.accuracy = data.accuracy

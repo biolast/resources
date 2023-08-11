@@ -1,7 +1,5 @@
 export * from './names.js'
 
-export type NonEmptyArray<T> = [T, ...T[]]
-
 /** The default storage space for player inventories */
 export const DEFAULT_BACKPACK_LIMIT = 15.0
 
@@ -42,17 +40,6 @@ export const LIMB_DAMAGE_MULTIPLIERS = {
 export const DEFAULT_SCAVENGE_ROLLS = {
 	min: 2,
 	max: 3
-} as const
-
-/** How many items will a raider mob have in their inventory, increasing beyond 4 max overflows the battle image inventory */
-export const DEFAULT_RAIDER_MOB_ROLLS = {
-	min: 3,
-	max: 4
-} as const
-/** How many items will a zombie mob have in their inventory, increasing beyond 5 max overflows the battle image inventory */
-export const DEFAULT_ZOMBIE_MOB_ROLLS = {
-	min: 3,
-	max: 5
 } as const
 
 

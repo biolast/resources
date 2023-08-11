@@ -21,6 +21,10 @@ export class Raider extends MobBase {
 		/** {@link WeaponPool} of possible weapons this raider can use */
 		weapon: WeaponPool
 	}) {
+		if (data.loot.rolls.max > 4) {
+			throw new Error('Raider mobs cannot have more than 4 loot rolls to prevent the battle image from overflowing')
+		}
+
 		super(data)
 
 		this.helmet = data.helmet

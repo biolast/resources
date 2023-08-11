@@ -16,6 +16,10 @@ export class Walker extends MobBase {
 		/** {@link LootPool} of possible armor mob can wear */
 		armor: LootPool<BodyArmor>
 	}) {
+		if (data.loot.rolls.max > 5) {
+			throw new Error('Walker mobs cannot have more than 5 loot rolls to prevent the battle image from overflowing')
+		}
+
 		super(data)
 
 		this.helmet = data.helmet
