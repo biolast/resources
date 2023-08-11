@@ -109,7 +109,7 @@ export const mobs = [
 				rarest: []
 			}),
 			loot: {
-				rolls: 4,
+				rolls: 3,
 				pool: new LootPool({
 					common: [
 						loot({ item: CannedCorn }),
