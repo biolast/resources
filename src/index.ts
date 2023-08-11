@@ -16,6 +16,7 @@ import * as backpacks from './resources/items/backpacks.js'
 import * as throwables from './resources/items/throwables.js'
 import * as foods from './resources/items/foods.js'
 import * as supplies from './resources/items/supplies.js'
+import * as tools from './resources/items/tools.js'
 
 
 export const images = {
@@ -39,7 +40,8 @@ export const items = {
 	...backpacks,
 	...throwables,
 	...foods,
-	...supplies
+	...supplies,
+	...tools
 }
 
 export const allItems = Object.values(items)
