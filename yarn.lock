@@ -438,8 +438,8 @@ __metadata:
   linkType: soft
 
 "@blobfysh/eslint-config@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "@blobfysh/eslint-config@npm:1.0.6"
+  version: 1.0.7
+  resolution: "@blobfysh/eslint-config@npm:1.0.7"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.59.2
     "@typescript-eslint/parser": ^5.59.2
@@ -447,7 +447,7 @@ __metadata:
     eslint-plugin-deprecation: ^1.4.1
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jsonc: ^2.7.0
-  checksum: 86a570ac6296d961cfc00dc5a3786ea85474b40e3c836f0a6cb8f40349fa46e881250eb1632a6fbae79b297de5edaded696241e9de07fc4e91d8f41d3b8c9d9f
+  checksum: 75eb246c48e2b8ddee084f69085df66755793b077735dd429a6d5936016ccb3dd4de59c91077825cb65fe4e263d5daf488e867cf2c17a728d21da1b4dc744b44
   languageName: node
   linkType: hard
 
