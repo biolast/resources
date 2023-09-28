@@ -6,18 +6,34 @@ import { MobBase, MobProperties } from './MobBase.js'
 
 
 export class Raider extends MobBase {
-	/** {@link LootPool} of possible helmets mob can wear */
-	helmet: LootPool<Helmet>
-	/** {@link LootPool} of possible armor mob can wear */
-	armor: LootPool<BodyArmor>
+	helmet: {
+		/** {@link LootPool} of possible helmets mob can wear */
+		pool: LootPool<Helmet>
+		/** chance mob is wearing armor */
+		chance: number
+	}
+	armor: {
+		/** {@link LootPool} of possible armor mob can wear */
+		pool: LootPool<BodyArmor>
+		/** chance mob is wearing armor */
+		chance: number
+	}
 	/** {@link WeaponPool} of possible weapons this raider can use */
 	weapon: WeaponPool
 
 	constructor (data: MobProperties & {
-		/** {@link LootPool} of possible helmets mob can wear */
-		helmet: LootPool<Helmet>
-		/** {@link LootPool} of possible armor mob can wear */
-		armor: LootPool<BodyArmor>
+		helmet: {
+			/** {@link LootPool} of possible helmets mob can wear */
+			pool: LootPool<Helmet>
+			/** chance mob is wearing armor */
+			chance: number
+		}
+		armor: {
+			/** {@link LootPool} of possible armor mob can wear */
+			pool: LootPool<BodyArmor>
+			/** chance mob is wearing armor */
+			chance: number
+		}
 		/** {@link WeaponPool} of possible weapons this raider can use */
 		weapon: WeaponPool
 	}) {
@@ -35,36 +51,36 @@ export class Raider extends MobBase {
 	getObtainableItems (): Item[] {
 		const obtainableItems = []
 		const scavenge = this.loot.pool.getLootPoolDrops()
-		const helmet = this.helmet.getLootPoolDrops()
-		const armor = this.armor.getLootPoolDrops()
+		const helmet = this.helmet.pool.getLootPoolDrops()
+		const armor = this.armor.pool.getLootPoolDrops()
 		const weaponDrops = this.weapon.getLootPoolDrops()
 		const weapons = [
 			...weaponDrops.common,
-			...weaponDrops.uncommon,
-			...weaponDrops.rare,
-			...weaponDrops.rarest
+			...(weaponDrops.uncommon || []),
+			...(weaponDrops.rare || []),
+			...(weaponDrops.rarest || [])
 		]
 		const ammunition = []
 
 		obtainableItems.push(...[
 			...scavenge.common,
-			...scavenge.uncommon,
-			...scavenge.rare,
-			...scavenge.rarest
+			...(scavenge.uncommon || []),
+			...(scavenge.rare || []),
+			...(scavenge.rarest || [])
 		].map(d => d.item))
 
 		obtainableItems.push(...[
 			...helmet.common,
-			...helmet.uncommon,
-			...helmet.rare,
-			...helmet.rarest
+			...(helmet.uncommon || []),
+			...(helmet.rare || []),
+			...(helmet.rarest || [])
 		].map(d => d.item))
 
 		obtainableItems.push(...[
 			...armor.common,
-			...armor.uncommon,
-			...armor.rare,
-			...armor.rarest
+			...(armor.uncommon || []),
+			...(armor.rare || []),
+			...(armor.rarest || [])
 		].map(d => d.item))
 
 		for (const weap of weapons) {

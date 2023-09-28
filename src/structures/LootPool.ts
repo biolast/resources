@@ -74,9 +74,9 @@ export class LootPool<
 	Rare extends Item = LimitItemsToType, // holds types for rare items
 	Rarest extends Item = LimitItemsToType, // holds types for rarest items
 	C extends ItemDropExistential<Common>[] = ItemDropExistential<Common>[],
-	U extends ItemDropExistential<Uncommon>[] = ItemDropExistential<Uncommon>[],
-	R extends ItemDropExistential<Rare>[] = ItemDropExistential<Rare>[],
-	Rrest extends ItemDropExistential<Rarest>[] = ItemDropExistential<Rarest>[]
+	U extends null | ItemDropExistential<Uncommon>[] = null | ItemDropExistential<Uncommon>[],
+	R extends null | ItemDropExistential<Rare>[] = null | ItemDropExistential<Rare>[],
+	Rrest extends null | ItemDropExistential<Rarest>[] = null | ItemDropExistential<Rarest>[]
 > {
 	readonly common: C
 	readonly uncommon: U
@@ -91,6 +91,7 @@ export class LootPool<
 		 *
 		 * @example
 		 * common: [loot({ item: CannedCorn })]
+		 * common: [] // if you want to roll undefined
 		 */
 		readonly common: C
 		/**
@@ -100,6 +101,8 @@ export class LootPool<
 		 *
 		 * @example
 		 * uncommon: [loot({ item: CannedCorn })]
+		 * uncommon: [] // if you want to roll undefined
+		 * uncommon: null // if you don't want to roll
 		 */
 		readonly uncommon: U
 		/**
@@ -109,6 +112,8 @@ export class LootPool<
 		 *
 		 * @example
 		 * rare: [loot({ item: CannedCorn })]
+		 * rare: [] // if you want to roll undefined
+		 * rare: null // if you don't want to roll
 		 */
 		readonly rare: R
 		/**
@@ -118,6 +123,8 @@ export class LootPool<
 		 *
 		 * @example
 		 * rarest: [loot({ item: CannedCorn })]
+		 * rarest: [] // if you want to roll undefined
+		 * rarest: null // if you don't want to roll
 		 */
 		readonly rarest: Rrest
 	}) {
@@ -129,15 +136,15 @@ export class LootPool<
 
 	getLootPoolDrops (): {
 		common: ExistentialToItemDrops<C>
-		uncommon: ExistentialToItemDrops<U>
-		rare: ExistentialToItemDrops<R>
-		rarest: ExistentialToItemDrops<Rrest>
+		uncommon: U extends null ? null : ExistentialToItemDrops<U>
+		rare: R extends null ? null : ExistentialToItemDrops<R>
+		rarest: Rrest extends null ? null : ExistentialToItemDrops<Rrest>
 	} {
 		return {
 			common: this.common.map(drop => drop(i => i)) as ExistentialToItemDrops<C>,
-			uncommon: this.uncommon.map(drop => drop(i => i)) as ExistentialToItemDrops<U>,
-			rare: this.rare.map(drop => drop(i => i)) as ExistentialToItemDrops<R>,
-			rarest: this.rarest.map(drop => drop(i => i)) as ExistentialToItemDrops<Rrest>
+			uncommon: (this.uncommon?.map(drop => drop(i => i)) || []) as U extends null ? null : ExistentialToItemDrops<U>,
+			rare: (this.rare?.map(drop => drop(i => i)) || []) as R extends null ? null : ExistentialToItemDrops<R>,
+			rarest: (this.rarest?.map(drop => drop(i => i)) || []) as Rrest extends null ? null : ExistentialToItemDrops<Rrest>
 		}
 	}
 
@@ -154,19 +161,19 @@ export class LootPool<
 		const possibleItems = this.getLootPoolDrops()
 		const rand = Math.floor((Math.random() * 100) + 1) // generate random number 1 - 100 (inclusive) could make this more secure in the future?
 
-		if (possibleItems.rarest.length && rand <= 5) {
+		if (possibleItems.rarest?.length && rand <= 5) {
 			return {
 				rarity: 'Insanely Rare',
 				...possibleItems.rarest[Math.floor(Math.random() * possibleItems.rarest.length)] as ExistentialToItemDrops<Rrest>[number]
 			}
 		}
-		else if (possibleItems.rare.length && rand > 5 && rand <= 15) {
+		else if (possibleItems.rare?.length && rand > 5 && rand <= 15) {
 			return {
 				rarity: 'Rare',
 				...possibleItems.rare[Math.floor(Math.random() * possibleItems.rare.length)] as ExistentialToItemDrops<R>[number]
 			}
 		}
-		else if (possibleItems.uncommon.length && rand > 15 && rand <= 40) {
+		else if (possibleItems.uncommon?.length && rand > 15 && rand <= 40) {
 			return {
 				rarity: 'Uncommon',
 				...possibleItems.uncommon[Math.floor(Math.random() * possibleItems.uncommon.length)] as ExistentialToItemDrops<U>[number]

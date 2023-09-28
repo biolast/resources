@@ -2,13 +2,13 @@ import { WeaponPool, weapon } from '../index.js'
 import { LootPool, generateLootDurability, loot } from '../structures/LootPool.js'
 import { Raider } from '../structures/mobs/Raider.js'
 import { Walker } from '../structures/mobs/Walker.js'
-import { PistolBullet } from './items/ammunition.js'
-import { HeavyJacket, WoodenArmor } from './items/armor.js'
+import { PistolBullet, Shotgun20GaugeBuckshot } from './items/ammunition.js'
+import { HeavyJacket, LightArmor, WoodenArmor } from './items/armor.js'
 import { ClothBackpack, SmallPouch } from './items/backpacks.js'
-import { CyclingHelmet, HardHat, WoodenHelmet } from './items/helmets.js'
+import { CyclingHelmet, HardHat, RiotHelmet, WoodenHelmet } from './items/helmets.js'
 import { Bandage, Medkit } from './items/medicals.js'
 import { Crowbar, Knife, MetalBat, MetalPipe, PoliceBaton, Shank } from './items/melee.js'
-import { Pistol } from './items/ranged.js'
+import { DoubleBarrelShotgun, Pistol, SubmachineGun } from './items/ranged.js'
 import { CannedBeans, CannedCorn, Fabric } from './items/supplies.js'
 import { Lighter } from './items/tools.js'
 
@@ -18,28 +18,34 @@ export const mobs = [
 		levelRequired: 1,
 		mob: new Walker({
 			name: 'Walker',
-			helmet: new LootPool({
-				common: [
-					loot({ item: CyclingHelmet, durability: generateLootDurability(HardHat.durability, 1) })
-				],
-				uncommon: [], // empty array = chance mob isn't wearing armor
-				rare: [
-					loot({ item: HardHat, durability: generateLootDurability(HardHat.durability, 0.8) })
-				],
-				rarest: [
-					loot({ item: WoodenHelmet, durability: generateLootDurability(WoodenHelmet.durability, 0.75) })
-				]
-			}),
-			armor: new LootPool({
-				common: [],
-				uncommon: [
-					loot({ item: HeavyJacket, durability: generateLootDurability(HeavyJacket.durability, 0.8) })
-				],
-				rare: [],
-				rarest: [
-					loot({ item: WoodenArmor, durability: generateLootDurability(WoodenArmor.durability, 1) })
-				]
-			}),
+			helmet: {
+				chance: 25,
+				pool: new LootPool({
+					common: [
+						loot({ item: CyclingHelmet, durability: generateLootDurability(HardHat.durability, 1) })
+					],
+					uncommon: null,
+					rare: [
+						loot({ item: HardHat, durability: generateLootDurability(HardHat.durability, 0.8) })
+					],
+					rarest: [
+						loot({ item: WoodenHelmet, durability: generateLootDurability(WoodenHelmet.durability, 0.75) })
+					]
+				})
+			},
+			armor: {
+				chance: 40,
+				pool: new LootPool({
+					common: [
+						loot({ item: HeavyJacket, durability: generateLootDurability(HeavyJacket.durability, 0.8) })
+					],
+					uncommon: null,
+					rare: null,
+					rarest: [
+						loot({ item: WoodenArmor, durability: generateLootDurability(WoodenArmor.durability, 1) })
+					]
+				})
+			},
 			loot: {
 				rolls: 3,
 				pool: new LootPool({
@@ -85,27 +91,33 @@ export const mobs = [
 					})
 				]
 			}),
-			helmet: new LootPool({
-				common: [
-					loot({ item: CyclingHelmet, durability: generateLootDurability(HardHat.durability, 1) }),
-					loot({ item: HardHat, durability: generateLootDurability(HardHat.durability, 1) })
-				],
-				uncommon: [
-					loot({ item: WoodenHelmet, durability: generateLootDurability(WoodenHelmet.durability, 1) })
-				],
-				rare: [],
-				rarest: []
-			}),
-			armor: new LootPool({
-				common: [
-					loot({ item: HeavyJacket, durability: generateLootDurability(HeavyJacket.durability, 1) })
-				],
-				uncommon: [
-					loot({ item: WoodenArmor, durability: generateLootDurability(WoodenArmor.durability, 1) })
-				],
-				rare: [],
-				rarest: []
-			}),
+			helmet: {
+				chance: 50,
+				pool: new LootPool({
+					common: [
+						loot({ item: CyclingHelmet, durability: generateLootDurability(HardHat.durability, 1) }),
+						loot({ item: HardHat, durability: generateLootDurability(HardHat.durability, 1) })
+					],
+					uncommon: [
+						loot({ item: WoodenHelmet, durability: generateLootDurability(WoodenHelmet.durability, 1) })
+					],
+					rare: null,
+					rarest: null
+				})
+			},
+			armor: {
+				chance: 100,
+				pool: new LootPool({
+					common: [
+						loot({ item: HeavyJacket, durability: generateLootDurability(HeavyJacket.durability, 1) })
+					],
+					uncommon: [
+						loot({ item: WoodenArmor, durability: generateLootDurability(WoodenArmor.durability, 1) })
+					],
+					rare: null,
+					rarest: null
+				})
+			},
 			loot: {
 				rolls: 3,
 				pool: new LootPool({
@@ -124,6 +136,152 @@ export const mobs = [
 						loot({ item: Knife, durability: generateLootDurability(Knife.durability, 1) }),
 						loot({ item: Lighter, durability: generateLootDurability(Lighter.durability, 0.75) }),
 						loot({ item: Medkit, durability: generateLootDurability(Medkit.durability, 0.75) })
+					],
+					rarest: [
+						loot({ item: ClothBackpack })
+					]
+				})
+			}
+		})
+	},
+	{
+		levelRequired: 3,
+		mob: new Raider({
+			name: 'Armored Raider',
+			weapon: new WeaponPool({
+				common: [
+					weapon({
+						item: Crowbar,
+						durability: generateLootDurability(Crowbar.durability, 1)
+					})
+				],
+				uncommon: [
+					weapon({
+						item: Pistol,
+						durability: generateLootDurability(Pistol.durability, 1),
+						ammo: [PistolBullet]
+					})
+				],
+				rare: null,
+				rarest: [
+					weapon({
+						item: SubmachineGun,
+						durability: generateLootDurability(SubmachineGun.durability, 1),
+						ammo: [PistolBullet]
+					}),
+					weapon({
+						item: DoubleBarrelShotgun,
+						durability: generateLootDurability(DoubleBarrelShotgun.durability, 1),
+						ammo: [Shotgun20GaugeBuckshot]
+					})
+				]
+			}),
+			helmet: {
+				chance: 100,
+				pool: new LootPool({
+					common: [
+						loot({ item: WoodenHelmet, durability: generateLootDurability(WoodenHelmet.durability, 1) })
+					],
+					uncommon: [
+						loot({ item: RiotHelmet, durability: generateLootDurability(RiotHelmet.durability, 1) })
+					],
+					rare: null,
+					rarest: null
+				})
+			},
+			armor: {
+				chance: 100,
+				pool: new LootPool({
+					common: [
+						loot({ item: LightArmor, durability: generateLootDurability(LightArmor.durability, 1) })
+					],
+					uncommon: null,
+					rare: null,
+					rarest: null
+				})
+			},
+			loot: {
+				rolls: 4,
+				pool: new LootPool({
+					common: [
+						loot({ item: CannedCorn }),
+						loot({ item: CannedBeans })
+					],
+					uncommon: [
+						loot({ item: Medkit, durability: generateLootDurability(Medkit.durability, 0.75) }),
+						loot({ item: PistolBullet }),
+						loot({ item: Shotgun20GaugeBuckshot })
+					],
+					rare: [
+						loot({ item: Fabric }),
+						loot({ item: Knife, durability: generateLootDurability(Knife.durability, 1) }),
+						loot({ item: Lighter, durability: generateLootDurability(Lighter.durability, 0.75) })
+					],
+					rarest: [
+						loot({ item: ClothBackpack })
+					]
+				})
+			}
+		})
+	},
+
+
+	{
+		levelRequired: 4,
+		mob: new Raider({
+			name: 'Armored Raider',
+			weapon: new WeaponPool({
+				common: [
+
+				],
+				uncommon: [
+
+				],
+				rare: [
+
+				],
+				rarest: [
+
+				]
+			}),
+			helmet: {
+				chance: 100,
+				pool: new LootPool({
+					common: [
+					],
+					uncommon: [
+					],
+					rare: [],
+					rarest: []
+				})
+			},
+			armor: {
+				chance: 100,
+				pool: new LootPool({
+					common: [
+						loot({ item: LightArmor, durability: generateLootDurability(LightArmor.durability, 1) })
+					],
+					uncommon: [],
+					rare: [],
+					rarest: []
+				})
+			},
+			loot: {
+				rolls: 4,
+				pool: new LootPool({
+					common: [
+						loot({ item: CannedCorn }),
+						loot({ item: CannedBeans })
+					],
+					uncommon: [
+						loot({ item: Medkit, durability: generateLootDurability(Medkit.durability, 0.75) }),
+						loot({ item: PistolBullet }),
+						loot({ item: Shotgun20GaugeBuckshot })
+					],
+					rare: [
+						loot({ item: Fabric }),
+						loot({ item: Knife, durability: generateLootDurability(Knife.durability, 1) }),
+						loot({ item: Lighter, durability: generateLootDurability(Lighter.durability, 0.75) })
 					],
 					rarest: [
 						loot({ item: ClothBackpack })

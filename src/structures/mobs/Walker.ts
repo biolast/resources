@@ -5,16 +5,32 @@ import { MobBase, MobProperties } from './MobBase.js'
 
 
 export class Walker extends MobBase {
-	/** {@link LootPool} of possible helmets mob can wear */
-	helmet: LootPool<Helmet>
-	/** {@link LootPool} of possible armor mob can wear */
-	armor: LootPool<BodyArmor>
+	helmet: {
+		/** {@link LootPool} of possible helmets mob can wear */
+		pool: LootPool<Helmet>
+		/** chance mob is wearing armor */
+		chance: number
+	}
+	armor: {
+		/** {@link LootPool} of possible armor mob can wear */
+		pool: LootPool<BodyArmor>
+		/** chance mob is wearing armor */
+		chance: number
+	}
 
 	constructor (data: MobProperties & {
-		/** {@link LootPool} of possible helmets mob can wear */
-		helmet: LootPool<Helmet>
-		/** {@link LootPool} of possible armor mob can wear */
-		armor: LootPool<BodyArmor>
+		helmet: {
+			/** {@link LootPool} of possible helmets mob can wear */
+			pool: LootPool<Helmet>
+			/** chance mob is wearing armor */
+			chance: number
+		}
+		armor: {
+			/** {@link LootPool} of possible armor mob can wear */
+			pool: LootPool<BodyArmor>
+			/** chance mob is wearing armor */
+			chance: number
+		}
 	}) {
 		if (data.loot.rolls > 5) {
 			throw new Error('Walker mobs cannot have more than 5 loot rolls to prevent the battle image from overflowing')
@@ -29,28 +45,28 @@ export class Walker extends MobBase {
 	getObtainableItems (): Item[] {
 		const obtainableItems = []
 		const scavenge = this.loot.pool.getLootPoolDrops()
-		const helmet = this.helmet.getLootPoolDrops()
-		const armor = this.armor.getLootPoolDrops()
+		const helmet = this.helmet.pool.getLootPoolDrops()
+		const armor = this.armor.pool.getLootPoolDrops()
 
 		obtainableItems.push(...[
 			...scavenge.common,
-			...scavenge.uncommon,
-			...scavenge.rare,
-			...scavenge.rarest
+			...(scavenge.uncommon || []),
+			...(scavenge.rare || []),
+			...(scavenge.rarest || [])
 		].map(d => d.item))
 
 		obtainableItems.push(...[
 			...helmet.common,
-			...helmet.uncommon,
-			...helmet.rare,
-			...helmet.rarest
+			...(helmet.uncommon || []),
+			...(helmet.rare || []),
+			...(helmet.rarest || [])
 		].map(d => d.item))
 
 		obtainableItems.push(...[
 			...armor.common,
-			...armor.uncommon,
-			...armor.rare,
-			...armor.rarest
+			...(armor.uncommon || []),
+			...(armor.rare || []),
+			...(armor.rarest || [])
 		].map(d => d.item))
 
 		return [...new Set(obtainableItems)]

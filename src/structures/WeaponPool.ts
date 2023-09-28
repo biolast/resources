@@ -43,9 +43,9 @@ export class WeaponPool<
 	Rare extends Weapon = Weapon,
 	Rarest extends Weapon = Weapon,
 	C extends NonEmptyArray<ItemDropExistential<Common>> = NonEmptyArray<ItemDropExistential<Common>>,
-	U extends ItemDropExistential<Uncommon>[] = ItemDropExistential<Uncommon>[],
-	R extends ItemDropExistential<Rare>[] = ItemDropExistential<Rare>[],
-	Rrest extends ItemDropExistential<Rarest>[] = ItemDropExistential<Rarest>[]
+	U extends null | ItemDropExistential<Uncommon>[] = null | ItemDropExistential<Uncommon>[],
+	R extends null | ItemDropExistential<Rare>[] = null | ItemDropExistential<Rare>[],
+	Rrest extends null | ItemDropExistential<Rarest>[] = null | ItemDropExistential<Rarest>[]
 > extends LootPool<Weapon, Common, Uncommon, Rare, Rarest, C, U, R, Rrest> {
 	readonly common: C
 	readonly uncommon: U
@@ -59,7 +59,7 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * common: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
+		 * common: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: [PistolBullet] })]
 		 */
 		readonly common: C
 		/**
@@ -68,7 +68,9 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * uncommon: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
+		 * uncommon: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: [PistolBullet] })]
+		 * uncommon: [] // if you want to roll undefined
+		 * uncommon: null // if you don't want to roll
 		 */
 		readonly uncommon: U
 		/**
@@ -77,7 +79,9 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * rare: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
+		 * rare: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: [PistolBullet] })]
+		 * rare: [] // if you want to roll undefined
+		 * rare: null // if you don't want to roll
 		 */
 		readonly rare: R
 		/**
@@ -86,7 +90,9 @@ export class WeaponPool<
 		 * Make sure to enclose each drop inside of the {@link weapon()} function
 		 *
 		 * @example
-		 * rarest: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: PistolBullet })]
+		 * rarest: [weapon({ item: Pistol, durability: { min: 8, max: 12 }, ammo: [PistolBullet] })]
+		 * rarest: [] // if you want to roll undefined
+		 * rarest: null // if you don't want to roll
 		 */
 		readonly rarest: Rrest
 	}) {
