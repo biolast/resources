@@ -33,7 +33,7 @@ export class Walker extends MobBase {
 		}
 	}) {
 		if (data.loot.rolls > 5) {
-			throw new Error('Walker mobs cannot have more than 5 loot rolls to prevent the battle image from overflowing')
+			throw new Error('Walker mobs cannot have more than 5 loot rolls in order to prevent the battle image from overflowing')
 		}
 
 		super(data)

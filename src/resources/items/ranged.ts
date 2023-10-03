@@ -41,7 +41,7 @@ export const HuntingRifle = new RangedWeapon({
 	name: 'hunting_rifle',
 	discordIcon: undefined,
 	aliases: ['hunting'],
-	durability: 24,
+	durability: 14,
 	slotsUsed: 4,
 	accuracy: 95,
 	speed: 3,

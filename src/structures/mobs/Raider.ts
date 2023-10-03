@@ -38,7 +38,7 @@ export class Raider extends MobBase {
 		weapon: WeaponPool
 	}) {
 		if (data.loot.rolls > 4) {
-			throw new Error('Raider mobs cannot have more than 4 loot rolls to prevent the battle image from overflowing')
+			throw new Error('Raider mobs cannot have more than 4 loot rolls in order to prevent the battle image from overflowing')
 		}
 
 		super(data)

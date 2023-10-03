@@ -88,7 +88,7 @@ export const Crowbar = new MeleeWeapon({
 	name: 'crowbar',
 	discordIcon: undefined,
 	aliases: ['prybar', 'crow', 'bar'],
-	durability: 8,
+	durability: 10,
 	slotsUsed: 3,
 	accuracy: 65,
 	damage: 15,
