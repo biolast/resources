@@ -23,6 +23,7 @@ import * as collectibles from './resources/items/collectibles.js'
 import * as throwables from './resources/items/throwables.js'
 import * as foods from './resources/items/foods.js'
 import * as supplies from './resources/items/supplies.js'
+import { Item } from './structures/items/Item.js'
 
 
 export const images = {
@@ -36,7 +37,7 @@ export const images = {
 	playerBattleTemplateBackground: playerBattleTemplateBackgroundImage
 }
 
-export const items = {
+const item_classes = {
 	...ranged,
 	...melee,
 	...armor,
@@ -60,10 +61,21 @@ export const regions = {
 }
 
 export type RegionName = typeof regions[keyof typeof regions]['name']
-export type ItemName = typeof items[keyof typeof items]['name']
+
+type ItemNameExtract<T> = T extends Item<infer Name> ? Name : never
+type ItemNameClassMap = { [K in keyof typeof item_classes]: ItemNameExtract<typeof item_classes[K]> }
+export type ItemName = ItemNameClassMap[keyof ItemNameClassMap]
 
 export const allRegions = Object.values(regions)
-export const allItems = Object.values(items)
+export const allItems = Object.values(item_classes)
+
+const getKeys = <T extends object>(obj: T) => Object.keys(obj) as Array<keyof T>
+
+export const items = getKeys(item_classes)
+	.reduce((prev, curr) => ({
+		...prev,
+		[item_classes[curr].name]: item_classes[curr]
+	}), {} as { [K in keyof ItemNameClassMap as ItemNameClassMap[K]]: typeof item_classes[K] })
 
 export const isValidRegion = (s: string): s is RegionName => s in allRegions.map(r => r.name)
 export const isValidItemName = (s: string): s is ItemName => s in allItems.map(i => i.name)
