@@ -13,7 +13,8 @@
 		"checkJs": true,
 		"newLine": "lf",
 		"inlineSourceMap": true,
-		"declaration": true
+		"declaration": true,
+		"removeComments": true
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "dist"]

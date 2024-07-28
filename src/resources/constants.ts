@@ -1,4 +1,23 @@
-import { Item } from '../structures/items/Item.js'
+import skullImage from './images/skull.png'
+import hpBarEmptyImage from './images/hp_bar_empty.png'
+import hpBarFullImage from './images/hp_bar_full.png'
+import playerHpBarEmptyImage from './images/player_hp_bar_empty.png'
+import playerHpBarFullImage from './images/player_hp_bar_full.png'
+import textBarBackgroundImage from './images/text_bar.png'
+import mobBattleTemplateBackgroundImage from './images/mob_battle_template.png'
+import playerBattleTemplateBackgroundImage from './images/player_battle_template.png'
+
+
+export const DUEL_IMAGES = {
+	Skull: skullImage,
+	HpBarEmpty: hpBarEmptyImage,
+	HpBarFull: hpBarFullImage,
+	PlayerHpBarEmpty: playerHpBarEmptyImage,
+	PlayerHpBarFull: playerHpBarFullImage,
+	TextBarBackground: textBarBackgroundImage,
+	MobBattleTemplateBackground: mobBattleTemplateBackgroundImage,
+	PlayerBattleTemplateBackground: playerBattleTemplateBackgroundImage
+}
 
 
 export * from './names.js'
@@ -7,7 +26,7 @@ export * from './names.js'
 export const DEFAULT_BACKPACK_LIMIT = 15.0
 
 /** how much energy a player can have max */
-export const DEFAULT_MAX_ENERGY = 30
+export const DEFAULT_MAX_ENERGY = 100
 
 /**
  * the percentage of accuracy needed for player to be able to target a limb in battles.
@@ -15,9 +34,6 @@ export const DEFAULT_MAX_ENERGY = 30
  * would have 55% total accuracy.
  */
 export const LIMB_TARGETING_ACCURACY_REQUIRED = 50
-
-/** the max # of stimulants you can use in a fight */
-export const DEFAULT_MAX_STIMULANTS_PER_BATTLE = 1
 
 export const EMBED_COLORS = {
 	get default () {
@@ -60,18 +76,22 @@ export const DEFAULT_ZOMBIE_MOB_ROLLS = {
 } as const
 
 
+/** how many rooms does base start with */
+export const BASE_STARTING_ROOMS = 1
 /** how many shelves does a new base start with */
 export const BASE_STARTING_SHELVES = 1
 /** how many beds does a new base start with */
 export const BASE_STARTING_BEDS = 1
 
-/** how many shelves can a user build max */
-export const BASE_STARTING_MAX_SHELVES = 10
-/** how many beds can a user build max */
-export const BASE_STARTING_MAX_BEDS = 5
+/** how many rooms can a user build */
+export const BASE_MAX_ROOMS = 10
+/** how many shelves can be crafted for each room player has in their base */
+export const BASE_MAX_SHELVES_PER_ROOM = 4
+/** how many beds can be crafted for each room player has in their base */
+export const BASE_MAX_BEDS_PER_ROOM = 2
 
 /** how much space can base storage hold with each shelf */
-export const BASE_STORAGE_SPACE_PER_SHELF = 10.0
+export const BASE_STORAGE_SPACE_PER_SHELF = 5.0
 /** how many zombies does 1 wood spike trap kill when base is raided by horde */
 export const BASE_WOOD_SPIKE_PROTECTION = 10
 
@@ -148,31 +168,3 @@ export const TEXT_COMMAND_ALIASES: {
 		aliases: ['crafting']
 	}
 ]
-
-export interface LootPool<T extends Item = Item> {
-	/**
-	 * items that can be rolled
-	 *
-	 * 60% chance to roll
-	 */
-	common?: T[]
-	/**
-	 * items that can be rolled
-	 *
-	 * 25% chance to roll
-	 */
-	uncommon?: T[]
-	/**
-	 * items that can be rolled
-	 *
-	 * 10% chance to roll
-	 */
-	rare?: T[]
-	/**
-	 * items that can be rolled
-	 *
-	 * 5% chance to roll
-	 */
-	rarest?: T[]
-}
-

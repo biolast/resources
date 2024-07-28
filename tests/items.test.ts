@@ -5,7 +5,7 @@ import { Food } from '../src/structures/items/Food.js'
 const aliases: string[] = []
 
 for (const item of allItems) {
-	aliases.push(...item.data.aliases)
+	aliases.push(...item.aliases)
 }
 
 test('items have no duplicate names', () => {
@@ -22,17 +22,15 @@ test('items have no duplicate aliases', () => {
 
 
 describe.each(allItems)('Item (%s)', item => {
-	const itemData = item.data
-
-	if ('spreadsDamageToLimbs' in itemData) {
+	if ('spreadsDamageToLimbs' in item) {
 		test('damage should be divisible by the amount of limbs that damage is spread between', () => {
-			expect(itemData.damage % (itemData.spreadsDamageToLimbs || 1)).toBe(0)
+			expect(item.damage % (item.spreadsDamageToLimbs || 1)).toBe(0)
 		})
 	}
 
 	if (item instanceof Food) {
-		if (item.data.recipes?.length) {
-			describe.each(item.data.recipes.map((el, index) => ({ recipe: el, index })))('cooking recipe at index $index', ({ index, recipe }) => {
+		if (item.recipes?.length) {
+			describe.each(item.recipes.map((el, index) => ({ recipe: el, index })))('cooking recipe at index $index', ({ index, recipe }) => {
 				test('recipe requires 5 or less items', () => {
 					expect(recipe.length).toBeLessThanOrEqual(5)
 				})
@@ -46,8 +44,8 @@ describe.each(allItems)('Item (%s)', item => {
 					const itemsWithSameRecipe: string[] = []
 
 					for (const itm of allItems) {
-						if (itm.name !== item.name && itm instanceof Food && itm.data.recipes?.length) {
-							for (const otherRecipe of itm.data.recipes) {
+						if (itm.name !== item.name && itm instanceof Food && itm.recipes?.length) {
+							for (const otherRecipe of itm.recipes) {
 								if (otherRecipe.every(recipeItm => recipe.includes(recipeItm)) && recipe.every(recipeItm => otherRecipe.includes(recipeItm))) {
 									itemsWithSameRecipe.push(itm.name)
 								}

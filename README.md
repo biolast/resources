@@ -14,5 +14,5 @@ This repo contains data used by the bot. Visit [src/resources](./src/resources) 
 ```ts
 import { items } from '@biolast/resources'
 
-console.log(await items.Pistol.image()) // returns base64 encoded item image
+console.log(await items.pistol.image()) // returns base64 encoded item image
 ```
