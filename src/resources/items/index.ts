@@ -60,4 +60,4 @@ export const items = getObjectKeys(rawItemObject)
 
 export const allItems = Object.values(items)
 
-export const isValidItemName = (s: string): s is keyof typeof items => s in allItems.map(i => i.name)
+export const isValidItemName = (s: string): s is keyof typeof items => s in items
