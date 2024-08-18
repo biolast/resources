@@ -94,36 +94,30 @@ export class LootPool<T> {
 		amountToRoll: Amount
 	}>): Amount extends number ? RollType : RollType[number] {
 		const rolls = []
-		let common, uncommon, rare, rarest
+		let common = this.common, uncommon = this.uncommon, rare = this.rare, rarest = this.rarest
 
 		if (options?.filter) {
 			common = this.common.filter(options.filter)
-			uncommon = this.common.filter(options.filter)
-			rare = this.common.filter(options.filter)
-			rarest = this.common.filter(options.filter)
+			uncommon = this.uncommon?.filter(options.filter)
+			rare = this.rare?.filter(options.filter)
+			rarest = this.rarest?.filter(options.filter)
 
-			if (!common.length && !uncommon.length && !rare.length && !rarest.length) throw new Error('the supplied filter has no possible drops')
-		}
-		else {
-			common = this.common
-			uncommon = this.common
-			rare = this.common
-			rarest = this.common
+			if (!common.length && !uncommon?.length && !rare?.length && !rarest?.length) throw new Error('the supplied filter has no possible drops')
 		}
 
 		for (let i = 0; i < (options?.amountToRoll || 1); i++) {
 			const rand = Math.random()
 			let drop, rarity
 
-			if (rarest.length && rand < 0.05) {
+			if (rarest?.length && rand < 0.05) {
 				drop = rarest[Math.floor(Math.random() * rarest.length)]
 				rarity = 'Rarest'
 			}
-			else if (rare.length && rand < 0.15) {
+			else if (rare?.length && rand < 0.15) {
 				drop = rare[Math.floor(Math.random() * rare.length)]
 				rarity = 'Rare'
 			}
-			else if (uncommon.length && rand < 0.40) {
+			else if (uncommon?.length && rand < 0.40) {
 				drop = uncommon[Math.floor(Math.random() * uncommon.length)]
 				rarity = 'Uncommon'
 			}
