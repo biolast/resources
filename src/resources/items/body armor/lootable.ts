@@ -8,6 +8,7 @@ export const MilitaryArmor = new BodyArmor({
 	aliases: ['mili_armor', 'military', 'level_5_armor'],
 	durability: 14,
 	level: 5,
+	protectsArms: true,
 	slotsUsed: 4
 })
 
@@ -19,5 +20,6 @@ export const PolyethyleneArmor = new BodyArmor({
 	description: 'Polyethylene (UHMWPE) armor is designed to have better stopping power and weigh less than steel armor.',
 	durability: 25,
 	level: 6,
+	protectsArms: false,
 	slotsUsed: 3
 })

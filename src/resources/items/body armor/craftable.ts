@@ -11,6 +11,7 @@ export const Hoodie = new BodyArmor({
 	aliases: ['shirt', 'hooded_shirt', 'level_1_armor'],
 	durability: 7,
 	level: 1,
+	protectsArms: true,
 	slotsUsed: 2,
 	crafting: {
 		levelRequired: 1,
@@ -36,6 +37,7 @@ export const LeatherJacket = new BodyArmor({
 	aliases: ['jacket', 'armor', 'leather_armor', 'leather_chest'],
 	durability: 5,
 	level: 2,
+	protectsArms: true,
 	slotsUsed: 2,
 	crafting: {
 		levelRequired: 2,
@@ -61,6 +63,7 @@ export const WoodenArmor = new BodyArmor({
 	aliases: ['wood_armor', 'level_2_armor'],
 	durability: 9,
 	level: 2,
+	protectsArms: true,
 	slotsUsed: 2,
 	crafting: {
 		levelRequired: 2,
@@ -94,6 +97,7 @@ export const LightArmor = new BodyArmor({
 	aliases: ['lightweight', 'level_3_armor', 'light'],
 	durability: 10,
 	level: 3,
+	protectsArms: false,
 	slotsUsed: 2,
 	crafting: {
 		levelRequired: 3,
@@ -123,6 +127,7 @@ export const SteelArmor = new BodyArmor({
 	aliases: ['swat', 'level_4_armor', 'steel_armor'],
 	durability: 11,
 	level: 4,
+	protectsArms: false,
 	slotsUsed: 4,
 	crafting: {
 		levelRequired: 4,
