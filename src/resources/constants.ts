@@ -113,7 +113,7 @@ export const TEXT_COMMAND_ALIASES: {
 	},
 	{
 		command: 'level',
-		aliases: ['xp', 'lvl']
+		aliases: ['xp', 'exp', 'lvl']
 	},
 	{
 		command: 'item',
@@ -140,8 +140,8 @@ export const TEXT_COMMAND_ALIASES: {
 		aliases: ['b s']
 	},
 	{
-		command: 'energy',
-		aliases: ['e']
+		command: 'stamina',
+		aliases: ['stam', 'energy']
 	},
 
 	// scavenging command aliases

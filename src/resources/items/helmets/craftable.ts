@@ -1,6 +1,6 @@
 import { Helmet } from '../../../structures/items/Helmet.js'
 import { DuctTape, WoodPlank } from '../supplies/craftable.js'
-import { Glass, Metal, Nails, Steel, WeldingWire } from '../supplies/lootable.js'
+import { Glass, Metal, Steel, WeldingWire } from '../supplies/lootable.js'
 import { Hammer, Welder } from '../tools/lootable.js'
 
 
@@ -21,10 +21,6 @@ export const WoodenHelmet = new Helmet({
 					{
 						item: WoodPlank,
 						amount: 3
-					},
-					{
-						item: Nails,
-						amount: 1
 					},
 					{
 						item: DuctTape,
@@ -56,15 +52,7 @@ export const RiotHelmet = new Helmet({
 						amount: 3
 					},
 					{
-						item: DuctTape,
-						amount: 1
-					},
-					{
 						item: Glass,
-						amount: 1
-					},
-					{
-						item: Nails,
 						amount: 1
 					}
 				],

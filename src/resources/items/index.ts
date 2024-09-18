@@ -1,14 +1,16 @@
 import { ItemBase } from '../../structures/items/ItemBase.js'
 import * as ammunitionLoot from './ammunition/lootable.js'
 import * as ammunitionCraft from './ammunition/craftable.js'
-import * as armorLoot from './armor/lootable.js'
-import * as armorCraft from './armor/craftable.js'
+import * as armorLoot from './body armor/lootable.js'
+import * as armorCraft from './body armor/craftable.js'
 import * as backpacksLoot from './backpacks/lootable.js'
 import * as backpacksCraft from './backpacks/craftable.js'
 import * as foodsLoot from './foods/lootable.js'
 // import * as foodsCraft from './foods/craftable.js'
 import * as helmetsLoot from './helmets/lootable.js'
 import * as helmetsCraft from './helmets/craftable.js'
+// import * as leggingsLoot from './leggings/lootable.js'
+import * as leggingsCraft from './leggings/craftable.js'
 import * as medicalsLoot from './medicals/lootable.js'
 import * as medicalsCraft from './medicals/craftable.js'
 import * as meleeLoot from './melee/lootable.js'
@@ -33,6 +35,7 @@ const rawItemObject = {
 	...foodsLoot,
 	...helmetsLoot,
 	...helmetsCraft,
+	...leggingsCraft,
 	...medicalsLoot,
 	...medicalsCraft,
 	...meleeLoot,

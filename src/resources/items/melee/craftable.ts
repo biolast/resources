@@ -28,11 +28,11 @@ Accuracy for most melee weapons should be below 50% to prevent limb targeting.
 
 */
 
-export const WoodenClub = new MeleeWeapon({
+export const WoodenBat = new MeleeWeapon({
 	type: 'Melee Weapon',
-	name: 'wooden_club',
+	name: 'wooden_bat',
 	discordIcon: '<:wooden_bat:933850956481826968>',
-	aliases: ['club'],
+	aliases: ['bat'],
 	durability: 8,
 	slotsUsed: 2,
 	accuracy: 40,
@@ -130,7 +130,7 @@ export const WoodenSpear = new MeleeWeapon({
 	}
 })
 
-export const SpikedClub = new MeleeWeapon({
+export const SpikedBat = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'spiked_bat',
 	discordIcon: '<:wooden_bat:933850956481826968>',
@@ -148,7 +148,7 @@ export const SpikedClub = new MeleeWeapon({
 				possibleTools: [Hammer],
 				supplies: [
 					{
-						item: WoodenClub,
+						item: WoodenBat,
 						amount: 1
 					},
 					{
