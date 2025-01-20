@@ -1,7 +1,7 @@
-import { Tool } from '../../../structures/items/Tool.js'
+import { createItem } from '../../../structures/item.js'
 
 
-export const Hammer = new Tool({
+export const Hammer = createItem({
 	type: 'Tool',
 	name: 'hammer',
 	discordIcon: '<:hammer_tool:1006841288403988560>',
@@ -11,7 +11,7 @@ export const Hammer = new Tool({
 	slotsUsed: 1
 })
 
-export const Welder = new Tool({
+export const Welder = createItem({
 	type: 'Tool',
 	name: 'welder',
 	discordIcon: '<:hammer_tool:1006841288403988560>',
@@ -21,7 +21,7 @@ export const Welder = new Tool({
 	slotsUsed: 1
 })
 
-export const SewingKit = new Tool({
+export const SewingKit = createItem({
 	type: 'Tool',
 	name: 'sewing_kit',
 	discordIcon: '<:hammer_tool:1006841288403988560>',

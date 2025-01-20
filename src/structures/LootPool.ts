@@ -1,4 +1,4 @@
-import { ItemBase } from './items/ItemBase.js'
+import { Item } from './item.js'
 import { Bandit } from './mobs/Bandit.js'
 import { Zombie } from './mobs/Zombie.js'
 
@@ -154,6 +154,6 @@ export class LootPool<T> {
 	}
 }
 
-export const ScavengePool = LootPool<{ levelRequired: number, items: ItemBase[] }>
+export const ScavengePool = LootPool<{ levelRequired: number, items: Item[] }>
 
 export const MobPool = LootPool<{ level: number, mob: Bandit | Zombie }>

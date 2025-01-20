@@ -1,4 +1,4 @@
-import { ItemBase } from '../../structures/items/ItemBase.js'
+import { Item } from '../../structures/item.js'
 import * as ammunitionLoot from './ammunition/lootable.js'
 import * as ammunitionCraft from './ammunition/craftable.js'
 import * as armorLoot from './body armor/lootable.js'
@@ -50,16 +50,15 @@ const rawItemObject = {
 	...toolsCraft
 }
 
-type ItemNameExtract<T> = T extends ItemBase<infer Name> ? Name : never
-type ItemNameClassMap = { [K in keyof typeof rawItemObject]: ItemNameExtract<typeof rawItemObject[K]> }
+type ItemExtractProps<T> = T extends Item<infer Type, infer Name> ? [Type, Name] : never
+type ItemNameClassMap = { [K in keyof typeof rawItemObject]: ItemExtractProps<typeof rawItemObject[K]>[1] }
 
 export const getObjectKeys = <T extends object>(obj: T) => Object.keys(obj) as Array<keyof T>
 
-export const items = getObjectKeys(rawItemObject)
-	.reduce((prev, curr) => ({
-		...prev,
-		[rawItemObject[curr].name]: rawItemObject[curr]
-	}), {} as { [K in keyof ItemNameClassMap as ItemNameClassMap[K]]: typeof rawItemObject[K] })
+export const items = getObjectKeys(rawItemObject).reduce((prev, curr) => ({
+	...prev,
+	[rawItemObject[curr].name]: rawItemObject[curr]
+}), {} as { [K in keyof ItemNameClassMap as ItemNameClassMap[K]]: typeof rawItemObject[K] })
 
 export const allItems = Object.values(items)
 

@@ -1,7 +1,5 @@
+import { Item } from '../item.js'
 import { LootPool } from '../LootPool.js'
-import { BodyArmor } from '../items/BodyArmor.js'
-import { Helmet } from '../items/Helmet.js'
-import { ItemBase } from '../items/ItemBase.js'
 import { ActiveMob } from './ActiveMob.js'
 
 
@@ -14,13 +12,13 @@ export class Zombie {
 	readonly xp: number
 	/** Armor mob is wearing, if any */
 	readonly armor?: {
-		pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
+		pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
 		/** chance mob is wearing armor 1 - 100% */
 		chance: number
 	}
 	/** Random items the mob can have in their inventory */
 	readonly randomDrops: {
-		pool: LootPool<ItemBase>
+		pool: LootPool<Item>
 		/** how many items should mob spawn with */
 		rolls: {
 			min: number
@@ -28,7 +26,7 @@ export class Zombie {
 		}
 	}
 	/** Items the mob ALWAYS has in their inventory */
-	readonly staticDrops?: { item: ItemBase, durability?: number }[]
+	readonly staticDrops?: { item: Item, durability?: number }[]
 	readonly damage: number
 	readonly armorPenetration: number
 
@@ -41,13 +39,13 @@ export class Zombie {
 		readonly xp: number
 		/** Armor mob is wearing, if any */
 		readonly armor?: {
-			pool: LootPool<{ helmet?: NoInfer<Helmet>, armor?: NoInfer<BodyArmor> } & ({ helmet: NoInfer<Helmet> } | { armor: NoInfer<BodyArmor> })>
+			pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
 			/** chance mob is wearing armor 1 - 100% */
 			chance: number
 		}
 		/** Random items the mob can have in their inventory */
 		readonly randomDrops: {
-			pool: LootPool<ItemBase>
+			pool: LootPool<Item>
 			/** how many items should mob spawn with */
 			rolls: {
 				min: number
@@ -55,7 +53,7 @@ export class Zombie {
 			}
 		}
 		/** Items the mob ALWAYS has in their inventory */
-		readonly staticDrops?: { item: ItemBase, durability?: number }[]
+		readonly staticDrops?: { item: Item, durability?: number }[]
 		readonly damage: number
 		readonly armorPenetration: number
 	}) {

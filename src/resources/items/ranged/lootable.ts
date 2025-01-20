@@ -1,4 +1,4 @@
-import { RangedWeapon } from '../../../structures/items/RangedWeapon.js'
+import { createItem } from '../../../structures/item.js'
 import { PistolBullet, RifleBullet } from '../ammunition/craftable.js'
 import { Shotgun12GaugeBuckshot, Shotgun12GaugeSlug, SniperBullet } from '../ammunition/lootable.js'
 
@@ -17,7 +17,7 @@ Slots used should be high to prevent hoarding.
 
 */
 
-export const SubmachineGun = new RangedWeapon({
+export const SubmachineGun = createItem({
 	type: 'Ranged Weapon',
 	name: 'submachine_gun',
 	discordIcon: '<:submachine_gun:1063592662613114923>',
@@ -29,7 +29,7 @@ export const SubmachineGun = new RangedWeapon({
 	ammo: [PistolBullet]
 })
 
-export const PumpShotgun = new RangedWeapon({
+export const PumpShotgun = createItem({
 	type: 'Ranged Weapon',
 	name: 'pump_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -41,7 +41,7 @@ export const PumpShotgun = new RangedWeapon({
 	ammo: [Shotgun12GaugeBuckshot, Shotgun12GaugeSlug]
 })
 
-export const AssaultRifle = new RangedWeapon({
+export const AssaultRifle = createItem({
 	type: 'Ranged Weapon',
 	name: 'assault_rifle',
 	discordIcon: '<:ak47:933852988416618496>',
@@ -53,7 +53,7 @@ export const AssaultRifle = new RangedWeapon({
 	ammo: [RifleBullet]
 })
 
-export const AutoShotgun = new RangedWeapon({
+export const AutoShotgun = createItem({
 	type: 'Ranged Weapon',
 	name: 'auto_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -65,7 +65,7 @@ export const AutoShotgun = new RangedWeapon({
 	ammo: [Shotgun12GaugeBuckshot, Shotgun12GaugeSlug]
 })
 
-export const HeavySniper = new RangedWeapon({
+export const HeavySniper = createItem({
 	type: 'Ranged Weapon',
 	name: 'heavy_sniper',
 	discordIcon: '<:awm:944974499579846718>',

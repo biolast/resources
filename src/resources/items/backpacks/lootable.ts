@@ -1,7 +1,7 @@
-import { Backpack } from '../../../structures/items/Backpack.js'
+import { createItem } from '../../../structures/item.js'
 
 
-export const DuffleBag = new Backpack({
+export const DuffleBag = createItem({
 	type: 'Backpack',
 	name: 'duffle_bag',
 	discordIcon: '<:duffle_bag:933852647394537573>',
@@ -10,7 +10,7 @@ export const DuffleBag = new Backpack({
 	slotsUsed: 2
 })
 
-export const Suitcase = new Backpack({
+export const Suitcase = createItem({
 	type: 'Backpack',
 	name: 'suitcase',
 	discordIcon: '<:suitcase:938466039266685018>',

@@ -1,4 +1,4 @@
-import { RangedWeapon } from '../../../structures/items/RangedWeapon.js'
+import { createItem } from '../../../structures/item.js'
 import { PistolBullet, RifleBullet, Shotgun20GaugeBuckshot, Shotgun20GaugeSlug, StoneArrow } from '../ammunition/craftable.js'
 import { Fabric, PistolReceiver, RifleReceiver, ShotgunReceiver, Steel, Wood } from '../supplies/lootable.js'
 
@@ -17,7 +17,7 @@ Slots used should be high to prevent hoarding.
 
 */
 
-export const Bow = new RangedWeapon({
+export const Bow = createItem({
 	type: 'Ranged Weapon',
 	name: 'bow',
 	discordIcon: '<:glock17:931424425851621417>',
@@ -48,7 +48,7 @@ export const Bow = new RangedWeapon({
 	}
 })
 
-export const Pistol = new RangedWeapon({
+export const Pistol = createItem({
 	type: 'Ranged Weapon',
 	name: 'pistol',
 	discordIcon: '<:glock17:931424425851621417>',
@@ -79,7 +79,7 @@ export const Pistol = new RangedWeapon({
 	}
 })
 
-export const DoubleBarrelShotgun = new RangedWeapon({
+export const DoubleBarrelShotgun = createItem({
 	type: 'Ranged Weapon',
 	name: 'double-barrel_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -114,7 +114,7 @@ export const DoubleBarrelShotgun = new RangedWeapon({
 	}
 })
 
-export const HuntingRifle = new RangedWeapon({
+export const HuntingRifle = createItem({
 	type: 'Ranged Weapon',
 	name: 'hunting_rifle',
 	discordIcon: '<:U_rifle:869647344344387624>',

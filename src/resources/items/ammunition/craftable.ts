@@ -1,10 +1,10 @@
-import { Ammunition } from '../../../structures/items/Ammunition.js'
+import { createItem } from '../../../structures/item.js'
 import { Shank } from '../melee/craftable.js'
 import { Knife } from '../melee/lootable.js'
 import { Gunpowder, PistolBulletCasing, RifleBulletCasing, ShotgunShellCasing, Steel, Stone, Wood } from '../supplies/lootable.js'
 
 
-export const StoneArrow = new Ammunition({
+export const StoneArrow = createItem({
 	type: 'Ammunition',
 	name: 'stone_arrow',
 	discordIcon: '<:pistol_bullet:1063582864588939264>',
@@ -34,7 +34,7 @@ export const StoneArrow = new Ammunition({
 })
 
 
-export const PistolBullet = new Ammunition({
+export const PistolBullet = createItem({
 	type: 'Ammunition',
 	name: 'pistol_bullet',
 	discordIcon: '<:pistol_bullet:1063582864588939264>',
@@ -63,7 +63,7 @@ export const PistolBullet = new Ammunition({
 	}
 })
 
-export const Shotgun20GaugeBuckshot = new Ammunition({
+export const Shotgun20GaugeBuckshot = createItem({
 	type: 'Ammunition',
 	name: '20-gauge_buckshot',
 	discordIcon: '<:buckshot:1061096346339254302>',
@@ -94,7 +94,7 @@ export const Shotgun20GaugeBuckshot = new Ammunition({
 	}
 })
 
-export const Shotgun20GaugeSlug = new Ammunition({
+export const Shotgun20GaugeSlug = createItem({
 	type: 'Ammunition',
 	name: '20-gauge_slug',
 	discordIcon: '<:slug:1061096376517275658>',
@@ -128,7 +128,7 @@ export const Shotgun20GaugeSlug = new Ammunition({
 	}
 })
 
-export const RifleBullet = new Ammunition({
+export const RifleBullet = createItem({
 	type: 'Ammunition',
 	name: 'rifle_bullet',
 	discordIcon: '<:bullet:1061283126212567111>',

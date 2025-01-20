@@ -1,10 +1,5 @@
+import { Item } from '../item.js'
 import { LootPool } from '../LootPool.js'
-import { Ammunition } from '../items/Ammunition.js'
-import { BodyArmor } from '../items/BodyArmor.js'
-import { Helmet } from '../items/Helmet.js'
-import { ItemBase } from '../items/ItemBase.js'
-import { MeleeWeapon } from '../items/MeleeWeapon.js'
-import { RangedWeapon } from '../items/RangedWeapon.js'
 import { ActiveMob } from './ActiveMob.js'
 
 
@@ -17,15 +12,15 @@ export class Bandit {
 	readonly xp: number
 	/** Armor mob is wearing, if any */
 	readonly armor?: {
-		pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
+		pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
 		/** chance mob is wearing armor 1 - 100% */
 		chance: number
 	}
 	/** Weapon mob uses */
-	readonly weapon: LootPool<{ weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }>
+	readonly weapon: LootPool<{ weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }>
 	/** Random items the mob can have in their inventory */
 	readonly randomDrops: {
-		pool: LootPool<ItemBase>
+		pool: LootPool<Item>
 		/** how many items should mob spawn with */
 		rolls: {
 			min: number
@@ -33,7 +28,7 @@ export class Bandit {
 		}
 	}
 	/** Items the mob ALWAYS has in their inventory */
-	readonly staticDrops?: { item: ItemBase, durability?: number }[]
+	readonly staticDrops?: { item: Item, durability?: number }[]
 
 	constructor (data: {
 		/** Possible display names for this mob, shown in battles */
@@ -44,15 +39,15 @@ export class Bandit {
 		readonly xp: number
 		/** Armor mob is wearing, if any */
 		readonly armor?: {
-			pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
+			pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
 			/** chance mob is wearing armor 1 - 100% */
 			chance: number
 		}
 		/** Weapon mob uses */
-		readonly weapon: LootPool<{ weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }>
+		readonly weapon: LootPool<{ weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }>
 		/** Random items the mob can have in their inventory */
 		readonly randomDrops: {
-			pool: LootPool<ItemBase>
+			pool: LootPool<Item>
 			/** how many items should mob spawn with */
 			rolls: {
 				min: number
@@ -60,7 +55,7 @@ export class Bandit {
 			}
 		}
 		/** Items the mob ALWAYS has in their inventory */
-		readonly staticDrops?: { item: ItemBase, durability?: number }[]
+		readonly staticDrops?: { item: Item, durability?: number }[]
 	}) {
 		this.names = data.names
 		this.health = data.health

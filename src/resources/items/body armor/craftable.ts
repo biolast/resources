@@ -1,10 +1,10 @@
-import { BodyArmor } from '../../../structures/items/BodyArmor.js'
+import { createItem } from '../../../structures/item.js'
 import { DuctTape, WoodPlank } from '../supplies/craftable.js'
 import { Fabric, Leather, Metal, Nails, Steel, WeldingWire } from '../supplies/lootable.js'
 import { Hammer, SewingKit, Welder } from '../tools/lootable.js'
 
 
-export const Hoodie = new BodyArmor({
+export const Hoodie = createItem({
 	type: 'Body Armor',
 	name: 'hoodie',
 	discordIcon: '<:heavy_jacket:1062852229821907034>',
@@ -30,7 +30,7 @@ export const Hoodie = new BodyArmor({
 	}
 })
 
-export const LeatherJacket = new BodyArmor({
+export const LeatherJacket = createItem({
 	type: 'Body Armor',
 	name: 'leather_jacket',
 	discordIcon: '<:heavy_jacket:1062852229821907034>',
@@ -56,7 +56,7 @@ export const LeatherJacket = new BodyArmor({
 	}
 })
 
-export const WoodenArmor = new BodyArmor({
+export const WoodenArmor = createItem({
 	type: 'Body Armor',
 	name: 'wooden_armor',
 	discordIcon: '<:wooden_armor:1063581139127763024>',
@@ -90,7 +90,7 @@ export const WoodenArmor = new BodyArmor({
 	}
 })
 
-export const LightArmor = new BodyArmor({
+export const LightArmor = createItem({
 	type: 'Body Armor',
 	name: 'light_armor',
 	discordIcon: '<:aramid_armor:931433099705860107>',
@@ -120,7 +120,7 @@ export const LightArmor = new BodyArmor({
 	}
 })
 
-export const SteelArmor = new BodyArmor({
+export const SteelArmor = createItem({
 	type: 'Body Armor',
 	name: 'steel_armor',
 	discordIcon: '<:swat_armor:1062852232103604346>',

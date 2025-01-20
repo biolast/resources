@@ -1,7 +1,7 @@
-import { Supply } from '../../../structures/items/Supply.js'
+import { createItem } from '../../../structures/item.js'
 
 
-export const WoodTwig = new Supply({
+export const WoodTwig = createItem({
 	type: 'Supply',
 	name: 'wood_twig',
 	aliases: ['twig'],
@@ -10,7 +10,7 @@ export const WoodTwig = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Wood = new Supply({
+export const Wood = createItem({
 	type: 'Supply',
 	name: 'wood',
 	aliases: [],
@@ -18,7 +18,7 @@ export const Wood = new Supply({
 	slotsUsed: 1
 })
 
-export const Fabric = new Supply({
+export const Fabric = createItem({
 	type: 'Supply',
 	name: 'fabric',
 	aliases: ['cloth'],
@@ -26,7 +26,7 @@ export const Fabric = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Leather = new Supply({
+export const Leather = createItem({
 	type: 'Supply',
 	name: 'leather',
 	aliases: [],
@@ -34,7 +34,7 @@ export const Leather = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Antiseptic = new Supply({
+export const Antiseptic = createItem({
 	type: 'Supply',
 	name: 'antiseptic',
 	aliases: ['septic'],
@@ -42,7 +42,7 @@ export const Antiseptic = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Gasoline = new Supply({
+export const Gasoline = createItem({
 	type: 'Supply',
 	name: 'gasoline',
 	aliases: ['gas'],
@@ -50,7 +50,7 @@ export const Gasoline = new Supply({
 	slotsUsed: 1
 })
 
-export const Metal = new Supply({
+export const Metal = createItem({
 	type: 'Supply',
 	name: 'metal',
 	aliases: [],
@@ -58,7 +58,7 @@ export const Metal = new Supply({
 	slotsUsed: 0.5
 })
 
-export const WeldingWire = new Supply({
+export const WeldingWire = createItem({
 	type: 'Supply',
 	name: 'welding_wire',
 	aliases: ['wire', 'weld_wire'],
@@ -66,7 +66,7 @@ export const WeldingWire = new Supply({
 	slotsUsed: 0.5
 })
 
-export const Stone = new Supply({
+export const Stone = createItem({
 	type: 'Supply',
 	name: 'stone',
 	aliases: ['rock'],
@@ -74,7 +74,7 @@ export const Stone = new Supply({
 	slotsUsed: 0.5
 })
 
-export const Glass = new Supply({
+export const Glass = createItem({
 	type: 'Supply',
 	name: 'glass',
 	aliases: [],
@@ -82,7 +82,7 @@ export const Glass = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Gunpowder = new Supply({
+export const Gunpowder = createItem({
 	type: 'Supply',
 	name: 'gunpowder',
 	aliases: [],
@@ -90,7 +90,7 @@ export const Gunpowder = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Steel = new Supply({
+export const Steel = createItem({
 	type: 'Supply',
 	name: 'steel',
 	description: 'High quality alloy of metals and carbon.',
@@ -99,7 +99,7 @@ export const Steel = new Supply({
 	slotsUsed: 0.5
 })
 
-export const Plastic = new Supply({
+export const Plastic = createItem({
 	type: 'Supply',
 	name: 'plastic',
 	aliases: [],
@@ -107,7 +107,7 @@ export const Plastic = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Adhesive = new Supply({
+export const Adhesive = createItem({
 	type: 'Supply',
 	name: 'adhesive',
 	aliases: [],
@@ -115,7 +115,7 @@ export const Adhesive = new Supply({
 	slotsUsed: 0.25
 })
 
-export const PistolBulletCasing = new Supply({
+export const PistolBulletCasing = createItem({
 	type: 'Supply',
 	name: 'pistol_bullet_casing',
 	aliases: ['bullet_cas', '9mm_casing', '9mm_case', 'pistol_bullet_case'],
@@ -123,7 +123,7 @@ export const PistolBulletCasing = new Supply({
 	slotsUsed: 0.25
 })
 
-export const RifleBulletCasing = new Supply({
+export const RifleBulletCasing = createItem({
 	type: 'Supply',
 	name: 'rifle_bullet_casing',
 	aliases: ['rifle_casing', '556_casing', '556_case', 'rifle_case'],
@@ -131,7 +131,7 @@ export const RifleBulletCasing = new Supply({
 	slotsUsed: 0.25
 })
 
-export const ShotgunShellCasing = new Supply({
+export const ShotgunShellCasing = createItem({
 	type: 'Supply',
 	name: 'shotgun_shell_casing',
 	aliases: ['shotgun_shell', 'shell', 'shell_case', 'shell_casing', 'shotgun_casing'],
@@ -139,7 +139,7 @@ export const ShotgunShellCasing = new Supply({
 	slotsUsed: 0.25
 })
 
-export const Nails = new Supply({
+export const Nails = createItem({
 	type: 'Supply',
 	name: 'nails',
 	aliases: ['nail'],
@@ -147,7 +147,7 @@ export const Nails = new Supply({
 	slotsUsed: 0.25
 })
 
-export const PistolReceiver = new Supply({
+export const PistolReceiver = createItem({
 	type: 'Supply',
 	name: 'pistol_receiver',
 	aliases: ['pistol_body'],
@@ -155,7 +155,7 @@ export const PistolReceiver = new Supply({
 	slotsUsed: 1
 })
 
-export const ShotgunReceiver = new Supply({
+export const ShotgunReceiver = createItem({
 	type: 'Supply',
 	name: 'shotgun_receiver',
 	aliases: ['shotgun_body', 'shotty_receiver'],
@@ -163,7 +163,7 @@ export const ShotgunReceiver = new Supply({
 	slotsUsed: 1
 })
 
-export const RifleReceiver = new Supply({
+export const RifleReceiver = createItem({
 	type: 'Supply',
 	name: 'rifle_receiver',
 	aliases: ['rifle_body'],

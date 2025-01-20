@@ -1,9 +1,4 @@
-import { Ammunition } from '../items/Ammunition.js'
-import { BodyArmor } from '../items/BodyArmor.js'
-import { Helmet } from '../items/Helmet.js'
-import { ItemBase } from '../items/ItemBase.js'
-import { MeleeWeapon } from '../items/MeleeWeapon.js'
-import { RangedWeapon } from '../items/RangedWeapon.js'
+import { Item } from '../item.js'
 
 
 export class ActiveMob<MobType extends 'zombie' | 'bandit' | 'animal'> {
@@ -11,13 +6,13 @@ export class ActiveMob<MobType extends 'zombie' | 'bandit' | 'animal'> {
 	/** Display name for this mob shown in battles */
 	readonly name: string
 	/** Items the mob has in their inventory */
-	readonly inventory: { item: ItemBase, durability?: number }[]
+	readonly inventory: { item: Item, durability?: number }[]
 	/** Weapon mob uses */
-	readonly weapon?: { weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }
+	readonly weapon?: { weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }
 	/** Helmet mob is wearing, if any */
-	readonly helmet?: Helmet
+	readonly helmet?: Item<'Helmet'>
 	/** Armor mob is wearing, if any */
-	readonly armor?: BodyArmor
+	readonly armor?: Item<'Body Armor'>
 	/** xp player receives for defeating this mob */
 	readonly xp: number
 	/** Sets the amount of damage this mob deals per turn. Overrides weapon damage */
@@ -33,13 +28,13 @@ export class ActiveMob<MobType extends 'zombie' | 'bandit' | 'animal'> {
 		/** Display name for this mob shown in battles */
 		readonly name: string
 		/** Items the mob has in their inventory */
-		readonly inventory: { item: ItemBase, durability?: number }[]
+		readonly inventory: { item: Item, durability?: number }[]
 		/** Weapon mob uses */
-		readonly weapon?: { weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }
+		readonly weapon?: { weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }
 		/** Helmet mob is wearing, if any */
-		readonly helmet?: Helmet
+		readonly helmet?: Item<'Helmet'>
 		/** Armor mob is wearing, if any */
-		readonly armor?: BodyArmor
+		readonly armor?: Item<'Body Armor'>
 		/** XP player receives for defeating this mob */
 		readonly xp: number
 		/** Sets the amount of damage this mob deals per turn. Overrides weapon damage */

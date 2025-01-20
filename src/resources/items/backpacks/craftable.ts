@@ -1,10 +1,10 @@
-import { Backpack } from '../../../structures/items/Backpack.js'
+import { createItem } from '../../../structures/item.js'
 import { DuctTape } from '../supplies/craftable.js'
 import { Fabric } from '../supplies/lootable.js'
 import { SewingKit } from '../tools/lootable.js'
 
 
-export const SmallPouch = new Backpack({
+export const SmallPouch = createItem({
 	type: 'Backpack',
 	name: 'small_pouch',
 	discordIcon: '<:small_pouch:931797105369042955>',
@@ -28,7 +28,7 @@ export const SmallPouch = new Backpack({
 	}
 })
 
-export const ClothBackpack = new Backpack({
+export const ClothBackpack = createItem({
 	type: 'Backpack',
 	name: 'cloth_backpack',
 	discordIcon: '<:cloth_backpack:933852769364877322>',
