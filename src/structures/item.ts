@@ -15,6 +15,18 @@ export type ItemType = 'Ammunition'
 	| 'Throwable Weapon'
 	| 'Tool'
 
+export type CraftingRecipe = {
+	/** How much of the item this recipe creates */
+	yield: number
+	/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
+	possibleTools: (Item & { durability: number })[]
+	/** Array of items and amounts needed to craft using this recipe */
+	supplies: {
+		item: Item
+		amount: number
+	}[]
+}
+
 interface ItemBase<T extends ItemType = ItemType, N extends string = string> {
 	type: T
 	name: N
@@ -22,17 +34,7 @@ interface ItemBase<T extends ItemType = ItemType, N extends string = string> {
 	crafting?: {
 		/** Level required to craft this item */
 		levelRequired: number
-		recipes: {
-			/** How much of the item this recipe creates */
-			yield: number
-			/** Player will need 1 of these tools, 1 durability will be consumed. Leave array empty if no tool is needed */
-			possibleTools: (Item & { durability: number })[]
-			/** Array of items and amounts needed to craft using this recipe */
-			supplies: {
-				item: Item
-				amount: number
-			}[]
-		}[]
+		recipes: CraftingRecipe[]
 	}
 
 	/** Other names that will be resolved to this item */
