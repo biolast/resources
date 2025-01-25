@@ -3,7 +3,12 @@ import { Bandit } from './mobs/Bandit.js'
 import { Zombie } from './mobs/Zombie.js'
 
 
-export type RollRarity = 'Common' | 'Uncommon' | 'Rare' | 'Rarest'
+export enum RollRarity {
+	Common = 1,
+	Uncommon = 2,
+	Rare = 3,
+	Rarest = 4
+}
 
 export class LootPool<T> {
 	/** 60% chance drops */
@@ -111,19 +116,19 @@ export class LootPool<T> {
 
 			if (rarest?.length && rand < 0.05) {
 				drop = rarest[Math.floor(Math.random() * rarest.length)]
-				rarity = 'Rarest'
+				rarity = RollRarity.Rarest
 			}
 			else if (rare?.length && rand < 0.15) {
 				drop = rare[Math.floor(Math.random() * rare.length)]
-				rarity = 'Rare'
+				rarity = RollRarity.Rare
 			}
 			else if (uncommon?.length && rand < 0.40) {
 				drop = uncommon[Math.floor(Math.random() * uncommon.length)]
-				rarity = 'Uncommon'
+				rarity = RollRarity.Uncommon
 			}
 			else {
 				drop = common[Math.floor(Math.random() * common.length)]
-				rarity = 'Common'
+				rarity = RollRarity.Common
 			}
 
 			if (options?.rollValue) {
