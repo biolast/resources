@@ -26,7 +26,12 @@ export const Bow = createItem({
 	slotsUsed: 2,
 	accuracy: 40,
 	speed: 21,
-	ammo: [StoneArrow],
+	compatibleAmmo: [
+		{
+			ammo: StoneArrow,
+			damage: 20
+		}
+	],
 	crafting: {
 		levelRequired: 1,
 		recipes: [
@@ -57,7 +62,12 @@ export const Pistol = createItem({
 	slotsUsed: 2,
 	accuracy: 45,
 	speed: 30,
-	ammo: [PistolBullet],
+	compatibleAmmo: [
+		{
+			ammo: PistolBullet,
+			damage: 30
+		}
+	],
 	crafting: {
 		levelRequired: 2,
 		recipes: [
@@ -88,7 +98,16 @@ export const DoubleBarrelShotgun = createItem({
 	slotsUsed: 4,
 	accuracy: 40,
 	speed: 23,
-	ammo: [Shotgun20GaugeBuckshot, Shotgun20GaugeSlug],
+	compatibleAmmo: [
+		{
+			ammo: Shotgun20GaugeBuckshot,
+			damage: 38
+		},
+		{
+			ammo: Shotgun20GaugeSlug,
+			damage: 34
+		}
+	],
 	crafting: {
 		levelRequired: 4,
 		recipes: [
@@ -123,7 +142,12 @@ export const HuntingRifle = createItem({
 	slotsUsed: 4,
 	accuracy: 95,
 	speed: 22,
-	ammo: [RifleBullet],
+	compatibleAmmo: [
+		{
+			ammo: RifleBullet,
+			damage: 42
+		}
+	],
 	crafting: {
 		levelRequired: 5,
 		recipes: [

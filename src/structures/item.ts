@@ -51,8 +51,6 @@ interface ItemBase<T extends ItemType = ItemType, N extends string = string> {
 /* --- Individual properties by item type --- */
 export interface Ammunition<T extends 'Ammunition' = 'Ammunition', N extends string = string> extends ItemBase<T, N> {
 	type: T
-	/** Damage expected from this round if shot at the targets CHEST, limbs have different damage multipliers */
-	damage: number
 	/**
 	 * The armor penetration this ammo has, can be a float between 0 - whatever. If this number is greater than the victims armor level, this ammo will deal full damage.
 	 *
@@ -127,8 +125,12 @@ export interface MeleeWeapon<T extends 'Melee Weapon' = 'Melee Weapon', N extend
 }
 export interface RangedWeapon<T extends 'Ranged Weapon' = 'Ranged Weapon', N extends string = string> extends ItemBase<T, N> {
 	type: T
-	/** Ammo this weapon can fire */
-	ammo: [Item<'Ammunition'>, ...Item<'Ammunition'>[]]
+	compatibleAmmo: {
+		/** Ammo this weapon can fire */
+		ammo: Item<'Ammunition'>
+		/** Damage expected from this round if shot at the targets CHEST, limbs have different damage multipliers */
+		damage: number
+	}[]
 	/** The percent chance for this weapon to hit target (0% - 100%) */
 	accuracy: number
 	/** How many times this weapon can be used to attack */

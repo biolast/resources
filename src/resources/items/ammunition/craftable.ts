@@ -9,7 +9,6 @@ export const StoneArrow = createItem({
 	name: 'stone_arrow',
 	discordIcon: '<:pistol_bullet:1063582864588939264>',
 	aliases: ['arrow'],
-	damage: 15,
 	penetration: 1.1,
 	slotsUsed: 1,
 	crafting: {
@@ -39,7 +38,6 @@ export const PistolBullet = createItem({
 	name: 'pistol_bullet',
 	discordIcon: '<:pistol_bullet:1063582864588939264>',
 	aliases: ['9x19', '9mm', 'bullet', 'pistol_ammo'],
-	damage: 30,
 	penetration: 1.7,
 	slotsUsed: 1,
 	crafting: {
@@ -69,7 +67,6 @@ export const Shotgun20GaugeBuckshot = createItem({
 	discordIcon: '<:buckshot:1061096346339254302>',
 	aliases: ['buckshot', '20_guage', '20g_buckshot', '20g_shell', '20g_shotgun', '20g', 'buck', '20g_buck'],
 	description: 'Fires many small pellets.',
-	damage: 38,
 	penetration: 2.6,
 	slotsUsed: 1,
 	spreadsDamageToLimbs: 2,
@@ -100,7 +97,6 @@ export const Shotgun20GaugeSlug = createItem({
 	discordIcon: '<:slug:1061096376517275658>',
 	aliases: ['slug', '20g_slug', 'slug_shell', 'shotgun_slug'],
 	description: 'Fires a single, large projectile.',
-	damage: 34,
 	penetration: 3.0,
 	slotsUsed: 1,
 	crafting: {
@@ -133,7 +129,6 @@ export const RifleBullet = createItem({
 	name: 'rifle_bullet',
 	discordIcon: '<:bullet:1061283126212567111>',
 	aliases: ['rifle_ammo'],
-	damage: 42,
 	penetration: 3.8,
 	slotsUsed: 1,
 	crafting: {

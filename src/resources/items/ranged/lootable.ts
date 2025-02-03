@@ -26,7 +26,12 @@ export const SubmachineGun = createItem({
 	slotsUsed: 4,
 	accuracy: 85,
 	speed: 25,
-	ammo: [PistolBullet]
+	compatibleAmmo: [
+		{
+			ammo: PistolBullet,
+			damage: 30
+		}
+	]
 })
 
 export const PumpShotgun = createItem({
@@ -38,7 +43,16 @@ export const PumpShotgun = createItem({
 	slotsUsed: 4,
 	accuracy: 70,
 	speed: 24,
-	ammo: [Shotgun12GaugeBuckshot, Shotgun12GaugeSlug]
+	compatibleAmmo: [
+		{
+			ammo: Shotgun12GaugeBuckshot,
+			damage: 50
+		},
+		{
+			ammo: Shotgun12GaugeSlug,
+			damage: 45
+		}
+	]
 })
 
 export const AssaultRifle = createItem({
@@ -50,7 +64,12 @@ export const AssaultRifle = createItem({
 	slotsUsed: 4,
 	accuracy: 62,
 	speed: 25,
-	ammo: [RifleBullet]
+	compatibleAmmo: [
+		{
+			ammo: RifleBullet,
+			damage: 50
+		}
+	]
 })
 
 export const AutoShotgun = createItem({
@@ -62,7 +81,16 @@ export const AutoShotgun = createItem({
 	slotsUsed: 5,
 	accuracy: 80,
 	speed: 24,
-	ammo: [Shotgun12GaugeBuckshot, Shotgun12GaugeSlug]
+	compatibleAmmo: [
+		{
+			ammo: Shotgun12GaugeBuckshot,
+			damage: 50
+		},
+		{
+			ammo: Shotgun12GaugeSlug,
+			damage: 45
+		}
+	]
 })
 
 export const HeavySniper = createItem({
@@ -74,5 +102,10 @@ export const HeavySniper = createItem({
 	slotsUsed: 5,
 	accuracy: 90,
 	speed: 21,
-	ammo: [SniperBullet]
+	compatibleAmmo: [
+		{
+			ammo: SniperBullet,
+			damage: 75
+		}
+	]
 })
