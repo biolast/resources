@@ -643,7 +643,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@biolast/resources@workspace:."
   dependencies:
-    "@blobfysh/eslint-config": "npm:^2.0.2"
+    "@blobfysh/eslint-config": "npm:^2.0.3"
     "@rollup/plugin-dynamic-import-vars": "npm:^2.1.2"
     "@rollup/plugin-image": "npm:^3.0.3"
     "@rollup/plugin-typescript": "npm:^11.1.6"
@@ -659,9 +659,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blobfysh/eslint-config@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@blobfysh/eslint-config@npm:2.0.2"
+"@blobfysh/eslint-config@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@blobfysh/eslint-config@npm:2.0.3"
   dependencies:
     "@eslint/eslintrc": "npm:^3.3.0"
     "@eslint/js": "npm:^9.22.0"
@@ -672,7 +672,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:^3.9.0"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-jsonc: "npm:^2.19.1"
-  checksum: 10c0/f63e2b9531ae80e0262cc69f5e4728849a8dd97b4b5b06bdc7f3b41eafa8127cb3123c66360df5dda9c03e8085f81d95e4bee17e4d41d35cfd78850f87c213fa
+  checksum: 10c0/9c1c39f42b1f3c46059ca556a751c137bfcc96a551e1b8979580987102c43b45e4139fb796c9cc8b03518bed01836bf4c1df871ff6bb17c10c69de0020862d89
   languageName: node
   linkType: hard
 

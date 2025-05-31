@@ -83,7 +83,7 @@ export abstract class ItemBase<T extends string = string> {
 		try {
 			this._image = (await import(`../../resources/images/items/${this.name}.png`)).default as string
 		}
-		catch (err) {
+		catch (_err) {
 			this._image = unknownIcon
 		}
 

@@ -3,7 +3,7 @@ import { ItemBase, ItemProperties } from './_Base.js'
 
 
 interface AmmoData {
-	ammo: Ammunition,
+	ammo: Ammunition
 	damage: number
 }
 
