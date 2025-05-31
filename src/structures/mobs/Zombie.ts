@@ -1,18 +1,18 @@
-import { Item } from '../item.js'
+import { BodyArmor, Helmet, Item } from '../items.js'
 import { LootPool } from '../LootPool.js'
 import { ActiveMob } from './ActiveMob.js'
 
 
 export class Zombie {
-	/** Possible display names for this mob, shown in battles */
-	readonly names: string[]
+	/** Display name for this mob, shown in battles */
+	readonly name: string
 	/** Amount of health this mob spawns with */
 	readonly health: number
 	/** XP earned for defeating this mob */
 	readonly xp: number
 	/** Armor mob is wearing, if any */
 	readonly armor?: {
-		pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
+		pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
 		/** chance mob is wearing armor 1 - 100% */
 		chance: number
 	}
@@ -31,15 +31,15 @@ export class Zombie {
 	readonly armorPenetration: number
 
 	constructor (data: {
-		/** Possible display names for this mob, shown in battles */
-		readonly names: string[]
+		/** Display name for this mob, shown in battles */
+		readonly name: string
 		/** Amount of health this mob spawns with */
 		readonly health: number
 		/** XP earned for defeating this mob */
 		readonly xp: number
 		/** Armor mob is wearing, if any */
 		readonly armor?: {
-			pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
+			pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
 			/** chance mob is wearing armor 1 - 100% */
 			chance: number
 		}
@@ -57,7 +57,7 @@ export class Zombie {
 		readonly damage: number
 		readonly armorPenetration: number
 	}) {
-		this.names = data.names
+		this.name = data.name
 		this.health = data.health
 		this.xp = data.xp
 		this.armor = data.armor
@@ -68,7 +68,6 @@ export class Zombie {
 	}
 
 	generate () {
-		const name = this.names[Math.floor(Math.random() * this.names.length)]
 		const lootRolls = Math.floor((Math.random() * (this.randomDrops.rolls.max - this.randomDrops.rolls.min + 1)) + this.randomDrops.rolls.min)
 		const inventory = []
 		let armor
@@ -95,14 +94,14 @@ export class Zombie {
 
 		return new ActiveMob({
 			type: 'bandit',
-			name,
-			inventory,
-			helmet: armor?.value.helmet,
-			armor: armor?.value.armor,
+			name: this.name,
 			health: this.health,
 			xp: this.xp,
 			damage: this.damage,
-			armorPenetration: this.armorPenetration
+			armorPenetration: this.armorPenetration,
+			inventory,
+			helmet: armor?.value.helmet,
+			armor: armor?.value.armor
 		})
 	}
 }

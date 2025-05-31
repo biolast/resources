@@ -1,10 +1,10 @@
-import { createItem } from '../../../structures/item.js'
+import { Helmet } from '../../../structures/items.js'
 import { DuctTape, WoodPlank } from '../supplies/craftable.js'
 import { Glass, Metal, Steel, WeldingWire } from '../supplies/lootable.js'
 import { Hammer, Welder } from '../tools/lootable.js'
 
 
-export const WoodenHelmet = createItem({
+export const WoodenHelmet = new Helmet({
 	type: 'Helmet',
 	name: 'wooden_helmet',
 	discordIcon: '<:U_helmet:874671013181415434>',
@@ -33,7 +33,7 @@ export const WoodenHelmet = createItem({
 	}
 })
 
-export const RiotHelmet = createItem({
+export const RiotHelmet = new Helmet({
 	type: 'Helmet',
 	name: 'riot_helmet',
 	discordIcon: '<:U_helmet:874671013181415434>',
@@ -62,7 +62,7 @@ export const RiotHelmet = createItem({
 	}
 })
 
-export const SteelHelmet = createItem({
+export const SteelHelmet = new Helmet({
 	type: 'Helmet',
 	name: 'steel_helmet',
 	discordIcon: '<:aramid_helmet:931797015376068618>',

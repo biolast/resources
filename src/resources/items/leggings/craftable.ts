@@ -1,10 +1,10 @@
-import { createItem } from '../../../structures/item.js'
+import { Leggings } from '../../../structures/items.js'
 import { DuctTape, WoodPlank } from '../supplies/craftable.js'
 import { Leather, Steel, WeldingWire } from '../supplies/lootable.js'
 import { Hammer, SewingKit, Welder } from '../tools/lootable.js'
 
 
-export const LeatherJeans = createItem({
+export const LeatherJeans = new Leggings({
 	type: 'Leggings',
 	name: 'leather_jeans',
 	discordIcon: '<:heavy_jacket:1062852229821907034>',
@@ -29,7 +29,7 @@ export const LeatherJeans = createItem({
 	}
 })
 
-export const WoodenLeggings = createItem({
+export const WoodenLeggings = new Leggings({
 	type: 'Leggings',
 	name: 'wooden_leggings',
 	discordIcon: '<:wooden_armor:1063581139127763024>',
@@ -58,7 +58,7 @@ export const WoodenLeggings = createItem({
 	}
 })
 
-export const SteelLeggings = createItem({
+export const SteelLeggings = new Leggings({
 	type: 'Leggings',
 	name: 'steel_leggings',
 	discordIcon: '<:swat_armor:1062852232103604346>',

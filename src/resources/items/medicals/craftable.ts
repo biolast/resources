@@ -1,4 +1,4 @@
-import { createItem } from '../../../structures/item.js'
+import { Medical } from '../../../structures/items.js'
 import { Antiseptic, Fabric } from '../supplies/lootable.js'
 
 
@@ -10,7 +10,7 @@ Speed for all medicals should be maximum 4 (slower than weapons).
 
 */
 
-export const Bandage = createItem({
+export const Bandage = new Medical({
 	type: 'Medical',
 	name: 'bandage',
 	discordIcon: '<:bandage:931425265043783700>',
@@ -58,7 +58,7 @@ export const AntiBiotics = createItem({
 })
 */
 
-export const Medkit = createItem({
+export const Medkit = new Medical({
 	type: 'Medical',
 	name: 'medkit',
 	discordIcon: '<:ifak_medkit:932191219616981002>',

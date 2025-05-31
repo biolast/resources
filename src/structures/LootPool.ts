@@ -1,4 +1,4 @@
-import { Item } from './item.js'
+import { Item } from './items.js'
 import { Bandit } from './mobs/Bandit.js'
 import { Zombie } from './mobs/Zombie.js'
 

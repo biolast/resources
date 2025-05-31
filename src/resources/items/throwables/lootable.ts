@@ -1,7 +1,7 @@
-import { createItem } from '../../../structures/item.js'
+import { ThrowableWeapon } from '../../../structures/items.js'
 
 
-export const ExplosiveGrenade = createItem({
+export const ExplosiveGrenade = new ThrowableWeapon({
 	type: 'Throwable Weapon',
 	subtype: 'Fragmentation Grenade',
 	name: 'explosive_grenade',

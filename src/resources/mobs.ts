@@ -2,7 +2,7 @@ import { LootPool, MobPool } from '../structures/LootPool.js'
 import { Bandit } from '../structures/mobs/Bandit.js'
 import { Zombie } from '../structures/mobs/Zombie.js'
 import { DEFAULT_RAIDER_MOB_ROLLS, DEFAULT_ZOMBIE_MOB_ROLLS } from './constants.js'
-import { PistolBullet, Shotgun20GaugeBuckshot } from './items/ammunition/craftable.js'
+import { PistolBullet, RifleBullet, Shotgun20GaugeBuckshot } from './items/ammunition/craftable.js'
 import { Hoodie, WoodenArmor, LightArmor } from './items/body armor/craftable.js'
 import { CannedMeat, Corn, Apple } from './items/foods/lootable.js'
 import { WoodenHelmet, RiotHelmet } from './items/helmets/craftable.js'
@@ -20,7 +20,7 @@ export const mobPool = new MobPool({
 		{
 			level: 1,
 			mob: new Zombie({ // You encounter a **Lvl *1*. Zombie**! Would you like to engage?
-				names: ['Walker'],
+				name: 'Walker',
 				health: 30,
 				xp: 10,
 				armor: {
@@ -67,7 +67,7 @@ export const mobPool = new MobPool({
 		{
 			level: 2,
 			mob: new Bandit({
-				names: ['Bandit'],
+				name: 'Bandit',
 				health: 50,
 				xp: 20,
 				weapon: new LootPool({
@@ -123,7 +123,7 @@ export const mobPool = new MobPool({
 		{
 			level: 3,
 			mob: new Bandit({
-				names: ['Bandit'],
+				name: 'Bandit',
 				health: 50,
 				xp: 20,
 				weapon: new LootPool({

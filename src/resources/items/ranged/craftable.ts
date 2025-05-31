@@ -1,4 +1,4 @@
-import { createItem } from '../../../structures/item.js'
+import { RangedWeapon } from '../../../structures/items.js'
 import { PistolBullet, RifleBullet, Shotgun20GaugeBuckshot, Shotgun20GaugeSlug, StoneArrow } from '../ammunition/craftable.js'
 import { Fabric, PistolReceiver, RifleReceiver, ShotgunReceiver, Steel, Wood } from '../supplies/lootable.js'
 
@@ -17,7 +17,7 @@ Slots used should be high to prevent hoarding.
 
 */
 
-export const Bow = createItem({
+export const Bow = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'bow',
 	discordIcon: '<:glock17:931424425851621417>',
@@ -26,7 +26,7 @@ export const Bow = createItem({
 	slotsUsed: 2,
 	accuracy: 40,
 	speed: 21,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: StoneArrow,
 			damage: 20
@@ -53,7 +53,7 @@ export const Bow = createItem({
 	}
 })
 
-export const Pistol = createItem({
+export const Pistol = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'pistol',
 	discordIcon: '<:glock17:931424425851621417>',
@@ -62,7 +62,7 @@ export const Pistol = createItem({
 	slotsUsed: 2,
 	accuracy: 45,
 	speed: 30,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: PistolBullet,
 			damage: 30
@@ -89,7 +89,7 @@ export const Pistol = createItem({
 	}
 })
 
-export const DoubleBarrelShotgun = createItem({
+export const DoubleBarrelShotgun = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'double-barrel_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -98,7 +98,7 @@ export const DoubleBarrelShotgun = createItem({
 	slotsUsed: 4,
 	accuracy: 40,
 	speed: 23,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: Shotgun20GaugeBuckshot,
 			damage: 38
@@ -133,7 +133,7 @@ export const DoubleBarrelShotgun = createItem({
 	}
 })
 
-export const HuntingRifle = createItem({
+export const HuntingRifle = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'hunting_rifle',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -142,7 +142,7 @@ export const HuntingRifle = createItem({
 	slotsUsed: 4,
 	accuracy: 95,
 	speed: 22,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: RifleBullet,
 			damage: 42

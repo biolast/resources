@@ -1,4 +1,4 @@
-import { createItem } from '../../../structures/item.js'
+import { RangedWeapon } from '../../../structures/items.js'
 import { PistolBullet, RifleBullet } from '../ammunition/craftable.js'
 import { Shotgun12GaugeBuckshot, Shotgun12GaugeSlug, SniperBullet } from '../ammunition/lootable.js'
 
@@ -17,7 +17,7 @@ Slots used should be high to prevent hoarding.
 
 */
 
-export const SubmachineGun = createItem({
+export const SubmachineGun = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'submachine_gun',
 	discordIcon: '<:submachine_gun:1063592662613114923>',
@@ -26,7 +26,7 @@ export const SubmachineGun = createItem({
 	slotsUsed: 4,
 	accuracy: 85,
 	speed: 25,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: PistolBullet,
 			damage: 30
@@ -34,7 +34,7 @@ export const SubmachineGun = createItem({
 	]
 })
 
-export const PumpShotgun = createItem({
+export const PumpShotgun = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'pump_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -43,7 +43,7 @@ export const PumpShotgun = createItem({
 	slotsUsed: 4,
 	accuracy: 70,
 	speed: 24,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: Shotgun12GaugeBuckshot,
 			damage: 50
@@ -55,7 +55,7 @@ export const PumpShotgun = createItem({
 	]
 })
 
-export const AssaultRifle = createItem({
+export const AssaultRifle = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'assault_rifle',
 	discordIcon: '<:ak47:933852988416618496>',
@@ -64,7 +64,7 @@ export const AssaultRifle = createItem({
 	slotsUsed: 4,
 	accuracy: 62,
 	speed: 25,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: RifleBullet,
 			damage: 50
@@ -72,7 +72,7 @@ export const AssaultRifle = createItem({
 	]
 })
 
-export const AutoShotgun = createItem({
+export const AutoShotgun = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'auto_shotgun',
 	discordIcon: '<:U_rifle:869647344344387624>',
@@ -81,7 +81,7 @@ export const AutoShotgun = createItem({
 	slotsUsed: 5,
 	accuracy: 80,
 	speed: 24,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: Shotgun12GaugeBuckshot,
 			damage: 50
@@ -93,7 +93,7 @@ export const AutoShotgun = createItem({
 	]
 })
 
-export const HeavySniper = createItem({
+export const HeavySniper = new RangedWeapon({
 	type: 'Ranged Weapon',
 	name: 'heavy_sniper',
 	discordIcon: '<:awm:944974499579846718>',
@@ -102,7 +102,7 @@ export const HeavySniper = createItem({
 	slotsUsed: 5,
 	accuracy: 90,
 	speed: 21,
-	compatibleAmmo: [
+	ammo: [
 		{
 			ammo: SniperBullet,
 			damage: 75

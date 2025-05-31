@@ -1,7 +1,7 @@
-import { createItem } from '../../../structures/item.js'
+import { Helmet } from '../../../structures/items.js'
 
 
-export const HardHat = createItem({
+export const HardHat = new Helmet({
 	type: 'Helmet',
 	name: 'hard_hat',
 	discordIcon: '<:U_helmet:874671013181415434>',
@@ -11,7 +11,7 @@ export const HardHat = createItem({
 	slotsUsed: 2
 })
 
-export const CyclingHelmet = createItem({
+export const CyclingHelmet = new Helmet({
 	type: 'Helmet',
 	name: 'cycling_helmet',
 	discordIcon: '<:U_helmet:874671013181415434>',
@@ -21,7 +21,7 @@ export const CyclingHelmet = createItem({
 	slotsUsed: 2
 })
 
-export const MilitaryHelmet = createItem({
+export const MilitaryHelmet = new Helmet({
 	type: 'Helmet',
 	name: 'military_helmet',
 	discordIcon: '<:U_helmet:874671013181415434>',
@@ -31,7 +31,7 @@ export const MilitaryHelmet = createItem({
 	slotsUsed: 3
 })
 
-export const PolyethyleneHelmet = createItem({
+export const PolyethyleneHelmet = new Helmet({
 	type: 'Helmet',
 	name: 'polyethylene_helmet',
 	discordIcon: '<:U_helmet:874671013181415434>',

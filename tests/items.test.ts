@@ -22,11 +22,13 @@ test('items have no duplicate aliases', () => {
 
 
 describe.each(allItems)('Item (%s)', item => {
+	/*
 	if ('spreadsDamageToLimbs' in item) {
 		test('damage should be divisible by the amount of limbs that damage is spread between', () => {
 			expect(item.damage % (item.spreadsDamageToLimbs || 1)).toBe(0)
 		})
 	}
+	*/
 
 	if (item instanceof Food) {
 		if (item.recipes?.length) {

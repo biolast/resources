@@ -1,4 +1,4 @@
-import { Item } from '../item.js'
+import { Ammunition, BodyArmor, Helmet, Item, MeleeWeapon, RangedWeapon } from '../items.js'
 
 
 export class ActiveMob<MobType extends 'zombie' | 'bandit' | 'animal'> {
@@ -8,11 +8,11 @@ export class ActiveMob<MobType extends 'zombie' | 'bandit' | 'animal'> {
 	/** Items the mob has in their inventory */
 	readonly inventory: { item: Item, durability?: number }[]
 	/** Weapon mob uses */
-	readonly weapon?: { weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }
+	readonly weapon?: { weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }
 	/** Helmet mob is wearing, if any */
-	readonly helmet?: Item<'Helmet'>
+	readonly helmet?: Helmet
 	/** Armor mob is wearing, if any */
-	readonly armor?: Item<'Body Armor'>
+	readonly armor?: BodyArmor
 	/** xp player receives for defeating this mob */
 	readonly xp: number
 	/** Sets the amount of damage this mob deals per turn. Overrides weapon damage */
@@ -30,11 +30,11 @@ export class ActiveMob<MobType extends 'zombie' | 'bandit' | 'animal'> {
 		/** Items the mob has in their inventory */
 		readonly inventory: { item: Item, durability?: number }[]
 		/** Weapon mob uses */
-		readonly weapon?: { weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }
+		readonly weapon?: { weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }
 		/** Helmet mob is wearing, if any */
-		readonly helmet?: Item<'Helmet'>
+		readonly helmet?: Helmet
 		/** Armor mob is wearing, if any */
-		readonly armor?: Item<'Body Armor'>
+		readonly armor?: BodyArmor
 		/** XP player receives for defeating this mob */
 		readonly xp: number
 		/** Sets the amount of damage this mob deals per turn. Overrides weapon damage */

@@ -1,4 +1,4 @@
-import { createItem } from '../../../structures/item.js'
+import { MeleeWeapon } from '../../../structures/items.js'
 
 
 /*
@@ -25,7 +25,7 @@ Accuracy for most melee weapons should be below 50% to prevent limb targeting.
 */
 
 // Low-tier
-export const Fork = createItem({
+export const Fork = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'fork',
 	discordIcon: '<:fork:931424880417726465>',
@@ -38,7 +38,7 @@ export const Fork = createItem({
 	speed: 5
 })
 
-export const WoodenBat = createItem({
+export const WoodenBat = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'wooden_bat',
 	discordIcon: '<:wooden_bat:933850956481826968>',
@@ -51,7 +51,7 @@ export const WoodenBat = createItem({
 	speed: 9
 })
 
-export const MetalBat = createItem({
+export const MetalBat = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'metal_bat',
 	discordIcon: '<:metal_bat:933850956796420096>',
@@ -64,7 +64,7 @@ export const MetalBat = createItem({
 	speed: 9
 })
 
-export const PoliceBaton = createItem({
+export const PoliceBaton = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'police_baton',
 	discordIcon: '<:police_baton:931835720904081418>',
@@ -77,7 +77,7 @@ export const PoliceBaton = createItem({
 	speed: 10
 })
 
-export const Hatchet = createItem({
+export const Hatchet = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'hatchet',
 	discordIcon: '<:hatchet:1062080142748426250>',
@@ -92,7 +92,7 @@ export const Hatchet = createItem({
 })
 
 // Mid-tier
-export const Knife = createItem({
+export const Knife = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'knife',
 	discordIcon: '<:knife_weapon:933851171481874483>',
@@ -105,7 +105,7 @@ export const Knife = createItem({
 	speed: 15
 })
 
-export const SledgeHammer = createItem({
+export const SledgeHammer = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'sledgehammer',
 	discordIcon: '<:sledge_hammer:931833719596134450>',
@@ -118,7 +118,7 @@ export const SledgeHammer = createItem({
 	speed: 7
 })
 
-export const FireAxe = createItem({
+export const FireAxe = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'fire_axe',
 	discordIcon: '<:fire_axe:930978902057287700>',
@@ -133,7 +133,7 @@ export const FireAxe = createItem({
 })
 
 // High-tier
-export const Katana = createItem({
+export const Katana = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'katana',
 	discordIcon: '<:replica_katana:931826279278321664>',
@@ -146,7 +146,7 @@ export const Katana = createItem({
 	speed: 16
 })
 
-export const Chainsaw = createItem({
+export const Chainsaw = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'chainsaw',
 	discordIcon: '<:chainsaw:931797015329906699>',

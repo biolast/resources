@@ -1,9 +1,9 @@
-import { createItem } from '../../../structures/item.js'
+import { Supply } from '../../../structures/items.js'
 import { Chainsaw, FireAxe, Hatchet } from '../melee/lootable.js'
 import { Adhesive, Fabric, Wood } from './lootable.js'
 
 
-export const WoodPlank = createItem({
+export const WoodPlank = new Supply({
 	type: 'Supply',
 	name: 'wood_plank',
 	aliases: ['plank'],
@@ -36,7 +36,7 @@ export const WoodPlank = createItem({
 	}
 })
 
-export const DuctTape = createItem({
+export const DuctTape = new Supply({
 	type: 'Supply',
 	name: 'duct_tape',
 	aliases: [],

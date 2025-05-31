@@ -1,4 +1,4 @@
-import { createItem } from '../../../structures/item.js'
+import { MeleeWeapon } from '../../../structures/items.js'
 import { DuctTape } from '../supplies/craftable.js'
 import { Glass, Metal, Nails, Wood } from '../supplies/lootable.js'
 import { Hammer } from '../tools/lootable.js'
@@ -28,7 +28,7 @@ Accuracy for most melee weapons should be below 50% to prevent limb targeting.
 
 */
 
-export const WoodenBat = createItem({
+export const WoodenBat = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'wooden_bat',
 	discordIcon: '<:wooden_bat:933850956481826968>',
@@ -56,7 +56,7 @@ export const WoodenBat = createItem({
 	}
 })
 
-export const Shank = createItem({
+export const Shank = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'shank',
 	discordIcon: '<:metal_shank:931835720908296212>',
@@ -102,7 +102,7 @@ export const Shank = createItem({
 	}
 })
 
-export const WoodenSpear = createItem({
+export const WoodenSpear = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'wooden_spear',
 	discordIcon: '<:police_baton:931835720904081418>',
@@ -130,7 +130,7 @@ export const WoodenSpear = createItem({
 	}
 })
 
-export const SpikedBat = createItem({
+export const SpikedBat = new MeleeWeapon({
 	type: 'Melee Weapon',
 	name: 'spiked_bat',
 	discordIcon: '<:wooden_bat:933850956481826968>',

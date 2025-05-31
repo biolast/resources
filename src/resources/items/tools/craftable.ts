@@ -1,8 +1,8 @@
-import { createItem } from '../../../structures/item.js'
+import { Tool } from '../../../structures/items.js'
 import { Gasoline, Plastic } from '../supplies/lootable.js'
 
 
-export const Lighter = createItem({
+export const Lighter = new Tool({
 	type: 'Tool',
 	name: 'lighter',
 	aliases: [],

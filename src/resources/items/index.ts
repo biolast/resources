@@ -1,4 +1,4 @@
-import { Item } from '../../structures/item.js'
+import { ItemBase } from '../../structures/items/_Base.js'
 import * as ammunitionLoot from './ammunition/lootable.js'
 import * as ammunitionCraft from './ammunition/craftable.js'
 import * as armorLoot from './body armor/lootable.js'
@@ -50,8 +50,8 @@ const rawItemObject = {
 	...toolsCraft
 }
 
-type ItemExtractProps<T> = T extends Item<infer Type, infer Name> ? [Type, Name] : never
-type ItemNameClassMap = { [K in keyof typeof rawItemObject]: ItemExtractProps<typeof rawItemObject[K]>[1] }
+type ItemNameExtract<T> = T extends ItemBase<infer Name> ? Name : never
+type ItemNameClassMap = { [K in keyof typeof rawItemObject]: ItemNameExtract<typeof rawItemObject[K]> }
 
 export const getObjectKeys = <T extends object>(obj: T) => Object.keys(obj) as Array<keyof T>
 

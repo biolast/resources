@@ -1,4 +1,4 @@
-import { createItem } from '../../../structures/item.js'
+import { Medical } from '../../../structures/items.js'
 
 
 /*
@@ -9,7 +9,7 @@ Speed for all medicals should be maximum 4 (slower than weapons).
 
 */
 
-export const TraumaKit = createItem({
+export const TraumaKit = new Medical({
 	type: 'Medical',
 	name: 'trauma_kit',
 	discordIcon: '<:medical:886561670745452554>',

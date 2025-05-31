@@ -1,7 +1,7 @@
-import { createItem } from '../../../structures/item.js'
+import { BodyArmor } from '../../../structures/items.js'
 
 
-export const MilitaryArmor = createItem({
+export const MilitaryArmor = new BodyArmor({
 	type: 'Body Armor',
 	name: 'military_armor',
 	discordIcon: '<:military_armor:1062852231478657094>',
@@ -12,7 +12,7 @@ export const MilitaryArmor = createItem({
 	slotsUsed: 4
 })
 
-export const PolyethyleneArmor = createItem({
+export const PolyethyleneArmor = new BodyArmor({
 	type: 'Body Armor',
 	name: 'polyethylene_armor',
 	discordIcon: '<:U_shield:601366669474136074>',

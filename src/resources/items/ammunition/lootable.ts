@@ -1,7 +1,7 @@
-import { createItem } from '../../../structures/item.js'
+import { Ammunition } from '../../../structures/items.js'
 
 
-export const Shotgun12GaugeBuckshot = createItem({
+export const Shotgun12GaugeBuckshot = new Ammunition({
 	type: 'Ammunition',
 	name: '12-gauge_buckshot',
 	discordIcon: '<:buckshot:1061096346339254302>',
@@ -11,7 +11,7 @@ export const Shotgun12GaugeBuckshot = createItem({
 	spreadsDamageToLimbs: 2
 })
 
-export const Shotgun12GaugeSlug = createItem({
+export const Shotgun12GaugeSlug = new Ammunition({
 	type: 'Ammunition',
 	name: '12-gauge_slug',
 	discordIcon: '<:slug:1061096376517275658>',
@@ -21,7 +21,7 @@ export const Shotgun12GaugeSlug = createItem({
 	slotsUsed: 1
 })
 
-export const SniperBullet = createItem({
+export const SniperBullet = new Ammunition({
 	type: 'Ammunition',
 	name: 'sniper_bullet',
 	discordIcon: '<:bullet:1061283126212567111>',

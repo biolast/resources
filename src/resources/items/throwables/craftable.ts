@@ -1,9 +1,9 @@
-import { createItem } from '../../../structures/item.js'
+import { ThrowableWeapon } from '../../../structures/items.js'
 import { Fabric, Gasoline, Glass, Gunpowder, Metal, WeldingWire } from '../supplies/lootable.js'
 import { Welder } from '../tools/lootable.js'
 
 
-export const PipeBomb = createItem({
+export const PipeBomb = new ThrowableWeapon({
 	type: 'Throwable Weapon',
 	subtype: 'Fragmentation Grenade',
 	name: 'pipe_bomb',
@@ -41,7 +41,7 @@ export const PipeBomb = createItem({
 	}
 })
 
-export const MolotovCocktail = createItem({
+export const MolotovCocktail = new ThrowableWeapon({
 	type: 'Throwable Weapon',
 	subtype: 'Incendiary Grenade',
 	name: 'molotov_cocktail',

@@ -1,23 +1,23 @@
-import { Item } from '../item.js'
+import { Ammunition, BodyArmor, Helmet, Item, MeleeWeapon, RangedWeapon } from '../items.js'
 import { LootPool } from '../LootPool.js'
 import { ActiveMob } from './ActiveMob.js'
 
 
 export class Bandit {
-	/** Possible display names for this mob, shown in battles */
-	readonly names: string[]
+	/** Display name for this mob, shown in battles */
+	readonly name: string
 	/** Amount of health this mob spawns with */
 	readonly health: number
 	/** XP earned for defeating this mob */
 	readonly xp: number
 	/** Armor mob is wearing, if any */
 	readonly armor?: {
-		pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
+		pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
 		/** chance mob is wearing armor 1 - 100% */
 		chance: number
 	}
 	/** Weapon mob uses */
-	readonly weapon: LootPool<{ weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }>
+	readonly weapon: LootPool<{ weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }>
 	/** Random items the mob can have in their inventory */
 	readonly randomDrops: {
 		pool: LootPool<Item>
@@ -31,20 +31,20 @@ export class Bandit {
 	readonly staticDrops?: { item: Item, durability?: number }[]
 
 	constructor (data: {
-		/** Possible display names for this mob, shown in battles */
-		readonly names: string[]
+		/** Display name for this mob, shown in battles */
+		readonly name: string
 		/** Amount of health this mob spawns with */
 		readonly health: number
 		/** XP earned for defeating this mob */
 		readonly xp: number
 		/** Armor mob is wearing, if any */
 		readonly armor?: {
-			pool: LootPool<{ helmet?: Item<'Helmet'>, armor?: Item<'Body Armor'> } & ({ helmet: Item<'Helmet'> } | { armor: Item<'Body Armor'> })>
+			pool: LootPool<{ helmet?: Helmet, armor?: BodyArmor } & ({ helmet: Helmet } | { armor: BodyArmor })>
 			/** chance mob is wearing armor 1 - 100% */
 			chance: number
 		}
 		/** Weapon mob uses */
-		readonly weapon: LootPool<{ weapon: Item<'Melee Weapon'> } | { weapon: Item<'Ranged Weapon'>, ammo: Item<'Ammunition'> }>
+		readonly weapon: LootPool<{ weapon: MeleeWeapon } | { weapon: RangedWeapon, ammo: Ammunition }>
 		/** Random items the mob can have in their inventory */
 		readonly randomDrops: {
 			pool: LootPool<Item>
@@ -57,7 +57,7 @@ export class Bandit {
 		/** Items the mob ALWAYS has in their inventory */
 		readonly staticDrops?: { item: Item, durability?: number }[]
 	}) {
-		this.names = data.names
+		this.name = data.name
 		this.health = data.health
 		this.xp = data.xp
 		this.armor = data.armor
@@ -67,7 +67,6 @@ export class Bandit {
 	}
 
 	generate () {
-		const name = this.names[Math.floor(Math.random() * this.names.length)]
 		const lootRolls = Math.floor((Math.random() * (this.randomDrops.rolls.max - this.randomDrops.rolls.min + 1)) + this.randomDrops.rolls.min)
 		const weapon = this.weapon.roll()
 		const inventory = []
@@ -95,13 +94,13 @@ export class Bandit {
 
 		return new ActiveMob({
 			type: 'bandit',
-			name,
+			name: this.name,
+			health: this.health,
+			xp: this.xp,
 			inventory,
 			weapon: weapon.value,
 			helmet: armor?.value.helmet,
-			armor: armor?.value.armor,
-			health: this.health,
-			xp: this.xp
+			armor: armor?.value.armor
 		})
 	}
 }

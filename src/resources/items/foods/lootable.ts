@@ -1,7 +1,7 @@
-import { createItem } from '../../../structures/item.js'
+import { Food } from '../../../structures/items.js'
 
 
-export const Apple = createItem({
+export const Apple = new Food({
 	type: 'Food',
 	name: 'apple',
 	discordIcon: '<:apple_food:931425255761793054>',
@@ -10,7 +10,7 @@ export const Apple = createItem({
 	energy: 5
 })
 
-export const Corn = createItem({
+export const Corn = new Food({
 	type: 'Food',
 	name: 'corn',
 	discordIcon: '<:corn_food:931425274720051231>',
@@ -19,7 +19,7 @@ export const Corn = createItem({
 	energy: 5
 })
 
-export const CannedMeat = createItem({
+export const CannedMeat = new Food({
 	type: 'Food',
 	name: 'canned_meat',
 	discordIcon: '<:canned_meat:1061630553834651741>',
@@ -28,7 +28,7 @@ export const CannedMeat = createItem({
 	energy: 10
 })
 
-export const CookedMeat = createItem({
+export const CookedMeat = new Food({
 	type: 'Food',
 	name: 'cooked_meat',
 	discordIcon: '<:cooked_meat:1062014892456026144>',
@@ -39,7 +39,7 @@ export const CookedMeat = createItem({
 
 
 // cookable foods
-export const RawMeat = createItem({
+export const RawMeat = new Food({
 	type: 'Food',
 	name: 'raw_meat',
 	description: 'Probably best not to eat raw food.',
