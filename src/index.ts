@@ -5,6 +5,7 @@ export * from './resources/mobs.js'
 export * as constants from './resources/constants.js'
 
 // structures
+export * from './structures/items/_Base.js'
 export * from './structures/items.js'
 export * from './structures/LootPool.js'
 export * from './structures/mobs/ActiveMob.js'
